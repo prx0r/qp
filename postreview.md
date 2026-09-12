@@ -68,3 +68,42 @@ worth copying as a documentation convention.
 3. Song Ma gate template (pure python, no deps).
 4. Reverse-inference adapter (optional, scipy-quarantined).
 5. Backtest harness reuse for migration signals.
+
+## BEAR addendum — NIL / XMR / ZEC (2026-09-12)
+
+The trades project is BEAR (`~/BEAR`, Hyperliquid perp engine, rel-value
++ funding/dispersion thesis). Its NIL/XMR/ZEC footprint is thin but real:
+NIL lives in `data/dex_markets.json` (listing/market data), ZEC appears
+twice in the 1,638-tweet CryptoBheem corpus, XMR carries one live pressure
+reading (LONG-crowded 35). No dedicated trade ledger for the three —
+mostly market data plus sparse social signal, plus BEAR's generic
+pressure/backtest/mimic machinery around them.
+
+Why this matters more than its size: these three are textbook Seesaw
+assets. XMR/ZEC are privacy/authenticated-constraint exposure (qpvalidate
+§23 already names XMR/ZEC relative thesis as the second live world after
+HBM). NIL (blind computation) sits on the verification/computation
+constraint the Seesaw stack itself needs. All three trade exactly the
+migration Seesaw tracks: value moving toward constraints AI cannot relax
+(privacy, authentication, verifiable private compute).
+
+Concrete crossovers, cheapest first:
+
+1. **XMR/ZEC relative thesis as live world #2.** BEAR already has the
+   pressure scores, funding/basis inputs, and backtest panel shape;
+   qp has the receipt/gate/clamp machinery. Feed BEAR pressure + funding
+   as evidence metrics into a killfeed-style world with the same
+   ACTIVE/WARNING/KILLED discipline — no new code on either side to start,
+   just a world definition and an adapter.
+2. **NIL as verification-constraint proxy.** Nillion's blind-compute
+   thesis (private verifiable inference) is the market-priced version
+   of our cognition-attestation layer. Track NIL pressure/funding as the
+   market's vote on the verification scarcity our stack assumes.
+3. **Mimic corpora as swarm FILL material.** 1,638-tweet expert corpora
+   with timestamps are pre-shaped evidence bundles: expert claims with
+   as-of dates, ready for provenance tagging into killfeed evidence
+   once source lineage is attached.
+4. **Backtest discipline reuse.** BEAR's walk-forward + turnover-cost
+   harness is the honest template for scoring migration signals —
+   same shape the postagi review recommended, now with a second
+   independent instance confirming the pattern.
