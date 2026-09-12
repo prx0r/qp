@@ -58,15 +58,33 @@ def _root_of(evidence: list) -> str:
     return merkle_root([e.get("id", "?") for e in evidence])
 
 
+def sign_receipt(secret: bytes, receipt: dict) -> dict:
+    """Authority signs the settled id. `signer` (pubkey hex) rides
+    OUTSIDE the hashed body: the id commits to content, the signature
+    commits the signer to the id. Kernel never calls this itself."""
+    from . import crypto as _crypto
+    out = dict(receipt)
+    _sec, pub = _crypto.keypair(secret)
+    out["signer"] = pub.hex()
+    out["signature"] = _crypto.sign_id(secret, out["id"])
+    return out
+
+
 def verify_receipt(receipt: dict) -> dict:
     """Recompute id + re-run gates. Independent re-evaluation
     (invariant 11): the verifier trusts nothing but the bytes."""
     if receipt.get("protocol") != PROTOCOL:
         return {"ok": False, "reason": "protocol mismatch"}
     want = "receipt:" + sha256_hex(canonical(
-        {k: v for k, v in receipt.items() if k not in ("id", "signature")}))[:16]
+        {k: v for k, v in receipt.items()
+         if k not in ("id", "signature", "signer")}))[:16]
     if receipt.get("id") != want:
         return {"ok": False, "reason": "receipt id mismatch (tampered?)"}
+    if receipt.get("signer"):
+        from . import crypto as _crypto
+        if not _crypto.verify_id(receipt["signer"], receipt["id"],
+                                 receipt.get("signature", "")):
+            return {"ok": False, "reason": "bad receipt signature"}
     return {"ok": True, "reason": "id recomputes; re-run gates to settle PASS"}
 
 

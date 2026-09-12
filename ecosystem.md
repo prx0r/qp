@@ -97,19 +97,12 @@ Think in three import shapes:
 
 ## 5. Is this becoming a crypto protocol?
 
-No — and that is currently a strength, not a gap. Nothing built
-touches a chain, a token, staking, or consensus, and the thesis
-explicitly defers all of it to Phase G, last. What IS cryptographic
-today: content hashes, Merkle roots, chain-verified logs, fail-closed
-grants, content-addressed promotion. That is integrity cryptography,
-and it needs no coin.
-
-Judgment: keep it that way until 10/10 historical + live HBM + live
-XMR/ZEC worlds all settle. The only future crypto-shaped needs are
-(1) timestamp anchoring for receipts (cheap, optional, e.g. Merkle
-roots published anywhere public) and (2) Sybil resistance IF outside
-validators ever get paid — which requires a product worth attacking
-first. A token now would add attack surface, regulatory surface, and
-perverse incentives to a system whose whole point is that truth is
-not for sale. Protocol here means interface discipline, not blockchain.
-Revisit at Phase G with evidence, not enthusiasm.
+Yes — as a primitive, not a chain. Direction set 2026-09-12: qp is an
+autonomous-agent crypto primitive, meaning every consequential artifact
+is public-key verifiable with no server. Signed TransitionReceipts,
+capability grants with cryptographic subjects, vendored Ed25519, zero
+crypto dependencies (`docs/CRYPTO.md`). Still deliberately absent: chain,
+consensus, staking/slashing, token, anchoring service. Protocol here
+means verifiable interfaces; a coin would add attack surface before the
+primitive has users. Pogtown/mafia threads are out of scope for qp —
+games were scaffolding for worlds, not the product.

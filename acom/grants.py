@@ -41,6 +41,9 @@ def verify_grant(grant: dict, action: dict, facts: dict,
         return {"ok": False, "reason": "grant expired"}
     if action.get("capability") != grant.get("capability"):
         return {"ok": False, "reason": "capability mismatch"}
+    for k in (grant.get("constraints") or {}):
+        if k not in ("max_value", "calls", "max_calls", "asset"):
+            return {"ok": False, "reason": f"unknown constraint {k}"}
     for k, v in (grant.get("constraints") or {}).items():
         if k in ("max_value", "calls", "max_calls"):
             have = action.get("value" if k == "max_value" else "calls", 0)
@@ -57,4 +60,14 @@ def verify_grant(grant: dict, action: dict, facts: dict,
             return {"ok": False, "reason": f"predicate failed: {pred}"}
     if not grant.get("signature"):
         return {"ok": False, "reason": "unsigned grant (fail closed)"}
+    if _looks_pubkey(grant.get("subject", "")):
+        from . import crypto as _crypto
+        if not _crypto.verify_grant_sig(grant["subject"], grant,
+                                        grant["signature"]):
+            return {"ok": False, "reason": "bad grant signature"}
     return {"ok": True, "reason": "grant authorizes action"}
+
+
+def _looks_pubkey(s: str) -> bool:
+    return (isinstance(s, str) and len(s) == 64
+            and all(c in "0123456789abcdef" for c in s.lower()))

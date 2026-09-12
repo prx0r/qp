@@ -1,7 +1,8 @@
-# qp — A-COM kernel (Phase A)
+# qp — A-COM kernel (Phase A) + agent crypto primitive
 
 `northstar.md` is the frozen thesis. This repo is the hard kernel:
-tiny, deterministic, dependency-free (stdlib only).
+tiny, deterministic, dependency-free (stdlib only) — plus public-key
+verifiable receipts and capability grants (`docs/CRYPTO.md`).
 
 ## Use
 

@@ -106,6 +106,10 @@ def test_grant_matrix():
     assert not grants.verify_grant(g, ok, facts, "2031-01-01")["ok"]
     unsigned = dict(g, signature="")
     assert not grants.verify_grant(unsigned, ok, facts, "2026-01-01")["ok"]
+    from acom import objects as _o
+    weird = _o.make_grant("w1", "trading.swap", {"max_valu": 500},
+                          [], "2030-01-01T00:00:00", signature="sig:abc")
+    assert not grants.verify_grant(weird, ok, facts, "2026-01-01")["ok"]
 
 
 def _receipt(pass_claim=True):
