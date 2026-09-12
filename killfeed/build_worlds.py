@@ -20,6 +20,8 @@ UNITS = {"demand": "index", "supply": "index", "intensity": "ratio",
 
 
 def ev(wid, date, metric, value, source_id, cls, seq):
+    """One fixture evidence item. Deterministic ids; artifact hashes derive
+    from sha256 (never hash()), so rebuilds are byte-identical."""
     import hashlib
     key = next(k for k in UNITS if metric.endswith(k))
     art = hashlib.sha256(f"{source_id}|{metric}".encode()).hexdigest()[:6]
@@ -62,6 +64,7 @@ def _const(v):
 
 
 def gap_circuit(p):
+    """GAP circuit: sourced COUNT gate, then range-separated GT/LTE."""
     d, s = f"{p}_demand", f"{p}_supply"
     return _if(
         {"op": "GTE", "args": [{"op": "COUNT", "metrics": [d, s]},
@@ -78,6 +81,7 @@ def gap_circuit(p):
 
 
 def need_circuit(p):
+    """NEED circuit: intensity floor plus relevance, kill branch first-false."""
     i, r = {"metric": f"{p}_intensity"}, {"metric": f"{p}_relevant"}
     return _if({"op": "AND", "args": [
                    {"op": "GTE", "args": [i, {"param": "min_intensity"}]}, r]},
@@ -89,6 +93,7 @@ def need_circuit(p):
 
 
 def lag_circuit(p):
+    """LAG circuit: close-date past horizon, else resolved."""
     c, h = {"metric": f"{p}_close"}, {"metric": f"{p}_horizon"}
     return _if({"op": "GT", "args": [c, h]}, _const("TRUE"),
                _if({"op": "LTE", "args": [c, h]},
@@ -100,6 +105,7 @@ def _neg(param):
 
 
 def wtp_circuit(p):
+    """WTP circuit: price-up with resilient vs collapsed quantity."""
     pr, q = {"metric": f"{p}_price"}, {"metric": f"{p}_qty"}
     up = {"op": "GTE", "args": [pr, {"param": "x"}]}
     hi = {"op": "AND", "args": [up, {"op": "GT", "args": [q, _neg("y")]}]}
@@ -108,6 +114,7 @@ def wtp_circuit(p):
 
 
 def nosub_circuit(p):
+    """NOSUB circuit: substitute share or redesign flips it."""
     s, r = {"metric": f"{p}_share"}, {"metric": f"{p}_redesign"}
     return _if({"op": "OR", "args": [
                    {"op": "GTE", "args": [s, {"param": "share_threshold"}]}, r]},
@@ -120,6 +127,8 @@ def nosub_circuit(p):
 
 def build(wid, trade, thesis, interval, max_age, prefix, snaps, expected,
           counterfactuals):
+    """Emit one world: yaml (params + circuits), timeline, frozen expected,
+    counterfactuals. Rerunning reproduces every byte."""
     d = os.path.join(ROOT, wid)
     os.makedirs(os.path.join(d, "timeline"), exist_ok=True)
     os.makedirs(os.path.join(d, "counterfactuals"), exist_ok=True)
@@ -171,6 +180,8 @@ def build(wid, trade, thesis, interval, max_age, prefix, snaps, expected,
 
 
 def exp(wid, states, signal, invariant, earliest, max_delay):
+    """Frozen acceptance spec for one world. Changing these values is a
+    spec change, not a code fix — it needs its own logged event."""
     return {"world_id": wid,
             "expected_states": [{"as_of": d, "trade": t} for d, t in states],
             "expected_first_kill_signal": signal,

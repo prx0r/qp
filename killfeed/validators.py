@@ -21,6 +21,8 @@ WORLDS = sorted(d for d in os.listdir(ROOT)
 
 
 def load_world(wid):
+    """Full world bundle: config + ordered timeline + frozen expected +
+    counterfactuals."""
     d = os.path.join(ROOT, wid)
     cfg = yaml.safe_load(open(os.path.join(d, "world.yaml")))
     tl = [json.load(open(f)) for f in sorted(glob.glob(
@@ -83,6 +85,8 @@ def check_world(wid):
 
 
 def v_all_worlds():
+    """Every world reproduces its frozen timeline, signal, invariant,
+    timing, and counterfactuals."""
     bad = []
     for wid in WORLDS:
         r = check_world(wid)
@@ -116,6 +120,7 @@ def _receipt_hash(r):
 
 
 def v_determinism(n=100):
+    """n reruns per world, byte-identical receipt hashes or FAIL."""
     mism = 0
     for wid in WORLDS:
         w = load_world(wid)
@@ -129,6 +134,8 @@ def v_determinism(n=100):
 
 
 def v_no_future_leak():
+    """No evidence dated after its snapshot anywhere (timelines +
+    counterfactuals). One leak fails the world model."""
     for wid in WORLDS:
         w = load_world(wid)
         for snap in w["timeline"] + [
@@ -220,6 +227,8 @@ def v_mutation():
 
 
 def v_order_independence():
+    """Seeded evidence shuffles change nothing: canonicalization absorbs
+    order before any gate sees it."""
     for wid in WORLDS:
         w = load_world(wid)
         base = [_receipt_hash(r) for r in evaluate_world(w)]
@@ -294,6 +303,9 @@ def v_adversarial():
 
 
 def v_schemas():
+    """Every fixture carries the keys the engine reads; every source
+    claims an allowed class. Shape errors fail loudly here, not deep
+    inside evaluation."""
     req_ev = ("evidence_id", "metric", "value", "unit", "as_of", "source",
               "extraction")
     req_src = ("source_id", "class", "artifact_hash")

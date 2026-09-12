@@ -14,6 +14,8 @@ from . import components
 
 
 def load(path: str) -> dict:
+    """Load an a-com module YAML. Missing interface keys fail here, not
+    at runtime halfway through a budget."""
     with open(path) as f:
         m = yaml.safe_load(f)
     for k in ("id", "inputs", "outputs", "components", "constraints",
@@ -96,6 +98,7 @@ def seed_model_chips():
 
 
 def example_module(path: str):
+    """Write the canonical example module (research.killfeed.hbm.v3)."""
     os.makedirs(os.path.dirname(os.path.abspath(path)), exist_ok=True)
     open(path, "w").write(
         "acom:\n"

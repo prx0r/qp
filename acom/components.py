@@ -33,12 +33,14 @@ def register(spec: dict) -> dict:
 
 
 def get(cid: str) -> dict:
+    """Fetch a registered component contract; raises, never returns None."""
     if cid not in REGISTRY:
         raise ValueError(f"unknown component {cid}")
     return REGISTRY[cid]
 
 
 def list_all():
+    """Registered component ids, sorted. Empty registry is valid."""
     return sorted(REGISTRY)
 
 
@@ -70,6 +72,8 @@ def _p95(xs):
 
 
 def success_prob(cid: str, task_class: str) -> float:
+    """Measured win rate, else declared prior, else 0.5. Receipts beat
+    priors as soon as any exist."""
     spec = get(cid)
     s = spec["stats"].get(task_class)
     if not s:
@@ -79,10 +83,12 @@ def success_prob(cid: str, task_class: str) -> float:
 
 
 def save(path: str):
+    """Persist the registry (specs + learned stats) as canonical JSON."""
     os.makedirs(os.path.dirname(os.path.abspath(path)), exist_ok=True)
     json.dump(REGISTRY, open(path, "w"), sort_keys=True, indent=1)
 
 
 def load(path: str):
+    """Restore a saved registry, replacing in-memory state."""
     REGISTRY.clear()
     REGISTRY.update(json.load(open(path)))

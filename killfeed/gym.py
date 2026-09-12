@@ -20,6 +20,7 @@ def _suffix(metric: str) -> str:
 
 
 def mask(snapshot: dict, allowed: set) -> dict:
+    """Hide unread metrics: the strategy sees only what it paid for."""
     return dict(snapshot, evidence=[e for e in snapshot["evidence"]
                                    if e["metric"] in allowed])
 
@@ -39,7 +40,8 @@ STRATEGIES = {
 
 def run_task(world: dict, snapshot_idx: int, strategy: str, budget: float,
              costs: dict = None):
-    """One gym task. Returns score dict (deterministic)."""
+    """One gym task against the full-evidence verdict as ground truth.
+    Deterministic: same strategy and budget always score identically."""
     costs = costs or DEFAULT_COSTS
     snap = world["timeline"][snapshot_idx]
     truth = engine.evaluate_snapshot(world, snap)["claim_states"]
@@ -62,7 +64,8 @@ def run_task(world: dict, snapshot_idx: int, strategy: str, budget: float,
 
 
 def compare(world: dict, snapshot_idx: int, budget: float):
-    """Rank all strategies on one task. Cheapest adequate circuit wins."""
+    """Rank all strategies: accuracy first, spend breaks ties. Cheapest
+    adequate circuit wins — that is the routing policy earning promotion."""
     rows = [run_task(world, snapshot_idx, s, budget)
             for s in STRATEGIES]
     rows.sort(key=lambda r: (-r["accuracy"], r["spent"]))

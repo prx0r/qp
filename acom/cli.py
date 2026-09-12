@@ -23,6 +23,8 @@ from acom.receipts import settle, verify_receipt  # noqa: E402
 
 
 def main() -> int:
+    """Node entrypoint. Machine-readable JSON on stdout; exit code
+    mirrors the verdict so automation never parses text."""
     ap = argparse.ArgumentParser(prog="acom")
     sub = ap.add_subparsers(dest="cmd", required=True)
     p = sub.add_parser("init"); p.add_argument("dir")
@@ -60,12 +62,13 @@ def main() -> int:
     if a.cmd == "verify":
         rec = json.load(open(a.receipt))
         ev = json.load(open(a.evidence))
-        print(json.dumps(settle(rec, ev)))
-        return 0
+        out = settle(rec, ev)
+        print(json.dumps(out))
+        return 0 if out.get("ok") else 1
     if a.cmd == "chain":
-        print(json.dumps(
-            {"ok": store_mod.Store(a.store).verify_chain()}))
-        return 0
+        ok = store_mod.Store(a.store).verify_chain()
+        print(json.dumps({"ok": ok}))
+        return 0 if ok else 1
     return _killfeed_cmd(a)
 
 

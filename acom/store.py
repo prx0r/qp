@@ -25,6 +25,7 @@ class Store:
                         self._hashes.append(json.loads(line)["hash"])
 
     def append(self, etype: str, payload: dict) -> dict:
+        """Append one event; returns the chained entry (seq, hash)."""
         prev = self._hashes[-1] if self._hashes else sha256_hex(b"genesis")
         entry = {"seq": len(self._hashes), "type": etype,
                  "payload": payload, "prev": prev}
@@ -38,10 +39,12 @@ class Store:
 
     @property
     def event_root(self) -> str:
+        """Merkle root over all entry hashes (empty store hashes empty)."""
         return merkle_root(self._hashes)
 
     @property
     def cursor(self) -> int:
+        """Replay position: count of appended entries."""
         return len(self._hashes)
 
     def verify_chain(self) -> bool:

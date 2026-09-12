@@ -30,6 +30,7 @@ def gate(gate_id: str):
 
 
 def program_hash(gate_id: str) -> str:
+    """Content address of a registered gate's predicate source."""
     return REGISTRY[gate_id]["program_hash"]
 
 

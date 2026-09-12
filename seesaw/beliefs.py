@@ -32,6 +32,8 @@ class Graph:
         self.edges = []  # (supporter -> dependent)
 
     def belief(self, bid: str, prior: float, impact: float = 0.0) -> dict:
+        """Open a BELIEF at prior odds. Reopenable forever; finality only
+        arrives via finalize(), which mints a separate FACT."""
         assert 0.0 < prior < 1.0
         n = {"kind": "BELIEF", "id": bid, "p": prior,
              "logodds": math.log(_odds(prior)), "impact": impact,
@@ -61,7 +63,8 @@ class Graph:
 
     def finalize(self, bid: str, epoch: int, verdict: str, evidence_root: str,
                  gate_hash: str, proof_hash: str = "") -> dict:
-        """Clamp one epoch's verdict. Immutable from here on."""
+        """Clamp one epoch's verdict into an immutable FACT. History is
+        never reopened; later epochs append new FACTs."""
         n = self.nodes[bid]
         assert verdict in ("TRUE", "FALSE")
         fact = {"kind": "FACT", "id": f"{bid}@epoch-{epoch}",

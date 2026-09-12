@@ -9,6 +9,10 @@ from .canonical import canonical, sha256_hex
 
 def build(task: dict, model: str, prompt_root: str, tool_calls: list,
           inputs: list, outputs: list, cost: float, trace: list) -> dict:
+    """Bind everything a run controls into one receipt: task, model,
+    prompt root, tool calls, input/output roots, cost, trace root.
+    Cognition attestation adapters (REE/Pearl) strengthen this later;
+    the shape stays."""
     body = {
         "protocol": "acom/0.1",
         "kind": "RUN_RECEIPT",

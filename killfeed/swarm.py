@@ -12,6 +12,9 @@ FALSIFY_MARGIN = 5.0
 
 def derive_jobs(world: dict, receipt: dict, snapshot: dict,
                 falsify_margin: float = FALSIFY_MARGIN) -> list:
+    """Emit typed jobs from an evaluated snapshot. Agents never decide
+    truth here; they only get FILL/REFRESH/CHALLENGE/FALSIFY assignments
+    whose outputs return as evidence, never verdicts."""
     cfg = world["config"]
     usable_metrics = {e["metric"] for e in snapshot["evidence"]}
     jobs = []

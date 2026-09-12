@@ -14,6 +14,7 @@ UNKNOWN = object()
 
 
 def is_unknown(v):
+    """Identity test for the UNKNOWN singleton (== would lie)."""
     return v is UNKNOWN
 
 

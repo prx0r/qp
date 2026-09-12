@@ -82,6 +82,9 @@ def independent_sources(usable: list) -> int:
 # --- gate templates (§9). Each returns (state, margin, reason, used) ---
 
 def gate_gap(vals_d, vals_s, threshold=1.0, invert=False):
+    """TRUE iff demand_low > supply_high x threshold; FALSE iff
+    demand_high <= supply_low; else UNKNOWN. `invert` exists ONLY for
+    mutation testing (proves the suite can catch flipped logic)."""
     if not vals_d or not vals_s:
         return ("UNKNOWN", None, "missing demand or supply", [])
     dl = min(v[0] for v in vals_d)
@@ -100,6 +103,7 @@ def gate_gap(vals_d, vals_s, threshold=1.0, invert=False):
 
 
 def gate_lag(close, horizon):
+    """TRUE iff the gap closes after the horizon (shortage persists)."""
     if close is None or horizon is None:
         return ("UNKNOWN", None, "missing dates", [])
     if close > horizon:
@@ -108,6 +112,8 @@ def gate_lag(close, horizon):
 
 
 def gate_wtp(price, qty, x=15.0, y=10.0):
+    """TRUE iff price rises >= x with quantity resilient (>-y); FALSE iff
+    price rises while demand collapses past elasticity; else UNKNOWN."""
     if price is None or qty is None:
         return ("UNKNOWN", None, "insufficient comparable periods", [])
     if price >= x and qty > -y:
@@ -118,6 +124,8 @@ def gate_wtp(price, qty, x=15.0, y=10.0):
 
 
 def gate_nosub(share, threshold=0.25, redesign=False, share_known=True):
+    """TRUE iff substitutes are marginal and no redesign removes the
+    bottleneck; FALSE on viable substitution."""
     if not share_known:
         return ("UNKNOWN", None, "insufficient adoption evidence", [])
     if share >= threshold or redesign:
@@ -127,6 +135,8 @@ def gate_nosub(share, threshold=0.25, redesign=False, share_known=True):
 
 def gate_need(intensity, min_intensity=0.5, relevant=True,
               relevant_known=True, kill_threshold=None):
+    """TRUE iff downstream needs the input at intensity; FALSE iff the
+    input is abandoned or immaterial (Fukushima-class demand shocks)."""
     if intensity is None or not relevant_known:
         return ("UNKNOWN", None, "insufficient evidence", [])
     kill = min_intensity if kill_threshold is None else kill_threshold
@@ -260,6 +270,8 @@ TRADE_CIRCUIT = _IFC(
                    {"const": "ACTIVE"}))))
 
 def evaluate_trade(preds: dict) -> str:
+    """§3 state machine. NEED/GAP FALSE kill; NEED/GAP UNKNOWN unknowns;
+    any FALSE among LAG/WTP/NOSUB warns. No LLM may override this."""
     p = preds
     if p["NEED"] == "FALSE":
         return "KILLED"

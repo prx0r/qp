@@ -72,6 +72,8 @@ def _hint(m):
 
 
 def pubkey(secret: bytes) -> bytes:
+    """Derive the 32-byte public key. Cross-checked against RFC 8032
+    vectors via the tests (hand constants banned after a typo)."""
     assert len(secret) == 32
     h = hashlib.sha512(secret).digest()
     a = (int.from_bytes(h[:32], "little") & ~((1 | 2 | 4 | (1 << 255)))
@@ -80,6 +82,7 @@ def pubkey(secret: bytes) -> bytes:
 
 
 def sign(secret: bytes, msg: bytes) -> bytes:
+    """64-byte deterministic signature (RFC 8032, no randomness)."""
     assert len(secret) == 32
     h = hashlib.sha512(secret).digest()
     a = (int.from_bytes(h[:32], "little") & ~((1 | 2 | 4 | (1 << 255)))
@@ -93,6 +96,7 @@ def sign(secret: bytes, msg: bytes) -> bytes:
 
 
 def verify(pub: bytes, msg: bytes, sig: bytes) -> bool:
+    """Check [s]G == R + [H(R,A,M)]A. False on any malformed input."""
     if len(pub) != 32 or len(sig) != 64:
         return False
     try:

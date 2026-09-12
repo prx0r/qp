@@ -15,6 +15,9 @@ from killfeed import circuit as _circuit
 
 
 def score_node(node: dict) -> dict:
+    """S_i = M·D·T / (C·A) plus constraint pressure D/C. Magnitudes are
+    illustrative; ORDERINGS are the assertions — tests pin migration
+    direction, never price levels."""
     m, d, t = (float(node[x]) for x in
                ("marginal_value", "demand", "response_time"))
     c = float(node["capacity"])
@@ -28,6 +31,8 @@ def score_node(node: dict) -> dict:
 
 
 def ai_exposure(node: dict) -> dict:
+    """The central equation: demand_effect − destruction_effect.
+    Positive tightens with AI progress; negative relaxes."""
     de = float(node.get("demand_effect", 0.0))
     cd = float(node.get("destruction_effect", 0.0))
     x = de - cd

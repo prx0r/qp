@@ -18,6 +18,7 @@ def canonical(obj) -> bytes:
 
 
 def sha256_hex(data: bytes) -> str:
+    """Hex digest. The only hash in the kernel besides Merkle joins."""
     return hashlib.sha256(data).hexdigest()
 
 

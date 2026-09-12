@@ -25,6 +25,8 @@ W = 21
 
 
 def main() -> int:
+    """The Definition of Done, machine-executed. Exit 0 + PROVEN only if
+    everything passes; anything else is IMPLEMENTED_UNVERIFIED."""
     quick = "--quick" in sys.argv
     rows = []
     core = [("SCHEMAS", V.v_schemas()),
@@ -96,6 +98,7 @@ def _ok(rows, name):
 
 
 def worlds_ok(w):
+    """Narrow helper so the PROVEN verdict reads as a sentence."""
     return w["ok"]
 
 
