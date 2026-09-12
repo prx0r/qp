@@ -18,7 +18,7 @@ python3 -m acom.cli killfeed
 Docs: `docs/ARCHITECTURE.md` (start here after northstar),
 `docs/OBJECTS.md`, `docs/RECEIPTS.md`, `docs/INVARIANTS.md`,
 `docs/CIRCUITS.md` (executable claim graphs), `docs/KILLFEED.md`,
-`docs/CRYPTO.md`, `docs/BLENDER-FACTORY.md` (freaktown side).
+`docs/CRYPTO.md`, `docs/TRANSISTORS.md` (gates as logic).
 Theses: `northstar.md`, `qpvalidate.md`, `circuitboard.md`,
 `plan2.md`, `qubic-thesis.md`, `crypto-thesis.md`, `ecosystem.md`.
 

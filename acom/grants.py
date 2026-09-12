@@ -42,11 +42,14 @@ def verify_grant(grant: dict, action: dict, facts: dict,
     if action.get("capability") != grant.get("capability"):
         return {"ok": False, "reason": "capability mismatch"}
     for k in (grant.get("constraints") or {}):
-        if k not in ("max_value", "calls", "max_calls", "asset"):
+        if k not in ("max_value", "calls", "max_calls", "asset",
+                     "max_risk_usd"):
             return {"ok": False, "reason": f"unknown constraint {k}"}
     for k, v in (grant.get("constraints") or {}).items():
-        if k in ("max_value", "calls", "max_calls"):
-            have = action.get("value" if k == "max_value" else "calls", 0)
+        if k in ("max_value", "calls", "max_calls", "max_risk_usd"):
+            field = {"max_value": "value", "calls": "calls",
+                     "max_calls": "calls", "max_risk_usd": "risk_usd"}[k]
+            have = action.get(field, 0)
             try:
                 if float(have) > float(v):
                     return {"ok": False,
