@@ -89,3 +89,14 @@ def test_wasm_gap_matches_python():
     nan = float("nan")
     assert wasm_gates.gap_wasm(nan, nan, nan, nan) == "UNKNOWN"
     assert wasm_gates.gap_wasm(130, 140, 90, 100) == "TRUE"
+
+
+def test_tjp_falsifier_corpus_loads_and_seeds():
+    from killfeed import tjp_falsifiers as T
+    rows = T.load_corpus()
+    assert len(rows) >= 30, f"corpus shrank: {len(rows)}"
+    assert all(r["falsifier"] and r["thesis"] for r in rows)
+    jobs = T.to_jobs(rows)
+    assert len(jobs) == len(rows)
+    assert {j["task_kind"] for j in jobs} == {"FALSIFY"}
+    assert all("falsifier" in j["acceptance"] for j in jobs)
