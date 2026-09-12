@@ -11,7 +11,7 @@
    },
    "metric": "dram_demand",
    "source": {
-    "artifact_hash": "sha256:896558",
+    "artifact_hash": "sha256:193f23",
     "class": "industry_data",
     "source_id": "dt87-demand"
    },
@@ -31,7 +31,7 @@
    },
    "metric": "dram_supply",
    "source": {
-    "artifact_hash": "sha256:586419",
+    "artifact_hash": "sha256:cda1e1",
     "class": "industry_data",
     "source_id": "dt87-supply"
    },
@@ -51,7 +51,7 @@
    },
    "metric": "dram_intensity",
    "source": {
-    "artifact_hash": "sha256:111721",
+    "artifact_hash": "sha256:ba5374",
     "class": "government",
     "source_id": "dt87-gov"
    },
@@ -68,7 +68,7 @@
    },
    "metric": "dram_relevant",
    "source": {
-    "artifact_hash": "sha256:428824",
+    "artifact_hash": "sha256:fbf995",
     "class": "government",
     "source_id": "dt87-gov"
    },
@@ -85,7 +85,7 @@
    },
    "metric": "dram_close",
    "source": {
-    "artifact_hash": "sha256:262446",
+    "artifact_hash": "sha256:e71c2c",
     "class": "industry_data",
     "source_id": "dt87-outlook"
    },
@@ -102,7 +102,7 @@
    },
    "metric": "dram_horizon",
    "source": {
-    "artifact_hash": "sha256:465343",
+    "artifact_hash": "sha256:e95760",
     "class": "industry_data",
     "source_id": "dt87-outlook"
    },
@@ -119,7 +119,7 @@
    },
    "metric": "dram_price",
    "source": {
-    "artifact_hash": "sha256:597668",
+    "artifact_hash": "sha256:688a6a",
     "class": "news",
     "source_id": "dt87-press"
    },
@@ -136,7 +136,7 @@
    },
    "metric": "dram_qty",
    "source": {
-    "artifact_hash": "sha256:599498",
+    "artifact_hash": "sha256:3078b6",
     "class": "government",
     "source_id": "dt87-stats"
    },
@@ -153,7 +153,7 @@
    },
    "metric": "dram_share",
    "source": {
-    "artifact_hash": "sha256:572879",
+    "artifact_hash": "sha256:2f0284",
     "class": "academic",
     "source_id": "dt87-acad"
    },
@@ -170,7 +170,7 @@
    },
    "metric": "dram_redesign",
    "source": {
-    "artifact_hash": "sha256:520479",
+    "artifact_hash": "sha256:66b336",
     "class": "academic",
     "source_id": "dt87-acad"
    },

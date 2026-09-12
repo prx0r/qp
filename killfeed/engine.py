@@ -139,9 +139,40 @@ def gate_need(intensity, min_intensity=0.5, relevant=True,
 
 # --- predicate evaluation ------------------------------------------------
 
-def eval_predicate(name: str, cfg: dict, usable: list):
-    """Evaluate one predicate from usable evidence. Returns dict with
-    state, margin, reason, sources, and SOURCE_FAILURE flag."""
+def predicate_params(pcfg: dict) -> dict:
+    """Tunable gate constants, single definition (CLI reuses this)."""
+    return {"threshold": pcfg.get("threshold", 1.0),
+            "share_threshold": pcfg.get("share_threshold",
+                                        pcfg.get("threshold", 0.25)),
+            "x": pcfg.get("x", 15.0), "y": pcfg.get("y", 10.0),
+            "min_intensity": pcfg.get("min_intensity", 0.5),
+            "kill": pcfg.get("kill_threshold",
+                             pcfg.get("min_intensity", 0.5)),
+            "min_sources": pcfg.get("min_sources", 1)}
+
+
+def eval_predicate(name: str, cfg: dict, usable: list, date: str = "",
+                   history=None, claims=None, use_circuit: bool = True):
+    """Evaluate one predicate. Circuits (data) preferred; legacy templates
+    kept as cross-check until equivalence is proven — then deleted."""
+    if use_circuit and "circuit" in cfg:
+        from . import circuit as _circuit
+        params = predicate_params(cfg)
+        try:
+            state, margin = _circuit.evaluate_margin(
+                cfg["circuit"], usable, date, history, claims or {}, params)
+        except ValueError:
+            state, margin = "UNKNOWN", None
+        if state not in ("TRUE", "FALSE", "UNKNOWN"):
+            state, margin = "UNKNOWN", None
+        if state == "UNKNOWN":
+            margin = None  # unknown has no measurable distance to flipping
+        if cfg.get("invert") and state in ("TRUE", "FALSE"):
+            state = "FALSE" if state == "TRUE" else "TRUE"
+        used = [e for e in usable]
+        return {"predicate": name, "state": state, "margin": margin,
+                "reason": "circuit", "sources": independent_sources(used),
+                "source_failure": False}
     if name == "GAP":
         d = [x for m in cfg.get("demand", []) for x in _vals(usable, m)]
         s = [x for m in cfg.get("supply", []) for x in _vals(usable, m)]
@@ -198,7 +229,35 @@ def _unknown(name, reason):
             "reason": reason, "sources": 0, "source_failure": False}
 
 
-# --- trade state (§3). No LLM may override this. -------------------------
+# --- trade state (§3, circuitboard: the top-level gate is universal) -----
+
+def _EQC(claim, const):
+    return {"op": "EQ", "args": [{"claim": claim}, {"const": const}]}
+
+
+def _ISU(claim):
+    return {"op": "IS_UNKNOWN", "args": [{"claim": claim}]}
+
+
+def _OR(*names, const):
+    return {"op": "OR",
+            "args": [_EQC(n, const) for n in names]}
+
+
+def _ORU(*names):
+    return {"op": "OR", "args": [_ISU(n) for n in names]}
+
+
+def _IFC(cond, then, otherwise):
+    return {"op": "IF", "args": [cond, {"const": then}, otherwise]}
+
+
+TRADE_CIRCUIT = _IFC(
+    _OR("NEED", "GAP", const="FALSE"), "KILLED",
+    _IFC(_ORU("NEED", "GAP"), "UNKNOWN",
+         _IFC(_OR("LAG", "WTP", "NOSUB", const="FALSE"), "WARNING",
+              _IFC(_ORU("LAG", "WTP", "NOSUB"), "UNKNOWN",
+                   {"const": "ACTIVE"}))))
 
 def evaluate_trade(preds: dict) -> str:
     p = preds
@@ -217,20 +276,35 @@ def evaluate_trade(preds: dict) -> str:
 
 # --- snapshot / world evaluation ------------------------------------------
 
-def evaluate_snapshot(world: dict, snapshot: dict, mutations: dict = None):
-    """One frozen date → claim states + trade state + §10 receipt."""
+def evaluate_snapshot(world: dict, snapshot: dict, mutations: dict = None,
+                      history=None, use_circuit: bool = True):
+    """One frozen date → claim states + trade state + §10 receipt.
+    history = prior [{date, evidence, states}] for temporal ops and the
+    live recompute path (new evidence → leaves → propagate → kill)."""
     cfg = world["config"]
     usable, rejected, stale = admissible(
         snapshot["evidence"], snapshot["date"], cfg.get("max_age_days", 400))
-    states, details = {}, {}
+    states, details, claims = {}, {}, {}
     for name in PREDICATES:
         pcfg = dict(cfg["predicates"][name])
         if mutations and name in mutations:
             pcfg.update(mutations[name])
-        r = eval_predicate(name, pcfg, usable)
+        r = eval_predicate(name, pcfg, usable, snapshot["date"],
+                           history, claims, use_circuit)
         states[name] = r["state"]
+        claims[name] = r["state"]
         details[name] = r
-    trade = evaluate_trade(states)
+    if use_circuit:
+        from . import circuit as _circuit
+        try:
+            trade = _circuit.evaluate(TRADE_CIRCUIT, usable,
+                                      snapshot["date"], history, claims)
+        except ValueError:
+            trade = "UNKNOWN"
+        if trade not in ("ACTIVE", "WARNING", "KILLED", "UNKNOWN"):
+            trade = "UNKNOWN"
+    else:
+        trade = evaluate_trade(states)
     ev_ids = sorted(e["evidence_id"] for e in usable)
     receipt = {
         "protocol": "acom/0.1",
@@ -252,13 +326,43 @@ def evaluate_snapshot(world: dict, snapshot: dict, mutations: dict = None):
     return receipt
 
 
-def evaluate_world(world: dict, mutations: dict = None):
-    """Whole timeline in date order, chaining prev states."""
+def evaluate_world(world: dict, mutations: dict = None,
+                   use_circuit: bool = True):
+    """Whole timeline in date order, chaining prev states. Each snapshot
+    sees prior snapshots as history (temporal ops, live recompute)."""
     receipts = []
     prev = "GENESIS"
+    history = []
     for snap in sorted(world["timeline"], key=lambda s: s["date"]):
         snap = dict(snap, prev_state=prev)
-        r = evaluate_snapshot(world, snap, mutations)
+        r = evaluate_snapshot(world, snap, mutations, history, use_circuit)
         receipts.append(r)
+        history.append({"date": snap["date"],
+                        "evidence": snap["evidence"],
+                        "states": r["claim_states"]})
         prev = r["state_after"]
     return receipts
+
+
+def world_state_root(receipts: list) -> str:
+    """One root per world evaluation: replayable, comparable across
+    replicas. Three nodes agree iff these match on every world."""
+    from acom.canonical import merkle_root
+    return merkle_root([r["output_hash"] for r in receipts])
+
+
+def kill_events(world: dict):
+    """TRUE→FALSE predicate flips across the timeline (circuitboard:
+    flips are the events; trade KILL is their consequence)."""
+    evs = []
+    receipts = evaluate_world(world)
+    prior = {}
+    for r in receipts:
+        for name in PREDICATES:
+            if prior.get(name) == "TRUE" and r["claim_states"][name] == "FALSE":
+                evs.append({"world": world["world_id"], "predicate": name,
+                            "from": "TRUE", "to": "FALSE",
+                            "date": r["as_of"],
+                            "trade": r["state_after"]})
+        prior = r["claim_states"]
+    return evs

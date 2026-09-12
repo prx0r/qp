@@ -1,11 +1,165 @@
 world_id: china-metals-2003
 trade: iron-ore
+thesis: China infrastructure demand
 interval_days: 365
 max_age_days: 500
-thesis: China infrastructure demand
 predicates:
-  NEED: {intensity_metric: ore_intensity, relevance_metric: ore_relevant, min_intensity: 0.5}
-  GAP: {demand: [ore_demand], supply: [ore_supply], threshold: 1.0, min_sources: 1}
-  LAG: {close_metric: ore_close, horizon_metric: ore_horizon}
-  WTP: {price_metric: ore_price, qty_metric: ore_qty, x: 15, y: 10}
-  NOSUB: {share_metric: ore_share, threshold: 0.25, redesign_metric: ore_redesign}
+  NEED:
+    intensity_metric: ore_intensity
+    relevance_metric: ore_relevant
+    min_intensity: 0.5
+    circuit:
+      op: IF
+      args:
+      - op: AND
+        args:
+        - op: GTE
+          args:
+          - &id001
+            metric: ore_intensity
+          - param: min_intensity
+        - &id002
+          metric: ore_relevant
+      - const: 'TRUE'
+      - op: IF
+        args:
+        - op: OR
+          args:
+          - op: LT
+            args:
+            - *id001
+            - param: kill
+          - op: NOT
+            args:
+            - *id002
+        - const: 'FALSE'
+        - const: UNKNOWN
+  GAP:
+    demand:
+    - ore_demand
+    supply:
+    - ore_supply
+    threshold: 1.0
+    min_sources: 1
+    circuit:
+      op: IF
+      args:
+      - op: GTE
+        args:
+        - op: COUNT
+          metrics:
+          - ore_demand
+          - ore_supply
+        - param: min_sources
+      - op: IF
+        args:
+        - op: GT
+          args:
+          - op: LOW
+            metric: ore_demand
+          - op: MUL
+            args:
+            - op: HIGH
+              metric: ore_supply
+            - param: threshold
+        - const: 'TRUE'
+        - op: IF
+          args:
+          - op: LTE
+            args:
+            - op: HIGH
+              metric: ore_demand
+            - op: LOW
+              metric: ore_supply
+          - const: 'FALSE'
+          - const: UNKNOWN
+      - const: UNKNOWN
+  LAG:
+    close_metric: ore_close
+    horizon_metric: ore_horizon
+    circuit:
+      op: IF
+      args:
+      - op: GT
+        args:
+        - &id003
+          metric: ore_close
+        - &id004
+          metric: ore_horizon
+      - const: 'TRUE'
+      - op: IF
+        args:
+        - op: LTE
+          args:
+          - *id003
+          - *id004
+        - const: 'FALSE'
+        - const: UNKNOWN
+  WTP:
+    price_metric: ore_price
+    qty_metric: ore_qty
+    x: 15
+    y: 10
+    circuit:
+      op: IF
+      args:
+      - op: AND
+        args:
+        - &id005
+          op: GTE
+          args:
+          - metric: ore_price
+          - param: x
+        - op: GT
+          args:
+          - &id006
+            metric: ore_qty
+          - op: SUB
+            args:
+            - const: 0
+            - param: y
+      - const: 'TRUE'
+      - op: IF
+        args:
+        - op: AND
+          args:
+          - *id005
+          - op: LTE
+            args:
+            - *id006
+            - op: SUB
+              args:
+              - const: 0
+              - param: y
+        - const: 'FALSE'
+        - const: UNKNOWN
+  NOSUB:
+    share_metric: ore_share
+    threshold: 0.25
+    redesign_metric: ore_redesign
+    circuit:
+      op: IF
+      args:
+      - op: OR
+        args:
+        - op: GTE
+          args:
+          - &id007
+            metric: ore_share
+          - param: share_threshold
+        - &id008
+          metric: ore_redesign
+      - const: 'FALSE'
+      - op: IF
+        args:
+        - op: AND
+          args:
+          - op: LT
+            args:
+            - *id007
+            - param: share_threshold
+          - op: NOT
+            args:
+            - *id008
+        - const: 'TRUE'
+        - const: UNKNOWN

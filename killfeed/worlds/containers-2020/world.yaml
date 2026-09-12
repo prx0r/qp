@@ -1,11 +1,165 @@
 world_id: containers-2020
 trade: shipping
+thesis: congestion cuts effective capacity
 interval_days: 180
 max_age_days: 400
-thesis: congestion cuts effective capacity
 predicates:
-  NEED: {intensity_metric: box_intensity, relevance_metric: box_relevant, min_intensity: 0.5}
-  GAP: {demand: [box_demand], supply: [box_supply], threshold: 1.0, min_sources: 1}
-  LAG: {close_metric: box_close, horizon_metric: box_horizon}
-  WTP: {price_metric: box_price, qty_metric: box_qty, x: 15, y: 10}
-  NOSUB: {share_metric: box_share, threshold: 0.25, redesign_metric: box_redesign}
+  NEED:
+    intensity_metric: box_intensity
+    relevance_metric: box_relevant
+    min_intensity: 0.5
+    circuit:
+      op: IF
+      args:
+      - op: AND
+        args:
+        - op: GTE
+          args:
+          - &id001
+            metric: box_intensity
+          - param: min_intensity
+        - &id002
+          metric: box_relevant
+      - const: 'TRUE'
+      - op: IF
+        args:
+        - op: OR
+          args:
+          - op: LT
+            args:
+            - *id001
+            - param: kill
+          - op: NOT
+            args:
+            - *id002
+        - const: 'FALSE'
+        - const: UNKNOWN
+  GAP:
+    demand:
+    - box_demand
+    supply:
+    - box_supply
+    threshold: 1.0
+    min_sources: 1
+    circuit:
+      op: IF
+      args:
+      - op: GTE
+        args:
+        - op: COUNT
+          metrics:
+          - box_demand
+          - box_supply
+        - param: min_sources
+      - op: IF
+        args:
+        - op: GT
+          args:
+          - op: LOW
+            metric: box_demand
+          - op: MUL
+            args:
+            - op: HIGH
+              metric: box_supply
+            - param: threshold
+        - const: 'TRUE'
+        - op: IF
+          args:
+          - op: LTE
+            args:
+            - op: HIGH
+              metric: box_demand
+            - op: LOW
+              metric: box_supply
+          - const: 'FALSE'
+          - const: UNKNOWN
+      - const: UNKNOWN
+  LAG:
+    close_metric: box_close
+    horizon_metric: box_horizon
+    circuit:
+      op: IF
+      args:
+      - op: GT
+        args:
+        - &id003
+          metric: box_close
+        - &id004
+          metric: box_horizon
+      - const: 'TRUE'
+      - op: IF
+        args:
+        - op: LTE
+          args:
+          - *id003
+          - *id004
+        - const: 'FALSE'
+        - const: UNKNOWN
+  WTP:
+    price_metric: box_price
+    qty_metric: box_qty
+    x: 15
+    y: 10
+    circuit:
+      op: IF
+      args:
+      - op: AND
+        args:
+        - &id005
+          op: GTE
+          args:
+          - metric: box_price
+          - param: x
+        - op: GT
+          args:
+          - &id006
+            metric: box_qty
+          - op: SUB
+            args:
+            - const: 0
+            - param: y
+      - const: 'TRUE'
+      - op: IF
+        args:
+        - op: AND
+          args:
+          - *id005
+          - op: LTE
+            args:
+            - *id006
+            - op: SUB
+              args:
+              - const: 0
+              - param: y
+        - const: 'FALSE'
+        - const: UNKNOWN
+  NOSUB:
+    share_metric: box_share
+    threshold: 0.25
+    redesign_metric: box_redesign
+    circuit:
+      op: IF
+      args:
+      - op: OR
+        args:
+        - op: GTE
+          args:
+          - &id007
+            metric: box_share
+          - param: share_threshold
+        - &id008
+          metric: box_redesign
+      - const: 'FALSE'
+      - op: IF
+        args:
+        - op: AND
+          args:
+          - op: LT
+            args:
+            - *id007
+            - param: share_threshold
+          - op: NOT
+            args:
+            - *id008
+        - const: 'TRUE'
+        - const: UNKNOWN

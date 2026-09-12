@@ -7,17 +7,20 @@ verifiable receipts and capability grants (`docs/CRYPTO.md`).
 ## Use
 
 ```bash
-python3 -m pytest tests/ -q            # 12 checks
-python3 -m acom.cli demo               # HBM claim + atask, same receipt type
-python3 -m acom.cli verify runs/hbm-claim/receipt.json runs/hbm-claim/evidence.json
-python3 -m acom.cli chain runs/hbm-claim/events.jsonl
+python3 -m pytest tests/ killfeed/ -q    # full suite
+python3 -m killfeed.verify_all           # Definition of Done → PROVEN
+python3 -m acom.cli world replay dram-1987
+python3 -m acom.cli killfeed
 ```
 
 ## Map
 
 Docs: `docs/ARCHITECTURE.md` (start here after northstar),
-`docs/OBJECTS.md`, `docs/RECEIPTS.md`, `docs/INVARIANTS.md`.
-Schemas: `schemas/acom.json`. Demos: `examples/`.
+`docs/OBJECTS.md`, `docs/RECEIPTS.md`, `docs/INVARIANTS.md`,
+`docs/CIRCUITS.md` (executable claim graphs), `docs/KILLFEED.md`,
+`docs/CRYPTO.md`, `docs/BLENDER-FACTORY.md` (freaktown side).
+Theses: `northstar.md`, `qpvalidate.md`, `circuitboard.md`,
+`plan2.md`, `qubic-thesis.md`, `crypto-thesis.md`, `ecosystem.md`.
 
 ## Rules (inherited, still binding)
 

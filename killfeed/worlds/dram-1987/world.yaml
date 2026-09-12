@@ -1,11 +1,165 @@
 world_id: dram-1987
 trade: dram
+thesis: PC demand outruns DRAM supply
 interval_days: 365
 max_age_days: 500
-thesis: PC demand outruns DRAM supply
 predicates:
-  NEED: {intensity_metric: dram_intensity, relevance_metric: dram_relevant, min_intensity: 0.5}
-  GAP: {demand: [dram_demand], supply: [dram_supply], threshold: 1.0, min_sources: 1}
-  LAG: {close_metric: dram_close, horizon_metric: dram_horizon}
-  WTP: {price_metric: dram_price, qty_metric: dram_qty, x: 15, y: 10}
-  NOSUB: {share_metric: dram_share, threshold: 0.25, redesign_metric: dram_redesign}
+  NEED:
+    intensity_metric: dram_intensity
+    relevance_metric: dram_relevant
+    min_intensity: 0.5
+    circuit:
+      op: IF
+      args:
+      - op: AND
+        args:
+        - op: GTE
+          args:
+          - &id001
+            metric: dram_intensity
+          - param: min_intensity
+        - &id002
+          metric: dram_relevant
+      - const: 'TRUE'
+      - op: IF
+        args:
+        - op: OR
+          args:
+          - op: LT
+            args:
+            - *id001
+            - param: kill
+          - op: NOT
+            args:
+            - *id002
+        - const: 'FALSE'
+        - const: UNKNOWN
+  GAP:
+    demand:
+    - dram_demand
+    supply:
+    - dram_supply
+    threshold: 1.0
+    min_sources: 1
+    circuit:
+      op: IF
+      args:
+      - op: GTE
+        args:
+        - op: COUNT
+          metrics:
+          - dram_demand
+          - dram_supply
+        - param: min_sources
+      - op: IF
+        args:
+        - op: GT
+          args:
+          - op: LOW
+            metric: dram_demand
+          - op: MUL
+            args:
+            - op: HIGH
+              metric: dram_supply
+            - param: threshold
+        - const: 'TRUE'
+        - op: IF
+          args:
+          - op: LTE
+            args:
+            - op: HIGH
+              metric: dram_demand
+            - op: LOW
+              metric: dram_supply
+          - const: 'FALSE'
+          - const: UNKNOWN
+      - const: UNKNOWN
+  LAG:
+    close_metric: dram_close
+    horizon_metric: dram_horizon
+    circuit:
+      op: IF
+      args:
+      - op: GT
+        args:
+        - &id003
+          metric: dram_close
+        - &id004
+          metric: dram_horizon
+      - const: 'TRUE'
+      - op: IF
+        args:
+        - op: LTE
+          args:
+          - *id003
+          - *id004
+        - const: 'FALSE'
+        - const: UNKNOWN
+  WTP:
+    price_metric: dram_price
+    qty_metric: dram_qty
+    x: 15
+    y: 10
+    circuit:
+      op: IF
+      args:
+      - op: AND
+        args:
+        - &id005
+          op: GTE
+          args:
+          - metric: dram_price
+          - param: x
+        - op: GT
+          args:
+          - &id006
+            metric: dram_qty
+          - op: SUB
+            args:
+            - const: 0
+            - param: y
+      - const: 'TRUE'
+      - op: IF
+        args:
+        - op: AND
+          args:
+          - *id005
+          - op: LTE
+            args:
+            - *id006
+            - op: SUB
+              args:
+              - const: 0
+              - param: y
+        - const: 'FALSE'
+        - const: UNKNOWN
+  NOSUB:
+    share_metric: dram_share
+    threshold: 0.25
+    redesign_metric: dram_redesign
+    circuit:
+      op: IF
+      args:
+      - op: OR
+        args:
+        - op: GTE
+          args:
+          - &id007
+            metric: dram_share
+          - param: share_threshold
+        - &id008
+          metric: dram_redesign
+      - const: 'FALSE'
+      - op: IF
+        args:
+        - op: AND
+          args:
+          - op: LT
+            args:
+            - *id007
+            - param: share_threshold
+          - op: NOT
+            args:
+            - *id008
+        - const: 'TRUE'
+        - const: UNKNOWN

@@ -1,11 +1,165 @@
 world_id: palladium-1998
 trade: palladium
+thesis: catalyst demand + Russian constraint
 interval_days: 365
 max_age_days: 500
-thesis: catalyst demand + Russian constraint
 predicates:
-  NEED: {intensity_metric: pal_intensity, relevance_metric: pal_relevant, min_intensity: 0.5}
-  GAP: {demand: [pal_demand], supply: [pal_supply], threshold: 1.0, min_sources: 1}
-  LAG: {close_metric: pal_close, horizon_metric: pal_horizon}
-  WTP: {price_metric: pal_price, qty_metric: pal_qty, x: 15, y: 10}
-  NOSUB: {share_metric: pal_share, threshold: 0.25, redesign_metric: pal_redesign}
+  NEED:
+    intensity_metric: pal_intensity
+    relevance_metric: pal_relevant
+    min_intensity: 0.5
+    circuit:
+      op: IF
+      args:
+      - op: AND
+        args:
+        - op: GTE
+          args:
+          - &id001
+            metric: pal_intensity
+          - param: min_intensity
+        - &id002
+          metric: pal_relevant
+      - const: 'TRUE'
+      - op: IF
+        args:
+        - op: OR
+          args:
+          - op: LT
+            args:
+            - *id001
+            - param: kill
+          - op: NOT
+            args:
+            - *id002
+        - const: 'FALSE'
+        - const: UNKNOWN
+  GAP:
+    demand:
+    - pal_demand
+    supply:
+    - pal_supply
+    threshold: 1.0
+    min_sources: 1
+    circuit:
+      op: IF
+      args:
+      - op: GTE
+        args:
+        - op: COUNT
+          metrics:
+          - pal_demand
+          - pal_supply
+        - param: min_sources
+      - op: IF
+        args:
+        - op: GT
+          args:
+          - op: LOW
+            metric: pal_demand
+          - op: MUL
+            args:
+            - op: HIGH
+              metric: pal_supply
+            - param: threshold
+        - const: 'TRUE'
+        - op: IF
+          args:
+          - op: LTE
+            args:
+            - op: HIGH
+              metric: pal_demand
+            - op: LOW
+              metric: pal_supply
+          - const: 'FALSE'
+          - const: UNKNOWN
+      - const: UNKNOWN
+  LAG:
+    close_metric: pal_close
+    horizon_metric: pal_horizon
+    circuit:
+      op: IF
+      args:
+      - op: GT
+        args:
+        - &id003
+          metric: pal_close
+        - &id004
+          metric: pal_horizon
+      - const: 'TRUE'
+      - op: IF
+        args:
+        - op: LTE
+          args:
+          - *id003
+          - *id004
+        - const: 'FALSE'
+        - const: UNKNOWN
+  WTP:
+    price_metric: pal_price
+    qty_metric: pal_qty
+    x: 15
+    y: 10
+    circuit:
+      op: IF
+      args:
+      - op: AND
+        args:
+        - &id005
+          op: GTE
+          args:
+          - metric: pal_price
+          - param: x
+        - op: GT
+          args:
+          - &id006
+            metric: pal_qty
+          - op: SUB
+            args:
+            - const: 0
+            - param: y
+      - const: 'TRUE'
+      - op: IF
+        args:
+        - op: AND
+          args:
+          - *id005
+          - op: LTE
+            args:
+            - *id006
+            - op: SUB
+              args:
+              - const: 0
+              - param: y
+        - const: 'FALSE'
+        - const: UNKNOWN
+  NOSUB:
+    share_metric: pal_share
+    threshold: 0.25
+    redesign_metric: pal_redesign
+    circuit:
+      op: IF
+      args:
+      - op: OR
+        args:
+        - op: GTE
+          args:
+          - &id007
+            metric: pal_share
+          - param: share_threshold
+        - &id008
+          metric: pal_redesign
+      - const: 'FALSE'
+      - op: IF
+        args:
+        - op: AND
+          args:
+          - op: LT
+            args:
+            - *id007
+            - param: share_threshold
+          - op: NOT
+            args:
+            - *id008
+        - const: 'TRUE'
+        - const: UNKNOWN

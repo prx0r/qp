@@ -11,7 +11,7 @@
    },
    "metric": "pal_demand",
    "source": {
-    "artifact_hash": "sha256:448410",
+    "artifact_hash": "sha256:3353d8",
     "class": "industry_data",
     "source_id": "jmi00-demand"
    },
@@ -31,7 +31,7 @@
    },
    "metric": "pal_supply",
    "source": {
-    "artifact_hash": "sha256:543961",
+    "artifact_hash": "sha256:a3ee80",
     "class": "industry_data",
     "source_id": "jmi00-supply"
    },
@@ -51,7 +51,7 @@
    },
    "metric": "pal_intensity",
    "source": {
-    "artifact_hash": "sha256:659823",
+    "artifact_hash": "sha256:c564a0",
     "class": "government",
     "source_id": "jmi00-gov"
    },
@@ -68,7 +68,7 @@
    },
    "metric": "pal_relevant",
    "source": {
-    "artifact_hash": "sha256:259559",
+    "artifact_hash": "sha256:b33a8a",
     "class": "government",
     "source_id": "jmi00-gov"
    },
@@ -85,7 +85,7 @@
    },
    "metric": "pal_close",
    "source": {
-    "artifact_hash": "sha256:887035",
+    "artifact_hash": "sha256:4ade9d",
     "class": "industry_data",
     "source_id": "jmi00-outlook"
    },
@@ -102,7 +102,7 @@
    },
    "metric": "pal_horizon",
    "source": {
-    "artifact_hash": "sha256:469574",
+    "artifact_hash": "sha256:3aafaa",
     "class": "industry_data",
     "source_id": "jmi00-outlook"
    },
@@ -119,7 +119,7 @@
    },
    "metric": "pal_price",
    "source": {
-    "artifact_hash": "sha256:432560",
+    "artifact_hash": "sha256:47d8a6",
     "class": "news",
     "source_id": "jmi00-press"
    },
@@ -136,7 +136,7 @@
    },
    "metric": "pal_qty",
    "source": {
-    "artifact_hash": "sha256:677026",
+    "artifact_hash": "sha256:3abc68",
     "class": "government",
     "source_id": "jmi00-stats"
    },
@@ -153,7 +153,7 @@
    },
    "metric": "pal_share",
    "source": {
-    "artifact_hash": "sha256:653893",
+    "artifact_hash": "sha256:1b0a91",
     "class": "academic",
     "source_id": "jmi00-acad"
    },
@@ -170,7 +170,7 @@
    },
    "metric": "pal_redesign",
    "source": {
-    "artifact_hash": "sha256:060560",
+    "artifact_hash": "sha256:17bd89",
     "class": "academic",
     "source_id": "jmi00-acad"
    },

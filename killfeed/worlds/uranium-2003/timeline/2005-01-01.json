@@ -11,7 +11,7 @@
    },
    "metric": "ura_demand",
    "source": {
-    "artifact_hash": "sha256:768075",
+    "artifact_hash": "sha256:4592b8",
     "class": "industry_data",
     "source_id": "uxc05-demand"
    },
@@ -31,7 +31,7 @@
    },
    "metric": "ura_supply",
    "source": {
-    "artifact_hash": "sha256:192983",
+    "artifact_hash": "sha256:46e94e",
     "class": "industry_data",
     "source_id": "uxc05-supply"
    },
@@ -51,7 +51,7 @@
    },
    "metric": "ura_intensity",
    "source": {
-    "artifact_hash": "sha256:125526",
+    "artifact_hash": "sha256:bec4f5",
     "class": "government",
     "source_id": "uxc05-gov"
    },
@@ -68,7 +68,7 @@
    },
    "metric": "ura_relevant",
    "source": {
-    "artifact_hash": "sha256:127613",
+    "artifact_hash": "sha256:df83ed",
     "class": "government",
     "source_id": "uxc05-gov"
    },
@@ -85,7 +85,7 @@
    },
    "metric": "ura_close",
    "source": {
-    "artifact_hash": "sha256:665974",
+    "artifact_hash": "sha256:aecb6d",
     "class": "industry_data",
     "source_id": "uxc05-outlook"
    },
@@ -102,7 +102,7 @@
    },
    "metric": "ura_horizon",
    "source": {
-    "artifact_hash": "sha256:564525",
+    "artifact_hash": "sha256:8fe576",
     "class": "industry_data",
     "source_id": "uxc05-outlook"
    },
@@ -119,7 +119,7 @@
    },
    "metric": "ura_price",
    "source": {
-    "artifact_hash": "sha256:680644",
+    "artifact_hash": "sha256:6a1f08",
     "class": "news",
     "source_id": "uxc05-press"
    },
@@ -136,7 +136,7 @@
    },
    "metric": "ura_qty",
    "source": {
-    "artifact_hash": "sha256:925259",
+    "artifact_hash": "sha256:d723ee",
     "class": "government",
     "source_id": "uxc05-stats"
    },
@@ -153,7 +153,7 @@
    },
    "metric": "ura_share",
    "source": {
-    "artifact_hash": "sha256:283848",
+    "artifact_hash": "sha256:0bf88f",
     "class": "academic",
     "source_id": "uxc05-acad"
    },
@@ -170,7 +170,7 @@
    },
    "metric": "ura_redesign",
    "source": {
-    "artifact_hash": "sha256:471697",
+    "artifact_hash": "sha256:47758c",
     "class": "academic",
     "source_id": "uxc05-acad"
    },

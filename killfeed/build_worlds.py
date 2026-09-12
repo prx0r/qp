@@ -10,6 +10,8 @@ v0 validates the kernel, not the crawler.
 import json
 import os
 
+import yaml
+
 ROOT = os.path.join(os.path.dirname(os.path.abspath(__file__)), "worlds")
 
 UNITS = {"demand": "index", "supply": "index", "intensity": "ratio",
@@ -18,14 +20,15 @@ UNITS = {"demand": "index", "supply": "index", "intensity": "ratio",
 
 
 def ev(wid, date, metric, value, source_id, cls, seq):
+    import hashlib
     key = next(k for k in UNITS if metric.endswith(k))
+    art = hashlib.sha256(f"{source_id}|{metric}".encode()).hexdigest()[:6]
     return {
         "evidence_id": f"{wid}-{date[:4]}{date[5:7]}-{metric}-{seq}",
         "metric": metric, "value": value, "unit": UNITS[key],
         "as_of": date,
         "source": {"source_id": source_id, "class": cls,
-                   "artifact_hash":
-                       f"sha256:{abs(hash(source_id + metric)) % 10**6:06d}"},
+                   "artifact_hash": f"sha256:{art}"},
         "extraction": {"extractor": "manual", "extractor_version": "1",
                        "reviewed": True},
     }
@@ -50,25 +53,103 @@ def A(p, src, demand, supply, close, horizon, price, qty, share,
     ]
 
 
+def _if(c, t, e):
+    return {"op": "IF", "args": [c, t, e]}
+
+
+def _const(v):
+    return {"const": v}
+
+
+def gap_circuit(p):
+    d, s = f"{p}_demand", f"{p}_supply"
+    return _if(
+        {"op": "GTE", "args": [{"op": "COUNT", "metrics": [d, s]},
+                               {"param": "min_sources"}]},
+        _if({"op": "GT", "args": [
+                {"op": "LOW", "metric": d},
+                {"op": "MUL", "args": [{"op": "HIGH", "metric": s},
+                                       {"param": "threshold"}]}]},
+            _const("TRUE"),
+            _if({"op": "LTE", "args": [{"op": "HIGH", "metric": d},
+                                       {"op": "LOW", "metric": s}]},
+                _const("FALSE"), _const("UNKNOWN"))),
+        _const("UNKNOWN"))
+
+
+def need_circuit(p):
+    i, r = {"metric": f"{p}_intensity"}, {"metric": f"{p}_relevant"}
+    return _if({"op": "AND", "args": [
+                   {"op": "GTE", "args": [i, {"param": "min_intensity"}]}, r]},
+               _const("TRUE"),
+               _if({"op": "OR", "args": [
+                       {"op": "LT", "args": [i, {"param": "kill"}]},
+                       {"op": "NOT", "args": [r]}]},
+                   _const("FALSE"), _const("UNKNOWN")))
+
+
+def lag_circuit(p):
+    c, h = {"metric": f"{p}_close"}, {"metric": f"{p}_horizon"}
+    return _if({"op": "GT", "args": [c, h]}, _const("TRUE"),
+               _if({"op": "LTE", "args": [c, h]},
+                   _const("FALSE"), _const("UNKNOWN")))
+
+
+def _neg(param):
+    return {"op": "SUB", "args": [{"const": 0}, {"param": param}]}
+
+
+def wtp_circuit(p):
+    pr, q = {"metric": f"{p}_price"}, {"metric": f"{p}_qty"}
+    up = {"op": "GTE", "args": [pr, {"param": "x"}]}
+    hi = {"op": "AND", "args": [up, {"op": "GT", "args": [q, _neg("y")]}]}
+    lo = {"op": "AND", "args": [up, {"op": "LTE", "args": [q, _neg("y")]}]}
+    return _if(hi, _const("TRUE"), _if(lo, _const("FALSE"), _const("UNKNOWN")))
+
+
+def nosub_circuit(p):
+    s, r = {"metric": f"{p}_share"}, {"metric": f"{p}_redesign"}
+    return _if({"op": "OR", "args": [
+                   {"op": "GTE", "args": [s, {"param": "share_threshold"}]}, r]},
+               _const("FALSE"),
+               _if({"op": "AND", "args": [
+                       {"op": "LT", "args": [s, {"param": "share_threshold"}]},
+                       {"op": "NOT", "args": [r]}]},
+                   _const("TRUE"), _const("UNKNOWN")))
+
+
 def build(wid, trade, thesis, interval, max_age, prefix, snaps, expected,
           counterfactuals):
     d = os.path.join(ROOT, wid)
     os.makedirs(os.path.join(d, "timeline"), exist_ok=True)
     os.makedirs(os.path.join(d, "counterfactuals"), exist_ok=True)
-    open(os.path.join(d, "world.yaml"), "w").write(
-        f"world_id: {wid}\ntrade: {trade}\ninterval_days: {interval}\n"
-        f"max_age_days: {max_age}\nthesis: {thesis}\n"
-        "predicates:\n"
-        f"  NEED: {{intensity_metric: {prefix}_intensity, "
-        f"relevance_metric: {prefix}_relevant, min_intensity: 0.5}}\n"
-        f"  GAP: {{demand: [{prefix}_demand], supply: [{prefix}_supply], "
-        f"threshold: 1.0, min_sources: 1}}\n"
-        f"  LAG: {{close_metric: {prefix}_close, "
-        f"horizon_metric: {prefix}_horizon}}\n"
-        f"  WTP: {{price_metric: {prefix}_price, qty_metric: {prefix}_qty, "
-        f"x: 15, y: 10}}\n"
-        f"  NOSUB: {{share_metric: {prefix}_share, threshold: 0.25, "
-        f"redesign_metric: {prefix}_redesign}}\n")
+    doc = {
+        "world_id": wid, "trade": trade, "thesis": thesis,
+        "interval_days": interval, "max_age_days": max_age,
+        "predicates": {
+            "NEED": {"intensity_metric": f"{prefix}_intensity",
+                     "relevance_metric": f"{prefix}_relevant",
+                     "min_intensity": 0.5,
+                     "circuit": need_circuit(prefix)},
+            "GAP": {"demand": [f"{prefix}_demand"],
+                    "supply": [f"{prefix}_supply"],
+                    "threshold": 1.0, "min_sources": 1,
+                    "circuit": gap_circuit(prefix)},
+            "LAG": {"close_metric": f"{prefix}_close",
+                    "horizon_metric": f"{prefix}_horizon",
+                    "circuit": lag_circuit(prefix)},
+            "WTP": {"price_metric": f"{prefix}_price",
+                    "qty_metric": f"{prefix}_qty",
+                    "x": 15, "y": 10,
+                    "circuit": wtp_circuit(prefix)},
+            "NOSUB": {"share_metric": f"{prefix}_share",
+                      "threshold": 0.25,
+                      "redesign_metric": f"{prefix}_redesign",
+                      "circuit": nosub_circuit(prefix)},
+        },
+    }
+    open(os.path.join(d, "world.yaml"), "w").write(yaml.safe_dump(
+        doc, sort_keys=False))
     for date, items in snaps:
         json.dump(
             {"date": date, "evidence": [

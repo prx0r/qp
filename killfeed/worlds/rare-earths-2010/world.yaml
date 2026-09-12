@@ -1,11 +1,165 @@
 world_id: rare-earths-2010
 trade: rare-earths
+thesis: export restrictions
 interval_days: 180
 max_age_days: 400
-thesis: export restrictions
 predicates:
-  NEED: {intensity_metric: ree_intensity, relevance_metric: ree_relevant, min_intensity: 0.5}
-  GAP: {demand: [ree_demand], supply: [ree_supply], threshold: 1.0, min_sources: 1}
-  LAG: {close_metric: ree_close, horizon_metric: ree_horizon}
-  WTP: {price_metric: ree_price, qty_metric: ree_qty, x: 15, y: 10}
-  NOSUB: {share_metric: ree_share, threshold: 0.25, redesign_metric: ree_redesign}
+  NEED:
+    intensity_metric: ree_intensity
+    relevance_metric: ree_relevant
+    min_intensity: 0.5
+    circuit:
+      op: IF
+      args:
+      - op: AND
+        args:
+        - op: GTE
+          args:
+          - &id001
+            metric: ree_intensity
+          - param: min_intensity
+        - &id002
+          metric: ree_relevant
+      - const: 'TRUE'
+      - op: IF
+        args:
+        - op: OR
+          args:
+          - op: LT
+            args:
+            - *id001
+            - param: kill
+          - op: NOT
+            args:
+            - *id002
+        - const: 'FALSE'
+        - const: UNKNOWN
+  GAP:
+    demand:
+    - ree_demand
+    supply:
+    - ree_supply
+    threshold: 1.0
+    min_sources: 1
+    circuit:
+      op: IF
+      args:
+      - op: GTE
+        args:
+        - op: COUNT
+          metrics:
+          - ree_demand
+          - ree_supply
+        - param: min_sources
+      - op: IF
+        args:
+        - op: GT
+          args:
+          - op: LOW
+            metric: ree_demand
+          - op: MUL
+            args:
+            - op: HIGH
+              metric: ree_supply
+            - param: threshold
+        - const: 'TRUE'
+        - op: IF
+          args:
+          - op: LTE
+            args:
+            - op: HIGH
+              metric: ree_demand
+            - op: LOW
+              metric: ree_supply
+          - const: 'FALSE'
+          - const: UNKNOWN
+      - const: UNKNOWN
+  LAG:
+    close_metric: ree_close
+    horizon_metric: ree_horizon
+    circuit:
+      op: IF
+      args:
+      - op: GT
+        args:
+        - &id003
+          metric: ree_close
+        - &id004
+          metric: ree_horizon
+      - const: 'TRUE'
+      - op: IF
+        args:
+        - op: LTE
+          args:
+          - *id003
+          - *id004
+        - const: 'FALSE'
+        - const: UNKNOWN
+  WTP:
+    price_metric: ree_price
+    qty_metric: ree_qty
+    x: 15
+    y: 10
+    circuit:
+      op: IF
+      args:
+      - op: AND
+        args:
+        - &id005
+          op: GTE
+          args:
+          - metric: ree_price
+          - param: x
+        - op: GT
+          args:
+          - &id006
+            metric: ree_qty
+          - op: SUB
+            args:
+            - const: 0
+            - param: y
+      - const: 'TRUE'
+      - op: IF
+        args:
+        - op: AND
+          args:
+          - *id005
+          - op: LTE
+            args:
+            - *id006
+            - op: SUB
+              args:
+              - const: 0
+              - param: y
+        - const: 'FALSE'
+        - const: UNKNOWN
+  NOSUB:
+    share_metric: ree_share
+    threshold: 0.25
+    redesign_metric: ree_redesign
+    circuit:
+      op: IF
+      args:
+      - op: OR
+        args:
+        - op: GTE
+          args:
+          - &id007
+            metric: ree_share
+          - param: share_threshold
+        - &id008
+          metric: ree_redesign
+      - const: 'FALSE'
+      - op: IF
+        args:
+        - op: AND
+          args:
+          - op: LT
+            args:
+            - *id007
+            - param: share_threshold
+          - op: NOT
+            args:
+            - *id008
+        - const: 'TRUE'
+        - const: UNKNOWN

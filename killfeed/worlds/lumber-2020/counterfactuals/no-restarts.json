@@ -11,7 +11,7 @@
    },
    "metric": "lum_demand",
    "source": {
-    "artifact_hash": "sha256:373112",
+    "artifact_hash": "sha256:d5d484",
     "class": "industry_data",
     "source_id": "cf1-demand"
    },
@@ -31,7 +31,7 @@
    },
    "metric": "lum_supply",
    "source": {
-    "artifact_hash": "sha256:045887",
+    "artifact_hash": "sha256:ec8fe1",
     "class": "industry_data",
     "source_id": "cf1-supply"
    },
@@ -51,7 +51,7 @@
    },
    "metric": "lum_intensity",
    "source": {
-    "artifact_hash": "sha256:999125",
+    "artifact_hash": "sha256:a13e13",
     "class": "government",
     "source_id": "cf1-gov"
    },
@@ -68,7 +68,7 @@
    },
    "metric": "lum_relevant",
    "source": {
-    "artifact_hash": "sha256:012008",
+    "artifact_hash": "sha256:3f824c",
     "class": "government",
     "source_id": "cf1-gov"
    },
@@ -85,7 +85,7 @@
    },
    "metric": "lum_close",
    "source": {
-    "artifact_hash": "sha256:344229",
+    "artifact_hash": "sha256:c0f8d3",
     "class": "industry_data",
     "source_id": "cf1-outlook"
    },
@@ -102,7 +102,7 @@
    },
    "metric": "lum_horizon",
    "source": {
-    "artifact_hash": "sha256:894943",
+    "artifact_hash": "sha256:41c0e8",
     "class": "industry_data",
     "source_id": "cf1-outlook"
    },
@@ -119,7 +119,7 @@
    },
    "metric": "lum_price",
    "source": {
-    "artifact_hash": "sha256:534513",
+    "artifact_hash": "sha256:7ba4ab",
     "class": "news",
     "source_id": "cf1-press"
    },
@@ -136,7 +136,7 @@
    },
    "metric": "lum_qty",
    "source": {
-    "artifact_hash": "sha256:330226",
+    "artifact_hash": "sha256:5083ea",
     "class": "government",
     "source_id": "cf1-stats"
    },
@@ -153,7 +153,7 @@
    },
    "metric": "lum_share",
    "source": {
-    "artifact_hash": "sha256:371456",
+    "artifact_hash": "sha256:47b04a",
     "class": "academic",
     "source_id": "cf1-acad"
    },
@@ -170,7 +170,7 @@
    },
    "metric": "lum_redesign",
    "source": {
-    "artifact_hash": "sha256:901246",
+    "artifact_hash": "sha256:b44963",
     "class": "academic",
     "source_id": "cf1-acad"
    },
