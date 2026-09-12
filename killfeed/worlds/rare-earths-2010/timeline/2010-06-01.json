@@ -1,0 +1,181 @@
+{
+ "date": "2010-06-01",
+ "evidence": [
+  {
+   "as_of": "2010-06-01",
+   "evidence_id": "rare-earths-2010-201006-ree_demand-0",
+   "extraction": {
+    "extractor": "manual",
+    "extractor_version": "1",
+    "reviewed": true
+   },
+   "metric": "ree_demand",
+   "source": {
+    "artifact_hash": "sha256:577079",
+    "class": "industry_data",
+    "source_id": "arg10-demand"
+   },
+   "unit": "index",
+   "value": {
+    "high": 150,
+    "low": 140
+   }
+  },
+  {
+   "as_of": "2010-06-01",
+   "evidence_id": "rare-earths-2010-201006-ree_supply-1",
+   "extraction": {
+    "extractor": "manual",
+    "extractor_version": "1",
+    "reviewed": true
+   },
+   "metric": "ree_supply",
+   "source": {
+    "artifact_hash": "sha256:227936",
+    "class": "industry_data",
+    "source_id": "arg10-supply"
+   },
+   "unit": "index",
+   "value": {
+    "high": 95,
+    "low": 85
+   }
+  },
+  {
+   "as_of": "2010-06-01",
+   "evidence_id": "rare-earths-2010-201006-ree_intensity-2",
+   "extraction": {
+    "extractor": "manual",
+    "extractor_version": "1",
+    "reviewed": true
+   },
+   "metric": "ree_intensity",
+   "source": {
+    "artifact_hash": "sha256:197424",
+    "class": "government",
+    "source_id": "arg10-gov"
+   },
+   "unit": "ratio",
+   "value": 0.9
+  },
+  {
+   "as_of": "2010-06-01",
+   "evidence_id": "rare-earths-2010-201006-ree_relevant-3",
+   "extraction": {
+    "extractor": "manual",
+    "extractor_version": "1",
+    "reviewed": true
+   },
+   "metric": "ree_relevant",
+   "source": {
+    "artifact_hash": "sha256:522332",
+    "class": "government",
+    "source_id": "arg10-gov"
+   },
+   "unit": "bool",
+   "value": true
+  },
+  {
+   "as_of": "2010-06-01",
+   "evidence_id": "rare-earths-2010-201006-ree_close-4",
+   "extraction": {
+    "extractor": "manual",
+    "extractor_version": "1",
+    "reviewed": true
+   },
+   "metric": "ree_close",
+   "source": {
+    "artifact_hash": "sha256:120124",
+    "class": "industry_data",
+    "source_id": "arg10-outlook"
+   },
+   "unit": "date",
+   "value": "2012-01-01"
+  },
+  {
+   "as_of": "2010-06-01",
+   "evidence_id": "rare-earths-2010-201006-ree_horizon-5",
+   "extraction": {
+    "extractor": "manual",
+    "extractor_version": "1",
+    "reviewed": true
+   },
+   "metric": "ree_horizon",
+   "source": {
+    "artifact_hash": "sha256:275364",
+    "class": "industry_data",
+    "source_id": "arg10-outlook"
+   },
+   "unit": "date",
+   "value": "2011-01-01"
+  },
+  {
+   "as_of": "2010-06-01",
+   "evidence_id": "rare-earths-2010-201006-ree_price-6",
+   "extraction": {
+    "extractor": "manual",
+    "extractor_version": "1",
+    "reviewed": true
+   },
+   "metric": "ree_price",
+   "source": {
+    "artifact_hash": "sha256:444054",
+    "class": "news",
+    "source_id": "arg10-press"
+   },
+   "unit": "pct",
+   "value": 90
+  },
+  {
+   "as_of": "2010-06-01",
+   "evidence_id": "rare-earths-2010-201006-ree_qty-7",
+   "extraction": {
+    "extractor": "manual",
+    "extractor_version": "1",
+    "reviewed": true
+   },
+   "metric": "ree_qty",
+   "source": {
+    "artifact_hash": "sha256:519898",
+    "class": "government",
+    "source_id": "arg10-stats"
+   },
+   "unit": "pct",
+   "value": -1
+  },
+  {
+   "as_of": "2010-06-01",
+   "evidence_id": "rare-earths-2010-201006-ree_share-8",
+   "extraction": {
+    "extractor": "manual",
+    "extractor_version": "1",
+    "reviewed": true
+   },
+   "metric": "ree_share",
+   "source": {
+    "artifact_hash": "sha256:138591",
+    "class": "academic",
+    "source_id": "arg10-acad"
+   },
+   "unit": "ratio",
+   "value": 0.02
+  },
+  {
+   "as_of": "2010-06-01",
+   "evidence_id": "rare-earths-2010-201006-ree_redesign-9",
+   "extraction": {
+    "extractor": "manual",
+    "extractor_version": "1",
+    "reviewed": true
+   },
+   "metric": "ree_redesign",
+   "source": {
+    "artifact_hash": "sha256:883194",
+    "class": "academic",
+    "source_id": "arg10-acad"
+   },
+   "unit": "bool",
+   "value": false
+  }
+ ]
+}

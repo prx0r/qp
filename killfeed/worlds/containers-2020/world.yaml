@@ -1,0 +1,11 @@
+world_id: containers-2020
+trade: shipping
+interval_days: 180
+max_age_days: 400
+thesis: congestion cuts effective capacity
+predicates:
+  NEED: {intensity_metric: box_intensity, relevance_metric: box_relevant, min_intensity: 0.5}
+  GAP: {demand: [box_demand], supply: [box_supply], threshold: 1.0, min_sources: 1}
+  LAG: {close_metric: box_close, horizon_metric: box_horizon}
+  WTP: {price_metric: box_price, qty_metric: box_qty, x: 15, y: 10}
+  NOSUB: {share_metric: box_share, threshold: 0.25, redesign_metric: box_redesign}

@@ -1,0 +1,181 @@
+{
+ "date": "1999-01-01",
+ "evidence": [
+  {
+   "as_of": "1999-01-01",
+   "evidence_id": "palladium-1998-199901-pal_demand-0",
+   "extraction": {
+    "extractor": "manual",
+    "extractor_version": "1",
+    "reviewed": true
+   },
+   "metric": "pal_demand",
+   "source": {
+    "artifact_hash": "sha256:865579",
+    "class": "industry_data",
+    "source_id": "jmi99-demand"
+   },
+   "unit": "index",
+   "value": {
+    "high": 145,
+    "low": 135
+   }
+  },
+  {
+   "as_of": "1999-01-01",
+   "evidence_id": "palladium-1998-199901-pal_supply-1",
+   "extraction": {
+    "extractor": "manual",
+    "extractor_version": "1",
+    "reviewed": true
+   },
+   "metric": "pal_supply",
+   "source": {
+    "artifact_hash": "sha256:661324",
+    "class": "industry_data",
+    "source_id": "jmi99-supply"
+   },
+   "unit": "index",
+   "value": {
+    "high": 100,
+    "low": 90
+   }
+  },
+  {
+   "as_of": "1999-01-01",
+   "evidence_id": "palladium-1998-199901-pal_intensity-2",
+   "extraction": {
+    "extractor": "manual",
+    "extractor_version": "1",
+    "reviewed": true
+   },
+   "metric": "pal_intensity",
+   "source": {
+    "artifact_hash": "sha256:217802",
+    "class": "government",
+    "source_id": "jmi99-gov"
+   },
+   "unit": "ratio",
+   "value": 0.9
+  },
+  {
+   "as_of": "1999-01-01",
+   "evidence_id": "palladium-1998-199901-pal_relevant-3",
+   "extraction": {
+    "extractor": "manual",
+    "extractor_version": "1",
+    "reviewed": true
+   },
+   "metric": "pal_relevant",
+   "source": {
+    "artifact_hash": "sha256:018241",
+    "class": "government",
+    "source_id": "jmi99-gov"
+   },
+   "unit": "bool",
+   "value": true
+  },
+  {
+   "as_of": "1999-01-01",
+   "evidence_id": "palladium-1998-199901-pal_close-4",
+   "extraction": {
+    "extractor": "manual",
+    "extractor_version": "1",
+    "reviewed": true
+   },
+   "metric": "pal_close",
+   "source": {
+    "artifact_hash": "sha256:524739",
+    "class": "industry_data",
+    "source_id": "jmi99-outlook"
+   },
+   "unit": "date",
+   "value": "2001-06-01"
+  },
+  {
+   "as_of": "1999-01-01",
+   "evidence_id": "palladium-1998-199901-pal_horizon-5",
+   "extraction": {
+    "extractor": "manual",
+    "extractor_version": "1",
+    "reviewed": true
+   },
+   "metric": "pal_horizon",
+   "source": {
+    "artifact_hash": "sha256:361998",
+    "class": "industry_data",
+    "source_id": "jmi99-outlook"
+   },
+   "unit": "date",
+   "value": "2000-01-01"
+  },
+  {
+   "as_of": "1999-01-01",
+   "evidence_id": "palladium-1998-199901-pal_price-6",
+   "extraction": {
+    "extractor": "manual",
+    "extractor_version": "1",
+    "reviewed": true
+   },
+   "metric": "pal_price",
+   "source": {
+    "artifact_hash": "sha256:124684",
+    "class": "news",
+    "source_id": "jmi99-press"
+   },
+   "unit": "pct",
+   "value": 70
+  },
+  {
+   "as_of": "1999-01-01",
+   "evidence_id": "palladium-1998-199901-pal_qty-7",
+   "extraction": {
+    "extractor": "manual",
+    "extractor_version": "1",
+    "reviewed": true
+   },
+   "metric": "pal_qty",
+   "source": {
+    "artifact_hash": "sha256:571776",
+    "class": "government",
+    "source_id": "jmi99-stats"
+   },
+   "unit": "pct",
+   "value": -2
+  },
+  {
+   "as_of": "1999-01-01",
+   "evidence_id": "palladium-1998-199901-pal_share-8",
+   "extraction": {
+    "extractor": "manual",
+    "extractor_version": "1",
+    "reviewed": true
+   },
+   "metric": "pal_share",
+   "source": {
+    "artifact_hash": "sha256:627249",
+    "class": "academic",
+    "source_id": "jmi99-acad"
+   },
+   "unit": "ratio",
+   "value": 0.05
+  },
+  {
+   "as_of": "1999-01-01",
+   "evidence_id": "palladium-1998-199901-pal_redesign-9",
+   "extraction": {
+    "extractor": "manual",
+    "extractor_version": "1",
+    "reviewed": true
+   },
+   "metric": "pal_redesign",
+   "source": {
+    "artifact_hash": "sha256:466121",
+    "class": "academic",
+    "source_id": "jmi99-acad"
+   },
+   "unit": "bool",
+   "value": false
+  }
+ ]
+}

@@ -1,0 +1,181 @@
+{
+ "date": "1988-06-01",
+ "evidence": [
+  {
+   "as_of": "1988-06-01",
+   "evidence_id": "dram-1987-198806-dram_demand-0",
+   "extraction": {
+    "extractor": "manual",
+    "extractor_version": "1",
+    "reviewed": true
+   },
+   "metric": "dram_demand",
+   "source": {
+    "artifact_hash": "sha256:624003",
+    "class": "industry_data",
+    "source_id": "dt88-demand"
+   },
+   "unit": "index",
+   "value": {
+    "high": 135,
+    "low": 125
+   }
+  },
+  {
+   "as_of": "1988-06-01",
+   "evidence_id": "dram-1987-198806-dram_supply-1",
+   "extraction": {
+    "extractor": "manual",
+    "extractor_version": "1",
+    "reviewed": true
+   },
+   "metric": "dram_supply",
+   "source": {
+    "artifact_hash": "sha256:246880",
+    "class": "industry_data",
+    "source_id": "dt88-supply"
+   },
+   "unit": "index",
+   "value": {
+    "high": 108,
+    "low": 100
+   }
+  },
+  {
+   "as_of": "1988-06-01",
+   "evidence_id": "dram-1987-198806-dram_intensity-2",
+   "extraction": {
+    "extractor": "manual",
+    "extractor_version": "1",
+    "reviewed": true
+   },
+   "metric": "dram_intensity",
+   "source": {
+    "artifact_hash": "sha256:917056",
+    "class": "government",
+    "source_id": "dt88-gov"
+   },
+   "unit": "ratio",
+   "value": 0.85
+  },
+  {
+   "as_of": "1988-06-01",
+   "evidence_id": "dram-1987-198806-dram_relevant-3",
+   "extraction": {
+    "extractor": "manual",
+    "extractor_version": "1",
+    "reviewed": true
+   },
+   "metric": "dram_relevant",
+   "source": {
+    "artifact_hash": "sha256:825562",
+    "class": "government",
+    "source_id": "dt88-gov"
+   },
+   "unit": "bool",
+   "value": true
+  },
+  {
+   "as_of": "1988-06-01",
+   "evidence_id": "dram-1987-198806-dram_close-4",
+   "extraction": {
+    "extractor": "manual",
+    "extractor_version": "1",
+    "reviewed": true
+   },
+   "metric": "dram_close",
+   "source": {
+    "artifact_hash": "sha256:169149",
+    "class": "industry_data",
+    "source_id": "dt88-outlook"
+   },
+   "unit": "date",
+   "value": "1988-12-01"
+  },
+  {
+   "as_of": "1988-06-01",
+   "evidence_id": "dram-1987-198806-dram_horizon-5",
+   "extraction": {
+    "extractor": "manual",
+    "extractor_version": "1",
+    "reviewed": true
+   },
+   "metric": "dram_horizon",
+   "source": {
+    "artifact_hash": "sha256:152045",
+    "class": "industry_data",
+    "source_id": "dt88-outlook"
+   },
+   "unit": "date",
+   "value": "1989-06-01"
+  },
+  {
+   "as_of": "1988-06-01",
+   "evidence_id": "dram-1987-198806-dram_price-6",
+   "extraction": {
+    "extractor": "manual",
+    "extractor_version": "1",
+    "reviewed": true
+   },
+   "metric": "dram_price",
+   "source": {
+    "artifact_hash": "sha256:535617",
+    "class": "news",
+    "source_id": "dt88-press"
+   },
+   "unit": "pct",
+   "value": 30
+  },
+  {
+   "as_of": "1988-06-01",
+   "evidence_id": "dram-1987-198806-dram_qty-7",
+   "extraction": {
+    "extractor": "manual",
+    "extractor_version": "1",
+    "reviewed": true
+   },
+   "metric": "dram_qty",
+   "source": {
+    "artifact_hash": "sha256:520771",
+    "class": "government",
+    "source_id": "dt88-stats"
+   },
+   "unit": "pct",
+   "value": -4
+  },
+  {
+   "as_of": "1988-06-01",
+   "evidence_id": "dram-1987-198806-dram_share-8",
+   "extraction": {
+    "extractor": "manual",
+    "extractor_version": "1",
+    "reviewed": true
+   },
+   "metric": "dram_share",
+   "source": {
+    "artifact_hash": "sha256:736496",
+    "class": "academic",
+    "source_id": "dt88-acad"
+   },
+   "unit": "ratio",
+   "value": 0.04
+  },
+  {
+   "as_of": "1988-06-01",
+   "evidence_id": "dram-1987-198806-dram_redesign-9",
+   "extraction": {
+    "extractor": "manual",
+    "extractor_version": "1",
+    "reviewed": true
+   },
+   "metric": "dram_redesign",
+   "source": {
+    "artifact_hash": "sha256:001083",
+    "class": "academic",
+    "source_id": "dt88-acad"
+   },
+   "unit": "bool",
+   "value": false
+  }
+ ]
+}

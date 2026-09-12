@@ -1,0 +1,23 @@
+{
+  "earliest_kill_date": "2008-12-01",
+  "expected_first_kill_signal": "GAP",
+  "expected_states": [
+    {
+      "as_of": "2005-01-01",
+      "trade": "ACTIVE"
+    },
+    {
+      "as_of": "2008-01-01",
+      "trade": "WARNING"
+    },
+    {
+      "as_of": "2008-12-01",
+      "trade": "KILLED"
+    }
+  ],
+  "max_delay_days": 335,
+  "required_invariant": {
+    "NEED_at_kill": "TRUE"
+  },
+  "world_id": "china-metals-2003"
+}

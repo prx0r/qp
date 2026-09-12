@@ -1,0 +1,181 @@
+{
+ "date": "2023-03-01",
+ "evidence": [
+  {
+   "as_of": "2023-03-01",
+   "evidence_id": "fertilizer-2021-202303-fert_demand-0",
+   "extraction": {
+    "extractor": "manual",
+    "extractor_version": "1",
+    "reviewed": true
+   },
+   "metric": "fert_demand",
+   "source": {
+    "artifact_hash": "sha256:671107",
+    "class": "industry_data",
+    "source_id": "crU22b-demand"
+   },
+   "unit": "index",
+   "value": {
+    "high": 110,
+    "low": 105
+   }
+  },
+  {
+   "as_of": "2023-03-01",
+   "evidence_id": "fertilizer-2021-202303-fert_supply-1",
+   "extraction": {
+    "extractor": "manual",
+    "extractor_version": "1",
+    "reviewed": true
+   },
+   "metric": "fert_supply",
+   "source": {
+    "artifact_hash": "sha256:026460",
+    "class": "industry_data",
+    "source_id": "crU22b-supply"
+   },
+   "unit": "index",
+   "value": {
+    "high": 140,
+    "low": 130
+   }
+  },
+  {
+   "as_of": "2023-03-01",
+   "evidence_id": "fertilizer-2021-202303-fert_intensity-2",
+   "extraction": {
+    "extractor": "manual",
+    "extractor_version": "1",
+    "reviewed": true
+   },
+   "metric": "fert_intensity",
+   "source": {
+    "artifact_hash": "sha256:531539",
+    "class": "government",
+    "source_id": "crU22b-gov"
+   },
+   "unit": "ratio",
+   "value": 0.8
+  },
+  {
+   "as_of": "2023-03-01",
+   "evidence_id": "fertilizer-2021-202303-fert_relevant-3",
+   "extraction": {
+    "extractor": "manual",
+    "extractor_version": "1",
+    "reviewed": true
+   },
+   "metric": "fert_relevant",
+   "source": {
+    "artifact_hash": "sha256:303472",
+    "class": "government",
+    "source_id": "crU22b-gov"
+   },
+   "unit": "bool",
+   "value": true
+  },
+  {
+   "as_of": "2023-03-01",
+   "evidence_id": "fertilizer-2021-202303-fert_close-4",
+   "extraction": {
+    "extractor": "manual",
+    "extractor_version": "1",
+    "reviewed": true
+   },
+   "metric": "fert_close",
+   "source": {
+    "artifact_hash": "sha256:936334",
+    "class": "industry_data",
+    "source_id": "crU22b-outlook"
+   },
+   "unit": "date",
+   "value": "2023-04-01"
+  },
+  {
+   "as_of": "2023-03-01",
+   "evidence_id": "fertilizer-2021-202303-fert_horizon-5",
+   "extraction": {
+    "extractor": "manual",
+    "extractor_version": "1",
+    "reviewed": true
+   },
+   "metric": "fert_horizon",
+   "source": {
+    "artifact_hash": "sha256:797166",
+    "class": "industry_data",
+    "source_id": "crU22b-outlook"
+   },
+   "unit": "date",
+   "value": "2023-09-01"
+  },
+  {
+   "as_of": "2023-03-01",
+   "evidence_id": "fertilizer-2021-202303-fert_price-6",
+   "extraction": {
+    "extractor": "manual",
+    "extractor_version": "1",
+    "reviewed": true
+   },
+   "metric": "fert_price",
+   "source": {
+    "artifact_hash": "sha256:782761",
+    "class": "news",
+    "source_id": "crU22b-press"
+   },
+   "unit": "pct",
+   "value": 10
+  },
+  {
+   "as_of": "2023-03-01",
+   "evidence_id": "fertilizer-2021-202303-fert_qty-7",
+   "extraction": {
+    "extractor": "manual",
+    "extractor_version": "1",
+    "reviewed": true
+   },
+   "metric": "fert_qty",
+   "source": {
+    "artifact_hash": "sha256:146249",
+    "class": "government",
+    "source_id": "crU22b-stats"
+   },
+   "unit": "pct",
+   "value": -11
+  },
+  {
+   "as_of": "2023-03-01",
+   "evidence_id": "fertilizer-2021-202303-fert_share-8",
+   "extraction": {
+    "extractor": "manual",
+    "extractor_version": "1",
+    "reviewed": true
+   },
+   "metric": "fert_share",
+   "source": {
+    "artifact_hash": "sha256:286122",
+    "class": "academic",
+    "source_id": "crU22b-acad"
+   },
+   "unit": "ratio",
+   "value": 0.08
+  },
+  {
+   "as_of": "2023-03-01",
+   "evidence_id": "fertilizer-2021-202303-fert_redesign-9",
+   "extraction": {
+    "extractor": "manual",
+    "extractor_version": "1",
+    "reviewed": true
+   },
+   "metric": "fert_redesign",
+   "source": {
+    "artifact_hash": "sha256:215567",
+    "class": "academic",
+    "source_id": "crU22b-acad"
+   },
+   "unit": "bool",
+   "value": false
+  }
+ ]
+}

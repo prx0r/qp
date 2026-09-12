@@ -1,0 +1,11 @@
+world_id: rare-earths-2010
+trade: rare-earths
+interval_days: 180
+max_age_days: 400
+thesis: export restrictions
+predicates:
+  NEED: {intensity_metric: ree_intensity, relevance_metric: ree_relevant, min_intensity: 0.5}
+  GAP: {demand: [ree_demand], supply: [ree_supply], threshold: 1.0, min_sources: 1}
+  LAG: {close_metric: ree_close, horizon_metric: ree_horizon}
+  WTP: {price_metric: ree_price, qty_metric: ree_qty, x: 15, y: 10}
+  NOSUB: {share_metric: ree_share, threshold: 0.25, redesign_metric: ree_redesign}

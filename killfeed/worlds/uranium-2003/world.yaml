@@ -1,0 +1,11 @@
+world_id: uranium-2003
+trade: uranium
+interval_days: 365
+max_age_days: 600
+thesis: renaissance expectations + slow mines
+predicates:
+  NEED: {intensity_metric: ura_intensity, relevance_metric: ura_relevant, min_intensity: 0.5}
+  GAP: {demand: [ura_demand], supply: [ura_supply], threshold: 1.0, min_sources: 1}
+  LAG: {close_metric: ura_close, horizon_metric: ura_horizon}
+  WTP: {price_metric: ura_price, qty_metric: ura_qty, x: 15, y: 10}
+  NOSUB: {share_metric: ura_share, threshold: 0.25, redesign_metric: ura_redesign}

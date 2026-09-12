@@ -1,0 +1,23 @@
+{
+  "earliest_kill_date": "2023-03-01",
+  "expected_first_kill_signal": "GAP",
+  "expected_states": [
+    {
+      "as_of": "2021-09-01",
+      "trade": "ACTIVE"
+    },
+    {
+      "as_of": "2022-06-01",
+      "trade": "WARNING"
+    },
+    {
+      "as_of": "2023-03-01",
+      "trade": "KILLED"
+    }
+  ],
+  "max_delay_days": 273,
+  "required_invariant": {
+    "NEED_at_kill": "TRUE"
+  },
+  "world_id": "fertilizer-2021"
+}

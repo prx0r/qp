@@ -1,0 +1,181 @@
+{
+ "date": "2011-12-01",
+ "evidence": [
+  {
+   "as_of": "2011-12-01",
+   "evidence_id": "rare-earths-2010-201112-ree_demand-0",
+   "extraction": {
+    "extractor": "manual",
+    "extractor_version": "1",
+    "reviewed": true
+   },
+   "metric": "ree_demand",
+   "source": {
+    "artifact_hash": "sha256:017541",
+    "class": "industry_data",
+    "source_id": "arg11b-demand"
+   },
+   "unit": "index",
+   "value": {
+    "high": 95,
+    "low": 90
+   }
+  },
+  {
+   "as_of": "2011-12-01",
+   "evidence_id": "rare-earths-2010-201112-ree_supply-1",
+   "extraction": {
+    "extractor": "manual",
+    "extractor_version": "1",
+    "reviewed": true
+   },
+   "metric": "ree_supply",
+   "source": {
+    "artifact_hash": "sha256:540653",
+    "class": "industry_data",
+    "source_id": "arg11b-supply"
+   },
+   "unit": "index",
+   "value": {
+    "high": 115,
+    "low": 105
+   }
+  },
+  {
+   "as_of": "2011-12-01",
+   "evidence_id": "rare-earths-2010-201112-ree_intensity-2",
+   "extraction": {
+    "extractor": "manual",
+    "extractor_version": "1",
+    "reviewed": true
+   },
+   "metric": "ree_intensity",
+   "source": {
+    "artifact_hash": "sha256:205017",
+    "class": "government",
+    "source_id": "arg11b-gov"
+   },
+   "unit": "ratio",
+   "value": 0.85
+  },
+  {
+   "as_of": "2011-12-01",
+   "evidence_id": "rare-earths-2010-201112-ree_relevant-3",
+   "extraction": {
+    "extractor": "manual",
+    "extractor_version": "1",
+    "reviewed": true
+   },
+   "metric": "ree_relevant",
+   "source": {
+    "artifact_hash": "sha256:797969",
+    "class": "government",
+    "source_id": "arg11b-gov"
+   },
+   "unit": "bool",
+   "value": true
+  },
+  {
+   "as_of": "2011-12-01",
+   "evidence_id": "rare-earths-2010-201112-ree_close-4",
+   "extraction": {
+    "extractor": "manual",
+    "extractor_version": "1",
+    "reviewed": true
+   },
+   "metric": "ree_close",
+   "source": {
+    "artifact_hash": "sha256:008582",
+    "class": "industry_data",
+    "source_id": "arg11b-outlook"
+   },
+   "unit": "date",
+   "value": "2012-03-01"
+  },
+  {
+   "as_of": "2011-12-01",
+   "evidence_id": "rare-earths-2010-201112-ree_horizon-5",
+   "extraction": {
+    "extractor": "manual",
+    "extractor_version": "1",
+    "reviewed": true
+   },
+   "metric": "ree_horizon",
+   "source": {
+    "artifact_hash": "sha256:054453",
+    "class": "industry_data",
+    "source_id": "arg11b-outlook"
+   },
+   "unit": "date",
+   "value": "2012-06-01"
+  },
+  {
+   "as_of": "2011-12-01",
+   "evidence_id": "rare-earths-2010-201112-ree_price-6",
+   "extraction": {
+    "extractor": "manual",
+    "extractor_version": "1",
+    "reviewed": true
+   },
+   "metric": "ree_price",
+   "source": {
+    "artifact_hash": "sha256:997552",
+    "class": "news",
+    "source_id": "arg11b-press"
+   },
+   "unit": "pct",
+   "value": 10
+  },
+  {
+   "as_of": "2011-12-01",
+   "evidence_id": "rare-earths-2010-201112-ree_qty-7",
+   "extraction": {
+    "extractor": "manual",
+    "extractor_version": "1",
+    "reviewed": true
+   },
+   "metric": "ree_qty",
+   "source": {
+    "artifact_hash": "sha256:205898",
+    "class": "government",
+    "source_id": "arg11b-stats"
+   },
+   "unit": "pct",
+   "value": -15
+  },
+  {
+   "as_of": "2011-12-01",
+   "evidence_id": "rare-earths-2010-201112-ree_share-8",
+   "extraction": {
+    "extractor": "manual",
+    "extractor_version": "1",
+    "reviewed": true
+   },
+   "metric": "ree_share",
+   "source": {
+    "artifact_hash": "sha256:704825",
+    "class": "academic",
+    "source_id": "arg11b-acad"
+   },
+   "unit": "ratio",
+   "value": 0.3
+  },
+  {
+   "as_of": "2011-12-01",
+   "evidence_id": "rare-earths-2010-201112-ree_redesign-9",
+   "extraction": {
+    "extractor": "manual",
+    "extractor_version": "1",
+    "reviewed": true
+   },
+   "metric": "ree_redesign",
+   "source": {
+    "artifact_hash": "sha256:541426",
+    "class": "academic",
+    "source_id": "arg11b-acad"
+   },
+   "unit": "bool",
+   "value": false
+  }
+ ]
+}

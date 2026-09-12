@@ -1,0 +1,186 @@
+{
+ "date": "2000-06-01",
+ "evidence": [
+  {
+   "as_of": "2000-06-01",
+   "evidence_id": "palladium-1998-200006-pal_demand-0",
+   "extraction": {
+    "extractor": "manual",
+    "extractor_version": "1",
+    "reviewed": true
+   },
+   "metric": "pal_demand",
+   "source": {
+    "artifact_hash": "sha256:022958",
+    "class": "industry_data",
+    "source_id": "cf1-demand"
+   },
+   "unit": "index",
+   "value": {
+    "high": 150,
+    "low": 140
+   }
+  },
+  {
+   "as_of": "2000-06-01",
+   "evidence_id": "palladium-1998-200006-pal_supply-1",
+   "extraction": {
+    "extractor": "manual",
+    "extractor_version": "1",
+    "reviewed": true
+   },
+   "metric": "pal_supply",
+   "source": {
+    "artifact_hash": "sha256:233942",
+    "class": "industry_data",
+    "source_id": "cf1-supply"
+   },
+   "unit": "index",
+   "value": {
+    "high": 110,
+    "low": 100
+   }
+  },
+  {
+   "as_of": "2000-06-01",
+   "evidence_id": "palladium-1998-200006-pal_intensity-2",
+   "extraction": {
+    "extractor": "manual",
+    "extractor_version": "1",
+    "reviewed": true
+   },
+   "metric": "pal_intensity",
+   "source": {
+    "artifact_hash": "sha256:672681",
+    "class": "government",
+    "source_id": "cf1-gov"
+   },
+   "unit": "ratio",
+   "value": 0.9
+  },
+  {
+   "as_of": "2000-06-01",
+   "evidence_id": "palladium-1998-200006-pal_relevant-3",
+   "extraction": {
+    "extractor": "manual",
+    "extractor_version": "1",
+    "reviewed": true
+   },
+   "metric": "pal_relevant",
+   "source": {
+    "artifact_hash": "sha256:032587",
+    "class": "government",
+    "source_id": "cf1-gov"
+   },
+   "unit": "bool",
+   "value": true
+  },
+  {
+   "as_of": "2000-06-01",
+   "evidence_id": "palladium-1998-200006-pal_close-4",
+   "extraction": {
+    "extractor": "manual",
+    "extractor_version": "1",
+    "reviewed": true
+   },
+   "metric": "pal_close",
+   "source": {
+    "artifact_hash": "sha256:573517",
+    "class": "industry_data",
+    "source_id": "cf1-outlook"
+   },
+   "unit": "date",
+   "value": "2001-12-01"
+  },
+  {
+   "as_of": "2000-06-01",
+   "evidence_id": "palladium-1998-200006-pal_horizon-5",
+   "extraction": {
+    "extractor": "manual",
+    "extractor_version": "1",
+    "reviewed": true
+   },
+   "metric": "pal_horizon",
+   "source": {
+    "artifact_hash": "sha256:490557",
+    "class": "industry_data",
+    "source_id": "cf1-outlook"
+   },
+   "unit": "date",
+   "value": "2001-01-01"
+  },
+  {
+   "as_of": "2000-06-01",
+   "evidence_id": "palladium-1998-200006-pal_price-6",
+   "extraction": {
+    "extractor": "manual",
+    "extractor_version": "1",
+    "reviewed": true
+   },
+   "metric": "pal_price",
+   "source": {
+    "artifact_hash": "sha256:267729",
+    "class": "news",
+    "source_id": "cf1-press"
+   },
+   "unit": "pct",
+   "value": 60
+  },
+  {
+   "as_of": "2000-06-01",
+   "evidence_id": "palladium-1998-200006-pal_qty-7",
+   "extraction": {
+    "extractor": "manual",
+    "extractor_version": "1",
+    "reviewed": true
+   },
+   "metric": "pal_qty",
+   "source": {
+    "artifact_hash": "sha256:234684",
+    "class": "government",
+    "source_id": "cf1-stats"
+   },
+   "unit": "pct",
+   "value": -4
+  },
+  {
+   "as_of": "2000-06-01",
+   "evidence_id": "palladium-1998-200006-pal_share-8",
+   "extraction": {
+    "extractor": "manual",
+    "extractor_version": "1",
+    "reviewed": true
+   },
+   "metric": "pal_share",
+   "source": {
+    "artifact_hash": "sha256:942208",
+    "class": "academic",
+    "source_id": "cf1-acad"
+   },
+   "unit": "ratio",
+   "value": 0.6
+  },
+  {
+   "as_of": "2000-06-01",
+   "evidence_id": "palladium-1998-200006-pal_redesign-9",
+   "extraction": {
+    "extractor": "manual",
+    "extractor_version": "1",
+    "reviewed": true
+   },
+   "metric": "pal_redesign",
+   "source": {
+    "artifact_hash": "sha256:059421",
+    "class": "academic",
+    "source_id": "cf1-acad"
+   },
+   "unit": "bool",
+   "value": false
+  }
+ ],
+ "expected_predicates": {
+  "GAP": "TRUE",
+  "NOSUB": "FALSE"
+ },
+ "expected_trade": "WARNING"
+}

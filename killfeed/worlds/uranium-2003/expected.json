@@ -1,0 +1,23 @@
+{
+  "earliest_kill_date": "2011-06-01",
+  "expected_first_kill_signal": "NEED",
+  "expected_states": [
+    {
+      "as_of": "2005-01-01",
+      "trade": "ACTIVE"
+    },
+    {
+      "as_of": "2007-06-01",
+      "trade": "WARNING"
+    },
+    {
+      "as_of": "2011-06-01",
+      "trade": "KILLED"
+    }
+  ],
+  "max_delay_days": 1460,
+  "required_invariant": {
+    "NEED_at_kill": "FALSE"
+  },
+  "world_id": "uranium-2003"
+}

@@ -1,0 +1,185 @@
+{
+ "date": "2022-03-01",
+ "evidence": [
+  {
+   "as_of": "2022-03-01",
+   "evidence_id": "containers-2020-202203-box_demand-0",
+   "extraction": {
+    "extractor": "manual",
+    "extractor_version": "1",
+    "reviewed": true
+   },
+   "metric": "box_demand",
+   "source": {
+    "artifact_hash": "sha256:258979",
+    "class": "industry_data",
+    "source_id": "cf1-demand"
+   },
+   "unit": "index",
+   "value": {
+    "high": 150,
+    "low": 140
+   }
+  },
+  {
+   "as_of": "2022-03-01",
+   "evidence_id": "containers-2020-202203-box_supply-1",
+   "extraction": {
+    "extractor": "manual",
+    "extractor_version": "1",
+    "reviewed": true
+   },
+   "metric": "box_supply",
+   "source": {
+    "artifact_hash": "sha256:245389",
+    "class": "industry_data",
+    "source_id": "cf1-supply"
+   },
+   "unit": "index",
+   "value": {
+    "high": 110,
+    "low": 100
+   }
+  },
+  {
+   "as_of": "2022-03-01",
+   "evidence_id": "containers-2020-202203-box_intensity-2",
+   "extraction": {
+    "extractor": "manual",
+    "extractor_version": "1",
+    "reviewed": true
+   },
+   "metric": "box_intensity",
+   "source": {
+    "artifact_hash": "sha256:472612",
+    "class": "government",
+    "source_id": "cf1-gov"
+   },
+   "unit": "ratio",
+   "value": 0.85
+  },
+  {
+   "as_of": "2022-03-01",
+   "evidence_id": "containers-2020-202203-box_relevant-3",
+   "extraction": {
+    "extractor": "manual",
+    "extractor_version": "1",
+    "reviewed": true
+   },
+   "metric": "box_relevant",
+   "source": {
+    "artifact_hash": "sha256:778854",
+    "class": "government",
+    "source_id": "cf1-gov"
+   },
+   "unit": "bool",
+   "value": true
+  },
+  {
+   "as_of": "2022-03-01",
+   "evidence_id": "containers-2020-202203-box_close-4",
+   "extraction": {
+    "extractor": "manual",
+    "extractor_version": "1",
+    "reviewed": true
+   },
+   "metric": "box_close",
+   "source": {
+    "artifact_hash": "sha256:954553",
+    "class": "industry_data",
+    "source_id": "cf1-outlook"
+   },
+   "unit": "date",
+   "value": "2023-01-01"
+  },
+  {
+   "as_of": "2022-03-01",
+   "evidence_id": "containers-2020-202203-box_horizon-5",
+   "extraction": {
+    "extractor": "manual",
+    "extractor_version": "1",
+    "reviewed": true
+   },
+   "metric": "box_horizon",
+   "source": {
+    "artifact_hash": "sha256:948365",
+    "class": "industry_data",
+    "source_id": "cf1-outlook"
+   },
+   "unit": "date",
+   "value": "2022-06-01"
+  },
+  {
+   "as_of": "2022-03-01",
+   "evidence_id": "containers-2020-202203-box_price-6",
+   "extraction": {
+    "extractor": "manual",
+    "extractor_version": "1",
+    "reviewed": true
+   },
+   "metric": "box_price",
+   "source": {
+    "artifact_hash": "sha256:063907",
+    "class": "news",
+    "source_id": "cf1-press"
+   },
+   "unit": "pct",
+   "value": 40
+  },
+  {
+   "as_of": "2022-03-01",
+   "evidence_id": "containers-2020-202203-box_qty-7",
+   "extraction": {
+    "extractor": "manual",
+    "extractor_version": "1",
+    "reviewed": true
+   },
+   "metric": "box_qty",
+   "source": {
+    "artifact_hash": "sha256:929250",
+    "class": "government",
+    "source_id": "cf1-stats"
+   },
+   "unit": "pct",
+   "value": -14
+  },
+  {
+   "as_of": "2022-03-01",
+   "evidence_id": "containers-2020-202203-box_share-8",
+   "extraction": {
+    "extractor": "manual",
+    "extractor_version": "1",
+    "reviewed": true
+   },
+   "metric": "box_share",
+   "source": {
+    "artifact_hash": "sha256:982278",
+    "class": "academic",
+    "source_id": "cf1-acad"
+   },
+   "unit": "ratio",
+   "value": 0.06
+  },
+  {
+   "as_of": "2022-03-01",
+   "evidence_id": "containers-2020-202203-box_redesign-9",
+   "extraction": {
+    "extractor": "manual",
+    "extractor_version": "1",
+    "reviewed": true
+   },
+   "metric": "box_redesign",
+   "source": {
+    "artifact_hash": "sha256:225163",
+    "class": "academic",
+    "source_id": "cf1-acad"
+   },
+   "unit": "bool",
+   "value": false
+  }
+ ],
+ "expected_predicates": {
+  "GAP": "TRUE"
+ },
+ "expected_trade": "WARNING"
+}

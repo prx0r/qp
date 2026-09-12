@@ -1,0 +1,181 @@
+{
+ "date": "2022-03-01",
+ "evidence": [
+  {
+   "as_of": "2022-03-01",
+   "evidence_id": "containers-2020-202203-box_demand-0",
+   "extraction": {
+    "extractor": "manual",
+    "extractor_version": "1",
+    "reviewed": true
+   },
+   "metric": "box_demand",
+   "source": {
+    "artifact_hash": "sha256:735422",
+    "class": "industry_data",
+    "source_id": "drew22a-demand"
+   },
+   "unit": "index",
+   "value": {
+    "high": 150,
+    "low": 140
+   }
+  },
+  {
+   "as_of": "2022-03-01",
+   "evidence_id": "containers-2020-202203-box_supply-1",
+   "extraction": {
+    "extractor": "manual",
+    "extractor_version": "1",
+    "reviewed": true
+   },
+   "metric": "box_supply",
+   "source": {
+    "artifact_hash": "sha256:386483",
+    "class": "industry_data",
+    "source_id": "drew22a-supply"
+   },
+   "unit": "index",
+   "value": {
+    "high": 125,
+    "low": 115
+   }
+  },
+  {
+   "as_of": "2022-03-01",
+   "evidence_id": "containers-2020-202203-box_intensity-2",
+   "extraction": {
+    "extractor": "manual",
+    "extractor_version": "1",
+    "reviewed": true
+   },
+   "metric": "box_intensity",
+   "source": {
+    "artifact_hash": "sha256:546966",
+    "class": "government",
+    "source_id": "drew22a-gov"
+   },
+   "unit": "ratio",
+   "value": 0.85
+  },
+  {
+   "as_of": "2022-03-01",
+   "evidence_id": "containers-2020-202203-box_relevant-3",
+   "extraction": {
+    "extractor": "manual",
+    "extractor_version": "1",
+    "reviewed": true
+   },
+   "metric": "box_relevant",
+   "source": {
+    "artifact_hash": "sha256:375548",
+    "class": "government",
+    "source_id": "drew22a-gov"
+   },
+   "unit": "bool",
+   "value": true
+  },
+  {
+   "as_of": "2022-03-01",
+   "evidence_id": "containers-2020-202203-box_close-4",
+   "extraction": {
+    "extractor": "manual",
+    "extractor_version": "1",
+    "reviewed": true
+   },
+   "metric": "box_close",
+   "source": {
+    "artifact_hash": "sha256:699159",
+    "class": "industry_data",
+    "source_id": "drew22a-outlook"
+   },
+   "unit": "date",
+   "value": "2022-12-01"
+  },
+  {
+   "as_of": "2022-03-01",
+   "evidence_id": "containers-2020-202203-box_horizon-5",
+   "extraction": {
+    "extractor": "manual",
+    "extractor_version": "1",
+    "reviewed": true
+   },
+   "metric": "box_horizon",
+   "source": {
+    "artifact_hash": "sha256:250936",
+    "class": "industry_data",
+    "source_id": "drew22a-outlook"
+   },
+   "unit": "date",
+   "value": "2022-06-01"
+  },
+  {
+   "as_of": "2022-03-01",
+   "evidence_id": "containers-2020-202203-box_price-6",
+   "extraction": {
+    "extractor": "manual",
+    "extractor_version": "1",
+    "reviewed": true
+   },
+   "metric": "box_price",
+   "source": {
+    "artifact_hash": "sha256:531451",
+    "class": "news",
+    "source_id": "drew22a-press"
+   },
+   "unit": "pct",
+   "value": 40
+  },
+  {
+   "as_of": "2022-03-01",
+   "evidence_id": "containers-2020-202203-box_qty-7",
+   "extraction": {
+    "extractor": "manual",
+    "extractor_version": "1",
+    "reviewed": true
+   },
+   "metric": "box_qty",
+   "source": {
+    "artifact_hash": "sha256:743390",
+    "class": "government",
+    "source_id": "drew22a-stats"
+   },
+   "unit": "pct",
+   "value": -14
+  },
+  {
+   "as_of": "2022-03-01",
+   "evidence_id": "containers-2020-202203-box_share-8",
+   "extraction": {
+    "extractor": "manual",
+    "extractor_version": "1",
+    "reviewed": true
+   },
+   "metric": "box_share",
+   "source": {
+    "artifact_hash": "sha256:570888",
+    "class": "academic",
+    "source_id": "drew22a-acad"
+   },
+   "unit": "ratio",
+   "value": 0.06
+  },
+  {
+   "as_of": "2022-03-01",
+   "evidence_id": "containers-2020-202203-box_redesign-9",
+   "extraction": {
+    "extractor": "manual",
+    "extractor_version": "1",
+    "reviewed": true
+   },
+   "metric": "box_redesign",
+   "source": {
+    "artifact_hash": "sha256:413920",
+    "class": "academic",
+    "source_id": "drew22a-acad"
+   },
+   "unit": "bool",
+   "value": false
+  }
+ ]
+}

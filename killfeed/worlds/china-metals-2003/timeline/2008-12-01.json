@@ -1,0 +1,181 @@
+{
+ "date": "2008-12-01",
+ "evidence": [
+  {
+   "as_of": "2008-12-01",
+   "evidence_id": "china-metals-2003-200812-ore_demand-0",
+   "extraction": {
+    "extractor": "manual",
+    "extractor_version": "1",
+    "reviewed": true
+   },
+   "metric": "ore_demand",
+   "source": {
+    "artifact_hash": "sha256:701434",
+    "class": "industry_data",
+    "source_id": "bhp08b-demand"
+   },
+   "unit": "index",
+   "value": {
+    "high": 105,
+    "low": 100
+   }
+  },
+  {
+   "as_of": "2008-12-01",
+   "evidence_id": "china-metals-2003-200812-ore_supply-1",
+   "extraction": {
+    "extractor": "manual",
+    "extractor_version": "1",
+    "reviewed": true
+   },
+   "metric": "ore_supply",
+   "source": {
+    "artifact_hash": "sha256:388931",
+    "class": "industry_data",
+    "source_id": "bhp08b-supply"
+   },
+   "unit": "index",
+   "value": {
+    "high": 125,
+    "low": 115
+   }
+  },
+  {
+   "as_of": "2008-12-01",
+   "evidence_id": "china-metals-2003-200812-ore_intensity-2",
+   "extraction": {
+    "extractor": "manual",
+    "extractor_version": "1",
+    "reviewed": true
+   },
+   "metric": "ore_intensity",
+   "source": {
+    "artifact_hash": "sha256:243708",
+    "class": "government",
+    "source_id": "bhp08b-gov"
+   },
+   "unit": "ratio",
+   "value": 0.6
+  },
+  {
+   "as_of": "2008-12-01",
+   "evidence_id": "china-metals-2003-200812-ore_relevant-3",
+   "extraction": {
+    "extractor": "manual",
+    "extractor_version": "1",
+    "reviewed": true
+   },
+   "metric": "ore_relevant",
+   "source": {
+    "artifact_hash": "sha256:950552",
+    "class": "government",
+    "source_id": "bhp08b-gov"
+   },
+   "unit": "bool",
+   "value": true
+  },
+  {
+   "as_of": "2008-12-01",
+   "evidence_id": "china-metals-2003-200812-ore_close-4",
+   "extraction": {
+    "extractor": "manual",
+    "extractor_version": "1",
+    "reviewed": true
+   },
+   "metric": "ore_close",
+   "source": {
+    "artifact_hash": "sha256:454521",
+    "class": "industry_data",
+    "source_id": "bhp08b-outlook"
+   },
+   "unit": "date",
+   "value": "2009-03-01"
+  },
+  {
+   "as_of": "2008-12-01",
+   "evidence_id": "china-metals-2003-200812-ore_horizon-5",
+   "extraction": {
+    "extractor": "manual",
+    "extractor_version": "1",
+    "reviewed": true
+   },
+   "metric": "ore_horizon",
+   "source": {
+    "artifact_hash": "sha256:901935",
+    "class": "industry_data",
+    "source_id": "bhp08b-outlook"
+   },
+   "unit": "date",
+   "value": "2009-12-01"
+  },
+  {
+   "as_of": "2008-12-01",
+   "evidence_id": "china-metals-2003-200812-ore_price-6",
+   "extraction": {
+    "extractor": "manual",
+    "extractor_version": "1",
+    "reviewed": true
+   },
+   "metric": "ore_price",
+   "source": {
+    "artifact_hash": "sha256:195018",
+    "class": "news",
+    "source_id": "bhp08b-press"
+   },
+   "unit": "pct",
+   "value": 5
+  },
+  {
+   "as_of": "2008-12-01",
+   "evidence_id": "china-metals-2003-200812-ore_qty-7",
+   "extraction": {
+    "extractor": "manual",
+    "extractor_version": "1",
+    "reviewed": true
+   },
+   "metric": "ore_qty",
+   "source": {
+    "artifact_hash": "sha256:317855",
+    "class": "government",
+    "source_id": "bhp08b-stats"
+   },
+   "unit": "pct",
+   "value": -20
+  },
+  {
+   "as_of": "2008-12-01",
+   "evidence_id": "china-metals-2003-200812-ore_share-8",
+   "extraction": {
+    "extractor": "manual",
+    "extractor_version": "1",
+    "reviewed": true
+   },
+   "metric": "ore_share",
+   "source": {
+    "artifact_hash": "sha256:030088",
+    "class": "academic",
+    "source_id": "bhp08b-acad"
+   },
+   "unit": "ratio",
+   "value": 0.06
+  },
+  {
+   "as_of": "2008-12-01",
+   "evidence_id": "china-metals-2003-200812-ore_redesign-9",
+   "extraction": {
+    "extractor": "manual",
+    "extractor_version": "1",
+    "reviewed": true
+   },
+   "metric": "ore_redesign",
+   "source": {
+    "artifact_hash": "sha256:833141",
+    "class": "academic",
+    "source_id": "bhp08b-acad"
+   },
+   "unit": "bool",
+   "value": false
+  }
+ ]
+}

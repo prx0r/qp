@@ -1,0 +1,181 @@
+{
+ "date": "2011-06-01",
+ "evidence": [
+  {
+   "as_of": "2011-06-01",
+   "evidence_id": "uranium-2003-201106-ura_demand-0",
+   "extraction": {
+    "extractor": "manual",
+    "extractor_version": "1",
+    "reviewed": true
+   },
+   "metric": "ura_demand",
+   "source": {
+    "artifact_hash": "sha256:037967",
+    "class": "industry_data",
+    "source_id": "uxc11-demand"
+   },
+   "unit": "index",
+   "value": {
+    "high": 85,
+    "low": 80
+   }
+  },
+  {
+   "as_of": "2011-06-01",
+   "evidence_id": "uranium-2003-201106-ura_supply-1",
+   "extraction": {
+    "extractor": "manual",
+    "extractor_version": "1",
+    "reviewed": true
+   },
+   "metric": "ura_supply",
+   "source": {
+    "artifact_hash": "sha256:162672",
+    "class": "industry_data",
+    "source_id": "uxc11-supply"
+   },
+   "unit": "index",
+   "value": {
+    "high": 120,
+    "low": 110
+   }
+  },
+  {
+   "as_of": "2011-06-01",
+   "evidence_id": "uranium-2003-201106-ura_intensity-2",
+   "extraction": {
+    "extractor": "manual",
+    "extractor_version": "1",
+    "reviewed": true
+   },
+   "metric": "ura_intensity",
+   "source": {
+    "artifact_hash": "sha256:663176",
+    "class": "government",
+    "source_id": "uxc11-gov"
+   },
+   "unit": "ratio",
+   "value": 0.3
+  },
+  {
+   "as_of": "2011-06-01",
+   "evidence_id": "uranium-2003-201106-ura_relevant-3",
+   "extraction": {
+    "extractor": "manual",
+    "extractor_version": "1",
+    "reviewed": true
+   },
+   "metric": "ura_relevant",
+   "source": {
+    "artifact_hash": "sha256:237977",
+    "class": "government",
+    "source_id": "uxc11-gov"
+   },
+   "unit": "bool",
+   "value": false
+  },
+  {
+   "as_of": "2011-06-01",
+   "evidence_id": "uranium-2003-201106-ura_close-4",
+   "extraction": {
+    "extractor": "manual",
+    "extractor_version": "1",
+    "reviewed": true
+   },
+   "metric": "ura_close",
+   "source": {
+    "artifact_hash": "sha256:180192",
+    "class": "industry_data",
+    "source_id": "uxc11-outlook"
+   },
+   "unit": "date",
+   "value": "2011-09-01"
+  },
+  {
+   "as_of": "2011-06-01",
+   "evidence_id": "uranium-2003-201106-ura_horizon-5",
+   "extraction": {
+    "extractor": "manual",
+    "extractor_version": "1",
+    "reviewed": true
+   },
+   "metric": "ura_horizon",
+   "source": {
+    "artifact_hash": "sha256:511676",
+    "class": "industry_data",
+    "source_id": "uxc11-outlook"
+   },
+   "unit": "date",
+   "value": "2012-01-01"
+  },
+  {
+   "as_of": "2011-06-01",
+   "evidence_id": "uranium-2003-201106-ura_price-6",
+   "extraction": {
+    "extractor": "manual",
+    "extractor_version": "1",
+    "reviewed": true
+   },
+   "metric": "ura_price",
+   "source": {
+    "artifact_hash": "sha256:862378",
+    "class": "news",
+    "source_id": "uxc11-press"
+   },
+   "unit": "pct",
+   "value": -10
+  },
+  {
+   "as_of": "2011-06-01",
+   "evidence_id": "uranium-2003-201106-ura_qty-7",
+   "extraction": {
+    "extractor": "manual",
+    "extractor_version": "1",
+    "reviewed": true
+   },
+   "metric": "ura_qty",
+   "source": {
+    "artifact_hash": "sha256:068461",
+    "class": "government",
+    "source_id": "uxc11-stats"
+   },
+   "unit": "pct",
+   "value": -25
+  },
+  {
+   "as_of": "2011-06-01",
+   "evidence_id": "uranium-2003-201106-ura_share-8",
+   "extraction": {
+    "extractor": "manual",
+    "extractor_version": "1",
+    "reviewed": true
+   },
+   "metric": "ura_share",
+   "source": {
+    "artifact_hash": "sha256:375097",
+    "class": "academic",
+    "source_id": "uxc11-acad"
+   },
+   "unit": "ratio",
+   "value": 0.05
+  },
+  {
+   "as_of": "2011-06-01",
+   "evidence_id": "uranium-2003-201106-ura_redesign-9",
+   "extraction": {
+    "extractor": "manual",
+    "extractor_version": "1",
+    "reviewed": true
+   },
+   "metric": "ura_redesign",
+   "source": {
+    "artifact_hash": "sha256:959174",
+    "class": "academic",
+    "source_id": "uxc11-acad"
+   },
+   "unit": "bool",
+   "value": false
+  }
+ ]
+}

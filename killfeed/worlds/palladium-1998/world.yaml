@@ -1,0 +1,11 @@
+world_id: palladium-1998
+trade: palladium
+interval_days: 365
+max_age_days: 500
+thesis: catalyst demand + Russian constraint
+predicates:
+  NEED: {intensity_metric: pal_intensity, relevance_metric: pal_relevant, min_intensity: 0.5}
+  GAP: {demand: [pal_demand], supply: [pal_supply], threshold: 1.0, min_sources: 1}
+  LAG: {close_metric: pal_close, horizon_metric: pal_horizon}
+  WTP: {price_metric: pal_price, qty_metric: pal_qty, x: 15, y: 10}
+  NOSUB: {share_metric: pal_share, threshold: 0.25, redesign_metric: pal_redesign}

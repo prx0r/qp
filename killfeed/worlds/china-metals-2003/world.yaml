@@ -1,0 +1,11 @@
+world_id: china-metals-2003
+trade: iron-ore
+interval_days: 365
+max_age_days: 500
+thesis: China infrastructure demand
+predicates:
+  NEED: {intensity_metric: ore_intensity, relevance_metric: ore_relevant, min_intensity: 0.5}
+  GAP: {demand: [ore_demand], supply: [ore_supply], threshold: 1.0, min_sources: 1}
+  LAG: {close_metric: ore_close, horizon_metric: ore_horizon}
+  WTP: {price_metric: ore_price, qty_metric: ore_qty, x: 15, y: 10}
+  NOSUB: {share_metric: ore_share, threshold: 0.25, redesign_metric: ore_redesign}

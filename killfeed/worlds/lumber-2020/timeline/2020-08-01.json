@@ -1,0 +1,181 @@
+{
+ "date": "2020-08-01",
+ "evidence": [
+  {
+   "as_of": "2020-08-01",
+   "evidence_id": "lumber-2020-202008-lum_demand-0",
+   "extraction": {
+    "extractor": "manual",
+    "extractor_version": "1",
+    "reviewed": true
+   },
+   "metric": "lum_demand",
+   "source": {
+    "artifact_hash": "sha256:787371",
+    "class": "industry_data",
+    "source_id": "risi20-demand"
+   },
+   "unit": "index",
+   "value": {
+    "high": 160,
+    "low": 150
+   }
+  },
+  {
+   "as_of": "2020-08-01",
+   "evidence_id": "lumber-2020-202008-lum_supply-1",
+   "extraction": {
+    "extractor": "manual",
+    "extractor_version": "1",
+    "reviewed": true
+   },
+   "metric": "lum_supply",
+   "source": {
+    "artifact_hash": "sha256:341709",
+    "class": "industry_data",
+    "source_id": "risi20-supply"
+   },
+   "unit": "index",
+   "value": {
+    "high": 105,
+    "low": 95
+   }
+  },
+  {
+   "as_of": "2020-08-01",
+   "evidence_id": "lumber-2020-202008-lum_intensity-2",
+   "extraction": {
+    "extractor": "manual",
+    "extractor_version": "1",
+    "reviewed": true
+   },
+   "metric": "lum_intensity",
+   "source": {
+    "artifact_hash": "sha256:142452",
+    "class": "government",
+    "source_id": "risi20-gov"
+   },
+   "unit": "ratio",
+   "value": 0.85
+  },
+  {
+   "as_of": "2020-08-01",
+   "evidence_id": "lumber-2020-202008-lum_relevant-3",
+   "extraction": {
+    "extractor": "manual",
+    "extractor_version": "1",
+    "reviewed": true
+   },
+   "metric": "lum_relevant",
+   "source": {
+    "artifact_hash": "sha256:064095",
+    "class": "government",
+    "source_id": "risi20-gov"
+   },
+   "unit": "bool",
+   "value": true
+  },
+  {
+   "as_of": "2020-08-01",
+   "evidence_id": "lumber-2020-202008-lum_close-4",
+   "extraction": {
+    "extractor": "manual",
+    "extractor_version": "1",
+    "reviewed": true
+   },
+   "metric": "lum_close",
+   "source": {
+    "artifact_hash": "sha256:750890",
+    "class": "industry_data",
+    "source_id": "risi20-outlook"
+   },
+   "unit": "date",
+   "value": "2021-06-01"
+  },
+  {
+   "as_of": "2020-08-01",
+   "evidence_id": "lumber-2020-202008-lum_horizon-5",
+   "extraction": {
+    "extractor": "manual",
+    "extractor_version": "1",
+    "reviewed": true
+   },
+   "metric": "lum_horizon",
+   "source": {
+    "artifact_hash": "sha256:173109",
+    "class": "industry_data",
+    "source_id": "risi20-outlook"
+   },
+   "unit": "date",
+   "value": "2021-01-01"
+  },
+  {
+   "as_of": "2020-08-01",
+   "evidence_id": "lumber-2020-202008-lum_price-6",
+   "extraction": {
+    "extractor": "manual",
+    "extractor_version": "1",
+    "reviewed": true
+   },
+   "metric": "lum_price",
+   "source": {
+    "artifact_hash": "sha256:315246",
+    "class": "news",
+    "source_id": "risi20-press"
+   },
+   "unit": "pct",
+   "value": 100
+  },
+  {
+   "as_of": "2020-08-01",
+   "evidence_id": "lumber-2020-202008-lum_qty-7",
+   "extraction": {
+    "extractor": "manual",
+    "extractor_version": "1",
+    "reviewed": true
+   },
+   "metric": "lum_qty",
+   "source": {
+    "artifact_hash": "sha256:783366",
+    "class": "government",
+    "source_id": "risi20-stats"
+   },
+   "unit": "pct",
+   "value": -2
+  },
+  {
+   "as_of": "2020-08-01",
+   "evidence_id": "lumber-2020-202008-lum_share-8",
+   "extraction": {
+    "extractor": "manual",
+    "extractor_version": "1",
+    "reviewed": true
+   },
+   "metric": "lum_share",
+   "source": {
+    "artifact_hash": "sha256:444961",
+    "class": "academic",
+    "source_id": "risi20-acad"
+   },
+   "unit": "ratio",
+   "value": 0.05
+  },
+  {
+   "as_of": "2020-08-01",
+   "evidence_id": "lumber-2020-202008-lum_redesign-9",
+   "extraction": {
+    "extractor": "manual",
+    "extractor_version": "1",
+    "reviewed": true
+   },
+   "metric": "lum_redesign",
+   "source": {
+    "artifact_hash": "sha256:202627",
+    "class": "academic",
+    "source_id": "risi20-acad"
+   },
+   "unit": "bool",
+   "value": false
+  }
+ ]
+}

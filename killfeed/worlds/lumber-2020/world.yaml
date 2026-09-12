@@ -1,0 +1,11 @@
+world_id: lumber-2020
+trade: lumber
+interval_days: 120
+max_age_days: 300
+thesis: housing demand vs idled mills
+predicates:
+  NEED: {intensity_metric: lum_intensity, relevance_metric: lum_relevant, min_intensity: 0.5}
+  GAP: {demand: [lum_demand], supply: [lum_supply], threshold: 1.0, min_sources: 1}
+  LAG: {close_metric: lum_close, horizon_metric: lum_horizon}
+  WTP: {price_metric: lum_price, qty_metric: lum_qty, x: 15, y: 10}
+  NOSUB: {share_metric: lum_share, threshold: 0.25, redesign_metric: lum_redesign}

@@ -1,0 +1,181 @@
+{
+ "date": "2021-09-01",
+ "evidence": [
+  {
+   "as_of": "2021-09-01",
+   "evidence_id": "fertilizer-2021-202109-fert_demand-0",
+   "extraction": {
+    "extractor": "manual",
+    "extractor_version": "1",
+    "reviewed": true
+   },
+   "metric": "fert_demand",
+   "source": {
+    "artifact_hash": "sha256:351403",
+    "class": "industry_data",
+    "source_id": "crU21-demand"
+   },
+   "unit": "index",
+   "value": {
+    "high": 150,
+    "low": 140
+   }
+  },
+  {
+   "as_of": "2021-09-01",
+   "evidence_id": "fertilizer-2021-202109-fert_supply-1",
+   "extraction": {
+    "extractor": "manual",
+    "extractor_version": "1",
+    "reviewed": true
+   },
+   "metric": "fert_supply",
+   "source": {
+    "artifact_hash": "sha256:175037",
+    "class": "industry_data",
+    "source_id": "crU21-supply"
+   },
+   "unit": "index",
+   "value": {
+    "high": 105,
+    "low": 95
+   }
+  },
+  {
+   "as_of": "2021-09-01",
+   "evidence_id": "fertilizer-2021-202109-fert_intensity-2",
+   "extraction": {
+    "extractor": "manual",
+    "extractor_version": "1",
+    "reviewed": true
+   },
+   "metric": "fert_intensity",
+   "source": {
+    "artifact_hash": "sha256:457719",
+    "class": "government",
+    "source_id": "crU21-gov"
+   },
+   "unit": "ratio",
+   "value": 0.85
+  },
+  {
+   "as_of": "2021-09-01",
+   "evidence_id": "fertilizer-2021-202109-fert_relevant-3",
+   "extraction": {
+    "extractor": "manual",
+    "extractor_version": "1",
+    "reviewed": true
+   },
+   "metric": "fert_relevant",
+   "source": {
+    "artifact_hash": "sha256:608788",
+    "class": "government",
+    "source_id": "crU21-gov"
+   },
+   "unit": "bool",
+   "value": true
+  },
+  {
+   "as_of": "2021-09-01",
+   "evidence_id": "fertilizer-2021-202109-fert_close-4",
+   "extraction": {
+    "extractor": "manual",
+    "extractor_version": "1",
+    "reviewed": true
+   },
+   "metric": "fert_close",
+   "source": {
+    "artifact_hash": "sha256:144439",
+    "class": "industry_data",
+    "source_id": "crU21-outlook"
+   },
+   "unit": "date",
+   "value": "2023-01-01"
+  },
+  {
+   "as_of": "2021-09-01",
+   "evidence_id": "fertilizer-2021-202109-fert_horizon-5",
+   "extraction": {
+    "extractor": "manual",
+    "extractor_version": "1",
+    "reviewed": true
+   },
+   "metric": "fert_horizon",
+   "source": {
+    "artifact_hash": "sha256:595281",
+    "class": "industry_data",
+    "source_id": "crU21-outlook"
+   },
+   "unit": "date",
+   "value": "2022-06-01"
+  },
+  {
+   "as_of": "2021-09-01",
+   "evidence_id": "fertilizer-2021-202109-fert_price-6",
+   "extraction": {
+    "extractor": "manual",
+    "extractor_version": "1",
+    "reviewed": true
+   },
+   "metric": "fert_price",
+   "source": {
+    "artifact_hash": "sha256:345901",
+    "class": "news",
+    "source_id": "crU21-press"
+   },
+   "unit": "pct",
+   "value": 110
+  },
+  {
+   "as_of": "2021-09-01",
+   "evidence_id": "fertilizer-2021-202109-fert_qty-7",
+   "extraction": {
+    "extractor": "manual",
+    "extractor_version": "1",
+    "reviewed": true
+   },
+   "metric": "fert_qty",
+   "source": {
+    "artifact_hash": "sha256:208555",
+    "class": "government",
+    "source_id": "crU21-stats"
+   },
+   "unit": "pct",
+   "value": -3
+  },
+  {
+   "as_of": "2021-09-01",
+   "evidence_id": "fertilizer-2021-202109-fert_share-8",
+   "extraction": {
+    "extractor": "manual",
+    "extractor_version": "1",
+    "reviewed": true
+   },
+   "metric": "fert_share",
+   "source": {
+    "artifact_hash": "sha256:495333",
+    "class": "academic",
+    "source_id": "crU21-acad"
+   },
+   "unit": "ratio",
+   "value": 0.06
+  },
+  {
+   "as_of": "2021-09-01",
+   "evidence_id": "fertilizer-2021-202109-fert_redesign-9",
+   "extraction": {
+    "extractor": "manual",
+    "extractor_version": "1",
+    "reviewed": true
+   },
+   "metric": "fert_redesign",
+   "source": {
+    "artifact_hash": "sha256:092032",
+    "class": "academic",
+    "source_id": "crU21-acad"
+   },
+   "unit": "bool",
+   "value": false
+  }
+ ]
+}

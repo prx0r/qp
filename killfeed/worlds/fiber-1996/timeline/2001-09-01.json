@@ -1,0 +1,181 @@
+{
+ "date": "2001-09-01",
+ "evidence": [
+  {
+   "as_of": "2001-09-01",
+   "evidence_id": "fiber-1996-200109-fiber_demand-0",
+   "extraction": {
+    "extractor": "manual",
+    "extractor_version": "1",
+    "reviewed": true
+   },
+   "metric": "fiber_demand",
+   "source": {
+    "artifact_hash": "sha256:828642",
+    "class": "industry_data",
+    "source_id": "itu01-demand"
+   },
+   "unit": "index",
+   "value": {
+    "high": 170,
+    "low": 160
+   }
+  },
+  {
+   "as_of": "2001-09-01",
+   "evidence_id": "fiber-1996-200109-fiber_supply-1",
+   "extraction": {
+    "extractor": "manual",
+    "extractor_version": "1",
+    "reviewed": true
+   },
+   "metric": "fiber_supply",
+   "source": {
+    "artifact_hash": "sha256:223114",
+    "class": "industry_data",
+    "source_id": "itu01-supply"
+   },
+   "unit": "index",
+   "value": {
+    "high": 220,
+    "low": 200
+   }
+  },
+  {
+   "as_of": "2001-09-01",
+   "evidence_id": "fiber-1996-200109-fiber_intensity-2",
+   "extraction": {
+    "extractor": "manual",
+    "extractor_version": "1",
+    "reviewed": true
+   },
+   "metric": "fiber_intensity",
+   "source": {
+    "artifact_hash": "sha256:916967",
+    "class": "government",
+    "source_id": "itu01-gov"
+   },
+   "unit": "ratio",
+   "value": 0.85
+  },
+  {
+   "as_of": "2001-09-01",
+   "evidence_id": "fiber-1996-200109-fiber_relevant-3",
+   "extraction": {
+    "extractor": "manual",
+    "extractor_version": "1",
+    "reviewed": true
+   },
+   "metric": "fiber_relevant",
+   "source": {
+    "artifact_hash": "sha256:008650",
+    "class": "government",
+    "source_id": "itu01-gov"
+   },
+   "unit": "bool",
+   "value": true
+  },
+  {
+   "as_of": "2001-09-01",
+   "evidence_id": "fiber-1996-200109-fiber_close-4",
+   "extraction": {
+    "extractor": "manual",
+    "extractor_version": "1",
+    "reviewed": true
+   },
+   "metric": "fiber_close",
+   "source": {
+    "artifact_hash": "sha256:424697",
+    "class": "industry_data",
+    "source_id": "itu01-outlook"
+   },
+   "unit": "date",
+   "value": "2001-06-01"
+  },
+  {
+   "as_of": "2001-09-01",
+   "evidence_id": "fiber-1996-200109-fiber_horizon-5",
+   "extraction": {
+    "extractor": "manual",
+    "extractor_version": "1",
+    "reviewed": true
+   },
+   "metric": "fiber_horizon",
+   "source": {
+    "artifact_hash": "sha256:645144",
+    "class": "industry_data",
+    "source_id": "itu01-outlook"
+   },
+   "unit": "date",
+   "value": "2002-01-01"
+  },
+  {
+   "as_of": "2001-09-01",
+   "evidence_id": "fiber-1996-200109-fiber_price-6",
+   "extraction": {
+    "extractor": "manual",
+    "extractor_version": "1",
+    "reviewed": true
+   },
+   "metric": "fiber_price",
+   "source": {
+    "artifact_hash": "sha256:386656",
+    "class": "news",
+    "source_id": "itu01-press"
+   },
+   "unit": "pct",
+   "value": 5
+  },
+  {
+   "as_of": "2001-09-01",
+   "evidence_id": "fiber-1996-200109-fiber_qty-7",
+   "extraction": {
+    "extractor": "manual",
+    "extractor_version": "1",
+    "reviewed": true
+   },
+   "metric": "fiber_qty",
+   "source": {
+    "artifact_hash": "sha256:543566",
+    "class": "government",
+    "source_id": "itu01-stats"
+   },
+   "unit": "pct",
+   "value": -12
+  },
+  {
+   "as_of": "2001-09-01",
+   "evidence_id": "fiber-1996-200109-fiber_share-8",
+   "extraction": {
+    "extractor": "manual",
+    "extractor_version": "1",
+    "reviewed": true
+   },
+   "metric": "fiber_share",
+   "source": {
+    "artifact_hash": "sha256:606627",
+    "class": "academic",
+    "source_id": "itu01-acad"
+   },
+   "unit": "ratio",
+   "value": 0.3
+  },
+  {
+   "as_of": "2001-09-01",
+   "evidence_id": "fiber-1996-200109-fiber_redesign-9",
+   "extraction": {
+    "extractor": "manual",
+    "extractor_version": "1",
+    "reviewed": true
+   },
+   "metric": "fiber_redesign",
+   "source": {
+    "artifact_hash": "sha256:150685",
+    "class": "academic",
+    "source_id": "itu01-acad"
+   },
+   "unit": "bool",
+   "value": false
+  }
+ ]
+}
