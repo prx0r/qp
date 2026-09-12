@@ -1,0 +1,186 @@
+{
+ "date": "2000-01-01",
+ "evidence": [
+  {
+   "as_of": "2000-01-01",
+   "evidence_id": "fiber-1996-200001-fiber_demand-0",
+   "extraction": {
+    "extractor": "manual",
+    "extractor_version": "1",
+    "reviewed": true
+   },
+   "metric": "fiber_demand",
+   "source": {
+    "artifact_hash": "sha256:67ea34",
+    "class": "industry_data",
+    "source_id": "cf2-demand"
+   },
+   "unit": "index",
+   "value": {
+    "high": 160,
+    "low": 150
+   }
+  },
+  {
+   "as_of": "2000-01-01",
+   "evidence_id": "fiber-1996-200001-fiber_supply-1",
+   "extraction": {
+    "extractor": "manual",
+    "extractor_version": "1",
+    "reviewed": true
+   },
+   "metric": "fiber_supply",
+   "source": {
+    "artifact_hash": "sha256:61da53",
+    "class": "industry_data",
+    "source_id": "cf2-supply"
+   },
+   "unit": "index",
+   "value": {
+    "high": 125,
+    "low": 115
+   }
+  },
+  {
+   "as_of": "2000-01-01",
+   "evidence_id": "fiber-1996-200001-fiber_intensity-2",
+   "extraction": {
+    "extractor": "manual",
+    "extractor_version": "1",
+    "reviewed": true
+   },
+   "metric": "fiber_intensity",
+   "source": {
+    "artifact_hash": "sha256:1aa9eb",
+    "class": "government",
+    "source_id": "cf2-gov"
+   },
+   "unit": "ratio",
+   "value": 0.9
+  },
+  {
+   "as_of": "2000-01-01",
+   "evidence_id": "fiber-1996-200001-fiber_relevant-3",
+   "extraction": {
+    "extractor": "manual",
+    "extractor_version": "1",
+    "reviewed": true
+   },
+   "metric": "fiber_relevant",
+   "source": {
+    "artifact_hash": "sha256:01341c",
+    "class": "government",
+    "source_id": "cf2-gov"
+   },
+   "unit": "bool",
+   "value": true
+  },
+  {
+   "as_of": "2000-01-01",
+   "evidence_id": "fiber-1996-200001-fiber_close-4",
+   "extraction": {
+    "extractor": "manual",
+    "extractor_version": "1",
+    "reviewed": true
+   },
+   "metric": "fiber_close",
+   "source": {
+    "artifact_hash": "sha256:075386",
+    "class": "industry_data",
+    "source_id": "cf2-outlook"
+   },
+   "unit": "date",
+   "value": "2005-01-01"
+  },
+  {
+   "as_of": "2000-01-01",
+   "evidence_id": "fiber-1996-200001-fiber_horizon-5",
+   "extraction": {
+    "extractor": "manual",
+    "extractor_version": "1",
+    "reviewed": true
+   },
+   "metric": "fiber_horizon",
+   "source": {
+    "artifact_hash": "sha256:d7b392",
+    "class": "industry_data",
+    "source_id": "cf2-outlook"
+   },
+   "unit": "date",
+   "value": "2001-01-01"
+  },
+  {
+   "as_of": "2000-01-01",
+   "evidence_id": "fiber-1996-200001-fiber_price-6",
+   "extraction": {
+    "extractor": "manual",
+    "extractor_version": "1",
+    "reviewed": true
+   },
+   "metric": "fiber_price",
+   "source": {
+    "artifact_hash": "sha256:10922d",
+    "class": "news",
+    "source_id": "cf2-press"
+   },
+   "unit": "pct",
+   "value": 35
+  },
+  {
+   "as_of": "2000-01-01",
+   "evidence_id": "fiber-1996-200001-fiber_qty-7",
+   "extraction": {
+    "extractor": "manual",
+    "extractor_version": "1",
+    "reviewed": true
+   },
+   "metric": "fiber_qty",
+   "source": {
+    "artifact_hash": "sha256:8dd9f3",
+    "class": "government",
+    "source_id": "cf2-stats"
+   },
+   "unit": "pct",
+   "value": -3
+  },
+  {
+   "as_of": "2000-01-01",
+   "evidence_id": "fiber-1996-200001-fiber_share-8",
+   "extraction": {
+    "extractor": "manual",
+    "extractor_version": "1",
+    "reviewed": true
+   },
+   "metric": "fiber_share",
+   "source": {
+    "artifact_hash": "sha256:7b0239",
+    "class": "academic",
+    "source_id": "cf2-acad"
+   },
+   "unit": "ratio",
+   "value": 0.05
+  },
+  {
+   "as_of": "2000-01-01",
+   "evidence_id": "fiber-1996-200001-fiber_redesign-9",
+   "extraction": {
+    "extractor": "manual",
+    "extractor_version": "1",
+    "reviewed": true
+   },
+   "metric": "fiber_redesign",
+   "source": {
+    "artifact_hash": "sha256:b476bf",
+    "class": "academic",
+    "source_id": "cf2-acad"
+   },
+   "unit": "bool",
+   "value": false
+  }
+ ],
+ "expected_predicates": {
+  "GAP": "TRUE",
+  "LAG": "TRUE"
+ },
+ "expected_trade": "ACTIVE"
+}

@@ -200,6 +200,19 @@ def v_duplicates():
             "detail": f"independent={n}, gap={r['claim_states']['GAP']}"}
 
 
+def _swap_op(node, a, b):
+    import copy
+    node = copy.deepcopy(node)
+    if isinstance(node, dict):
+        if node.get("op") == a:
+            node["op"] = b
+        for k in ("args",):
+            if k in node and isinstance(node[k], list):
+                node[k] = [_swap_op(c, a, b) if isinstance(c, dict) else c
+                           for c in node[k]]
+    return node
+
+
 def v_mutation():
     """Inverted GAP logic MUST break the suite (else coverage is fake)."""
     bad_worlds = 0
@@ -220,10 +233,22 @@ def v_mutation():
     absurd_breaks = any(
         receipts[s["as_of"]]["state_after"] != s["trade"]
         for s in w["expected"]["expected_states"])
-    ok = absurd_breaks
+    w2 = load_world("dram-1987")
+    import copy
+    w3 = copy.deepcopy(w2)
+    w3["config"]["predicates"]["GAP"]["circuit"] = _swap_op(
+        w3["config"]["predicates"]["GAP"]["circuit"], "GT", "LTE")
+    op_breaks = False
+    for r, r0 in zip(evaluate_world(w3),
+                     [x["state_after"] for x in evaluate_world(w2)]):
+        if r["state_after"] != r0:
+            op_breaks = True
+            break
+    ok = absurd_breaks and op_breaks
     return {"name": "mutation", "ok": ok,
             "detail": f"invert breaks {bad_worlds} worlds, "
-                      f"absurd-threshold breaks dram={absurd_breaks}"}
+                      f"absurd-threshold breaks dram={absurd_breaks}, "
+                      f"GT->LTE swap breaks dram={op_breaks}"}
 
 
 def v_order_independence():

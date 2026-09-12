@@ -1,0 +1,185 @@
+{
+ "date": "2008-01-01",
+ "evidence": [
+  {
+   "as_of": "2008-01-01",
+   "evidence_id": "china-metals-2003-200801-ore_demand-0",
+   "extraction": {
+    "extractor": "manual",
+    "extractor_version": "1",
+    "reviewed": true
+   },
+   "metric": "ore_demand",
+   "source": {
+    "artifact_hash": "sha256:7cc239",
+    "class": "industry_data",
+    "source_id": "cf2-demand"
+   },
+   "unit": "index",
+   "value": {
+    "high": 160,
+    "low": 150
+   }
+  },
+  {
+   "as_of": "2008-01-01",
+   "evidence_id": "china-metals-2003-200801-ore_supply-1",
+   "extraction": {
+    "extractor": "manual",
+    "extractor_version": "1",
+    "reviewed": true
+   },
+   "metric": "ore_supply",
+   "source": {
+    "artifact_hash": "sha256:643794",
+    "class": "industry_data",
+    "source_id": "cf2-supply"
+   },
+   "unit": "index",
+   "value": {
+    "high": 125,
+    "low": 115
+   }
+  },
+  {
+   "as_of": "2008-01-01",
+   "evidence_id": "china-metals-2003-200801-ore_intensity-2",
+   "extraction": {
+    "extractor": "manual",
+    "extractor_version": "1",
+    "reviewed": true
+   },
+   "metric": "ore_intensity",
+   "source": {
+    "artifact_hash": "sha256:6f5333",
+    "class": "government",
+    "source_id": "cf2-gov"
+   },
+   "unit": "ratio",
+   "value": 0.85
+  },
+  {
+   "as_of": "2008-01-01",
+   "evidence_id": "china-metals-2003-200801-ore_relevant-3",
+   "extraction": {
+    "extractor": "manual",
+    "extractor_version": "1",
+    "reviewed": true
+   },
+   "metric": "ore_relevant",
+   "source": {
+    "artifact_hash": "sha256:4adb4b",
+    "class": "government",
+    "source_id": "cf2-gov"
+   },
+   "unit": "bool",
+   "value": true
+  },
+  {
+   "as_of": "2008-01-01",
+   "evidence_id": "china-metals-2003-200801-ore_close-4",
+   "extraction": {
+    "extractor": "manual",
+    "extractor_version": "1",
+    "reviewed": true
+   },
+   "metric": "ore_close",
+   "source": {
+    "artifact_hash": "sha256:97eb38",
+    "class": "industry_data",
+    "source_id": "cf2-outlook"
+   },
+   "unit": "date",
+   "value": "2009-06-01"
+  },
+  {
+   "as_of": "2008-01-01",
+   "evidence_id": "china-metals-2003-200801-ore_horizon-5",
+   "extraction": {
+    "extractor": "manual",
+    "extractor_version": "1",
+    "reviewed": true
+   },
+   "metric": "ore_horizon",
+   "source": {
+    "artifact_hash": "sha256:19d91e",
+    "class": "industry_data",
+    "source_id": "cf2-outlook"
+   },
+   "unit": "date",
+   "value": "2008-12-01"
+  },
+  {
+   "as_of": "2008-01-01",
+   "evidence_id": "china-metals-2003-200801-ore_price-6",
+   "extraction": {
+    "extractor": "manual",
+    "extractor_version": "1",
+    "reviewed": true
+   },
+   "metric": "ore_price",
+   "source": {
+    "artifact_hash": "sha256:210cfa",
+    "class": "news",
+    "source_id": "cf2-press"
+   },
+   "unit": "pct",
+   "value": 50
+  },
+  {
+   "as_of": "2008-01-01",
+   "evidence_id": "china-metals-2003-200801-ore_qty-7",
+   "extraction": {
+    "extractor": "manual",
+    "extractor_version": "1",
+    "reviewed": true
+   },
+   "metric": "ore_qty",
+   "source": {
+    "artifact_hash": "sha256:da9c0c",
+    "class": "government",
+    "source_id": "cf2-stats"
+   },
+   "unit": "pct",
+   "value": -2
+  },
+  {
+   "as_of": "2008-01-01",
+   "evidence_id": "china-metals-2003-200801-ore_share-8",
+   "extraction": {
+    "extractor": "manual",
+    "extractor_version": "1",
+    "reviewed": true
+   },
+   "metric": "ore_share",
+   "source": {
+    "artifact_hash": "sha256:8ed1c3",
+    "class": "academic",
+    "source_id": "cf2-acad"
+   },
+   "unit": "ratio",
+   "value": 0.05
+  },
+  {
+   "as_of": "2008-01-01",
+   "evidence_id": "china-metals-2003-200801-ore_redesign-9",
+   "extraction": {
+    "extractor": "manual",
+    "extractor_version": "1",
+    "reviewed": true
+   },
+   "metric": "ore_redesign",
+   "source": {
+    "artifact_hash": "sha256:e2efea",
+    "class": "academic",
+    "source_id": "cf2-acad"
+   },
+   "unit": "bool",
+   "value": false
+  }
+ ],
+ "expected_predicates": {
+  "GAP": "TRUE"
+ },
+ "expected_trade": "ACTIVE"
+}

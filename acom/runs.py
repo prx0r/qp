@@ -45,3 +45,19 @@ def verify(receipt: dict, task=None, outputs=None) -> dict:
     if outputs is not None and receipt.get("outputs_root") != _root(outputs):
         return {"ok": False, "reason": "outputs mismatch"}
     return {"ok": True, "reason": "run receipt binds"}
+
+
+def export_ree(receipt: dict) -> dict:
+    """REE-shaped view (Gensyn-compatible field names): model, prompt
+    and outputs carried as content roots, never raw text. Shape-only
+    bridge: lets REE tooling read our receipts without us claiming
+    bitwise reproducibility we don't have. Never mutates the receipt."""
+    return {"model": receipt.get("model"),
+            "prompt": {"root": receipt.get("prompt_root")},
+            "output": {"root": receipt.get("outputs_root")},
+            "inputs_root": receipt.get("inputs_root"),
+            "trace_root": receipt.get("trace_root"),
+            "tool_calls": receipt.get("tool_calls"),
+            "cost": receipt.get("cost"),
+            "receipt_id": receipt.get("id"),
+            "compat": "shape-only"}

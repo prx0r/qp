@@ -28,7 +28,8 @@ def load_corpus(path: str = "") -> list:
                 rows.append({"memo": d.get("subject", "?")[:60],
                              "thesis": t.get("title", "?"),
                              "falsifier": t.get("falsifier"),
-                             "rating": t.get("rating")})
+                             "rating": t.get("rating"),
+                             "body": str(t.get("body", ""))})
     seen, out = set(), []
     for r in rows:  # memos repeat; dedupe on thesis text
         if r["thesis"] not in seen:
@@ -50,3 +51,17 @@ def to_jobs(rows: list, target: str = "open") -> list:
              "rating": r["rating"],
              "need": "hard evidence for OR against the falsifier"}))
     return jobs
+
+
+def ratings_as_priors(rows: list) -> dict:
+    """Desk ratings (explicit `8.9/10` markers in the thesis record) → EI
+    impact priors in (0,1]. The /10 suffix is required: bare decimals
+    appear in prose and would invent scores. Unrated theses sort last
+    at 0.0 rather than inventing weight."""
+    import json
+    import re
+    out = {}
+    for r in rows:
+        m = re.search(r"(\d\.\d)\s*/\s*10", json.dumps(r))
+        out[r["thesis"]] = round(float(m.group(1)) / 10, 3) if m else 0.0
+    return out

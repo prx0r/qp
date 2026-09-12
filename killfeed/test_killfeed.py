@@ -44,3 +44,14 @@ def test_lineage_mutation_dependency():
 def test_adversarial_and_schemas():
     assert V.v_adversarial()["ok"]
     assert V.v_schemas()["ok"]
+
+
+def test_two_counterfactuals_per_world():
+    import glob as _g
+    import os as _o
+    for wid in ["oil-1979", "dram-1987", "fiber-1996", "palladium-1998",
+                "china-metals-2003", "uranium-2003", "rare-earths-2010",
+                "lumber-2020", "containers-2020", "fertilizer-2021"]:
+        n = len(_g.glob(f"killfeed/worlds/{wid}/counterfactuals/*.json"))
+        assert n >= 2, wid
+    assert True

@@ -1,0 +1,186 @@
+{
+ "date": "2021-03-01",
+ "evidence": [
+  {
+   "as_of": "2021-03-01",
+   "evidence_id": "lumber-2020-202103-lum_demand-0",
+   "extraction": {
+    "extractor": "manual",
+    "extractor_version": "1",
+    "reviewed": true
+   },
+   "metric": "lum_demand",
+   "source": {
+    "artifact_hash": "sha256:5e8f3f",
+    "class": "industry_data",
+    "source_id": "cf2-demand"
+   },
+   "unit": "index",
+   "value": {
+    "high": 155,
+    "low": 145
+   }
+  },
+  {
+   "as_of": "2021-03-01",
+   "evidence_id": "lumber-2020-202103-lum_supply-1",
+   "extraction": {
+    "extractor": "manual",
+    "extractor_version": "1",
+    "reviewed": true
+   },
+   "metric": "lum_supply",
+   "source": {
+    "artifact_hash": "sha256:41fc15",
+    "class": "industry_data",
+    "source_id": "cf2-supply"
+   },
+   "unit": "index",
+   "value": {
+    "high": 125,
+    "low": 115
+   }
+  },
+  {
+   "as_of": "2021-03-01",
+   "evidence_id": "lumber-2020-202103-lum_intensity-2",
+   "extraction": {
+    "extractor": "manual",
+    "extractor_version": "1",
+    "reviewed": true
+   },
+   "metric": "lum_intensity",
+   "source": {
+    "artifact_hash": "sha256:e9d11a",
+    "class": "government",
+    "source_id": "cf2-gov"
+   },
+   "unit": "ratio",
+   "value": 0.85
+  },
+  {
+   "as_of": "2021-03-01",
+   "evidence_id": "lumber-2020-202103-lum_relevant-3",
+   "extraction": {
+    "extractor": "manual",
+    "extractor_version": "1",
+    "reviewed": true
+   },
+   "metric": "lum_relevant",
+   "source": {
+    "artifact_hash": "sha256:9e6971",
+    "class": "government",
+    "source_id": "cf2-gov"
+   },
+   "unit": "bool",
+   "value": true
+  },
+  {
+   "as_of": "2021-03-01",
+   "evidence_id": "lumber-2020-202103-lum_close-4",
+   "extraction": {
+    "extractor": "manual",
+    "extractor_version": "1",
+    "reviewed": true
+   },
+   "metric": "lum_close",
+   "source": {
+    "artifact_hash": "sha256:b2b1c4",
+    "class": "industry_data",
+    "source_id": "cf2-outlook"
+   },
+   "unit": "date",
+   "value": "2023-01-01"
+  },
+  {
+   "as_of": "2021-03-01",
+   "evidence_id": "lumber-2020-202103-lum_horizon-5",
+   "extraction": {
+    "extractor": "manual",
+    "extractor_version": "1",
+    "reviewed": true
+   },
+   "metric": "lum_horizon",
+   "source": {
+    "artifact_hash": "sha256:502275",
+    "class": "industry_data",
+    "source_id": "cf2-outlook"
+   },
+   "unit": "date",
+   "value": "2021-12-01"
+  },
+  {
+   "as_of": "2021-03-01",
+   "evidence_id": "lumber-2020-202103-lum_price-6",
+   "extraction": {
+    "extractor": "manual",
+    "extractor_version": "1",
+    "reviewed": true
+   },
+   "metric": "lum_price",
+   "source": {
+    "artifact_hash": "sha256:5547a1",
+    "class": "news",
+    "source_id": "cf2-press"
+   },
+   "unit": "pct",
+   "value": 80
+  },
+  {
+   "as_of": "2021-03-01",
+   "evidence_id": "lumber-2020-202103-lum_qty-7",
+   "extraction": {
+    "extractor": "manual",
+    "extractor_version": "1",
+    "reviewed": true
+   },
+   "metric": "lum_qty",
+   "source": {
+    "artifact_hash": "sha256:a28108",
+    "class": "government",
+    "source_id": "cf2-stats"
+   },
+   "unit": "pct",
+   "value": -6
+  },
+  {
+   "as_of": "2021-03-01",
+   "evidence_id": "lumber-2020-202103-lum_share-8",
+   "extraction": {
+    "extractor": "manual",
+    "extractor_version": "1",
+    "reviewed": true
+   },
+   "metric": "lum_share",
+   "source": {
+    "artifact_hash": "sha256:cf9379",
+    "class": "academic",
+    "source_id": "cf2-acad"
+   },
+   "unit": "ratio",
+   "value": 0.06
+  },
+  {
+   "as_of": "2021-03-01",
+   "evidence_id": "lumber-2020-202103-lum_redesign-9",
+   "extraction": {
+    "extractor": "manual",
+    "extractor_version": "1",
+    "reviewed": true
+   },
+   "metric": "lum_redesign",
+   "source": {
+    "artifact_hash": "sha256:4e6a4f",
+    "class": "academic",
+    "source_id": "cf2-acad"
+   },
+   "unit": "bool",
+   "value": false
+  }
+ ],
+ "expected_predicates": {
+  "GAP": "TRUE",
+  "LAG": "TRUE"
+ },
+ "expected_trade": "ACTIVE"
+}

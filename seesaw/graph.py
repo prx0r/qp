@@ -48,6 +48,19 @@ def binding_constraint(nodes: list) -> dict:
     return {"binding": scored[0]["id"], "ranking": scored}
 
 
+def divergence(our_p: float, market_p: float, exposure: float,
+               duration: float, confidence: float) -> dict:
+    """Tradable twin of expected impact: (our_p − market_p) × exposure ×
+    duration × confidence. Positive = we see more tightness/rent than the
+    market prices; negative = the reverse. Zero means agree — no trade."""
+    for v in (our_p, market_p, confidence):
+        assert 0.0 <= v <= 1.0
+    d = (our_p - market_p) * exposure * duration * confidence
+    return {"divergence": round(d, 6),
+            "direction": "LONG_SCARCITY" if d > 0 else
+                         "SHORT_SCARCITY" if d < 0 else "FLAT"}
+
+
 def evaluate_event_claims(claims: dict, evidence: list, date: str) -> dict:
     """Claims A–E style boolean circuits over boolean metric evidence.
     claims: {claim_id: circuit}. Returns {claim_id: TRUE|FALSE|UNKNOWN}."""

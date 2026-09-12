@@ -1,0 +1,185 @@
+{
+ "date": "2011-01-01",
+ "evidence": [
+  {
+   "as_of": "2011-01-01",
+   "evidence_id": "rare-earths-2010-201101-ree_demand-0",
+   "extraction": {
+    "extractor": "manual",
+    "extractor_version": "1",
+    "reviewed": true
+   },
+   "metric": "ree_demand",
+   "source": {
+    "artifact_hash": "sha256:2cffdf",
+    "class": "industry_data",
+    "source_id": "cf2-demand"
+   },
+   "unit": "index",
+   "value": {
+    "high": 160,
+    "low": 150
+   }
+  },
+  {
+   "as_of": "2011-01-01",
+   "evidence_id": "rare-earths-2010-201101-ree_supply-1",
+   "extraction": {
+    "extractor": "manual",
+    "extractor_version": "1",
+    "reviewed": true
+   },
+   "metric": "ree_supply",
+   "source": {
+    "artifact_hash": "sha256:41c9cd",
+    "class": "industry_data",
+    "source_id": "cf2-supply"
+   },
+   "unit": "index",
+   "value": {
+    "high": 90,
+    "low": 80
+   }
+  },
+  {
+   "as_of": "2011-01-01",
+   "evidence_id": "rare-earths-2010-201101-ree_intensity-2",
+   "extraction": {
+    "extractor": "manual",
+    "extractor_version": "1",
+    "reviewed": true
+   },
+   "metric": "ree_intensity",
+   "source": {
+    "artifact_hash": "sha256:06cbd1",
+    "class": "government",
+    "source_id": "cf2-gov"
+   },
+   "unit": "ratio",
+   "value": 0.9
+  },
+  {
+   "as_of": "2011-01-01",
+   "evidence_id": "rare-earths-2010-201101-ree_relevant-3",
+   "extraction": {
+    "extractor": "manual",
+    "extractor_version": "1",
+    "reviewed": true
+   },
+   "metric": "ree_relevant",
+   "source": {
+    "artifact_hash": "sha256:68008a",
+    "class": "government",
+    "source_id": "cf2-gov"
+   },
+   "unit": "bool",
+   "value": true
+  },
+  {
+   "as_of": "2011-01-01",
+   "evidence_id": "rare-earths-2010-201101-ree_close-4",
+   "extraction": {
+    "extractor": "manual",
+    "extractor_version": "1",
+    "reviewed": true
+   },
+   "metric": "ree_close",
+   "source": {
+    "artifact_hash": "sha256:49008d",
+    "class": "industry_data",
+    "source_id": "cf2-outlook"
+   },
+   "unit": "date",
+   "value": "2013-01-01"
+  },
+  {
+   "as_of": "2011-01-01",
+   "evidence_id": "rare-earths-2010-201101-ree_horizon-5",
+   "extraction": {
+    "extractor": "manual",
+    "extractor_version": "1",
+    "reviewed": true
+   },
+   "metric": "ree_horizon",
+   "source": {
+    "artifact_hash": "sha256:2cba23",
+    "class": "industry_data",
+    "source_id": "cf2-outlook"
+   },
+   "unit": "date",
+   "value": "2011-12-01"
+  },
+  {
+   "as_of": "2011-01-01",
+   "evidence_id": "rare-earths-2010-201101-ree_price-6",
+   "extraction": {
+    "extractor": "manual",
+    "extractor_version": "1",
+    "reviewed": true
+   },
+   "metric": "ree_price",
+   "source": {
+    "artifact_hash": "sha256:47db38",
+    "class": "news",
+    "source_id": "cf2-press"
+   },
+   "unit": "pct",
+   "value": 130
+  },
+  {
+   "as_of": "2011-01-01",
+   "evidence_id": "rare-earths-2010-201101-ree_qty-7",
+   "extraction": {
+    "extractor": "manual",
+    "extractor_version": "1",
+    "reviewed": true
+   },
+   "metric": "ree_qty",
+   "source": {
+    "artifact_hash": "sha256:2a78f6",
+    "class": "government",
+    "source_id": "cf2-stats"
+   },
+   "unit": "pct",
+   "value": -2
+  },
+  {
+   "as_of": "2011-01-01",
+   "evidence_id": "rare-earths-2010-201101-ree_share-8",
+   "extraction": {
+    "extractor": "manual",
+    "extractor_version": "1",
+    "reviewed": true
+   },
+   "metric": "ree_share",
+   "source": {
+    "artifact_hash": "sha256:53edd1",
+    "class": "academic",
+    "source_id": "cf2-acad"
+   },
+   "unit": "ratio",
+   "value": 0.05
+  },
+  {
+   "as_of": "2011-01-01",
+   "evidence_id": "rare-earths-2010-201101-ree_redesign-9",
+   "extraction": {
+    "extractor": "manual",
+    "extractor_version": "1",
+    "reviewed": true
+   },
+   "metric": "ree_redesign",
+   "source": {
+    "artifact_hash": "sha256:d9276f",
+    "class": "academic",
+    "source_id": "cf2-acad"
+   },
+   "unit": "bool",
+   "value": false
+  }
+ ],
+ "expected_predicates": {
+  "GAP": "TRUE"
+ },
+ "expected_trade": "ACTIVE"
+}

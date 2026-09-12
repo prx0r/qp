@@ -198,7 +198,10 @@ WORLDS = [
       "GAP", {"NEED_at_kill": "TRUE"}, "1981-06-01", 365),
   [("early-peace", "1980-06-01",
     A("oil", "cf1", (95, 100), (110, 120), "1980-09-01", "1981-06-01", 5, -2, 0.06, 0.85),
-    "KILLED", {"NEED": "TRUE", "GAP": "FALSE"})]),
+    "KILLED", {"NEED": "TRUE", "GAP": "FALSE"}),
+  ("shock-worsens", "1980-06-01",
+    A("oil", "cf2", (140, 150), (80, 90), "1984-01-01", "1981-01-01", 70, -3, 0.05, 0.9),
+    "ACTIVE", {"GAP": "TRUE"})]),
 
  ("dram-1987", "dram", "PC demand outruns DRAM supply", 365, 500, "dram",
   [("1987-06-01", A("dram", "dt87", (130, 140), (90, 100), "1989-06-01", "1988-01-01", 45, -3, 0.03, 0.85)),
@@ -208,6 +211,9 @@ WORLDS = [
       "GAP", {"NEED_at_kill": "TRUE"}, "1989-06-01", 365),
   [("abundant-supply", "1988-06-01",
     A("dram", "cf1", (125, 135), (160, 180), "1988-09-01", "1989-06-01", 5, -1, 0.04, 0.85),
+    "KILLED", {"GAP": "FALSE"}),
+  ("demand-collapse", "1988-06-01",
+    A("dram", "cf2", (90, 95), (120, 130), "1988-09-01", "1989-06-01", 5, -5, 0.04, 0.85),
     "KILLED", {"GAP": "FALSE"})]),
 
  ("fiber-1996", "bandwidth", "traffic growth outruns capacity", 365, 600, "fiber",
@@ -218,7 +224,10 @@ WORLDS = [
       "GAP", {"NEED_at_kill": "TRUE"}, "2001-09-01", 620),
   [("capacity-huger", "2000-01-01",
     A("fiber", "cf1", (300, 320), (500, 550), "2000-03-01", "2001-01-01", 5, -2, 0.05, 0.95),
-    "KILLED", {"NEED": "TRUE", "GAP": "FALSE"})]),
+    "KILLED", {"NEED": "TRUE", "GAP": "FALSE"}),
+  ("stall-persists", "2000-01-01",
+    A("fiber", "cf2", (150, 160), (115, 125), "2005-01-01", "2001-01-01", 35, -3, 0.05, 0.9),
+    "ACTIVE", {"GAP": "TRUE", "LAG": "TRUE"})]),
 
  ("palladium-1998", "palladium", "catalyst demand + Russian constraint", 365, 500, "pal",
   [("1999-01-01", A("pal", "jmi99", (135, 145), (90, 100), "2001-06-01", "2000-01-01", 70, -2, 0.05, 0.9)),
@@ -228,7 +237,10 @@ WORLDS = [
       "GAP", {"NEED_at_kill": "TRUE"}, "2001-06-01", 365),
   [("substitution-60", "2000-06-01",
     A("pal", "cf1", (140, 150), (100, 110), "2001-12-01", "2001-01-01", 60, -4, 0.60, 0.9),
-    "WARNING", {"NOSUB": "FALSE", "GAP": "TRUE"})]),
+    "WARNING", {"NOSUB": "FALSE", "GAP": "TRUE"}),
+  ("full-normalization", "2000-06-01",
+    A("pal", "cf2", (100, 105), (130, 140), "2001-03-01", "2001-12-01", 5, -6, 0.40, 0.85),
+    "KILLED", {"GAP": "FALSE"})]),
 
  ("china-metals-2003", "iron-ore", "China infrastructure demand", 365, 500, "ore",
   [("2005-01-01", A("ore", "bhp05", (140, 150), (95, 105), "2008-01-01", "2006-06-01", 40, -3, 0.04, 0.9)),
@@ -238,7 +250,10 @@ WORLDS = [
       "GAP", {"NEED_at_kill": "TRUE"}, "2008-12-01", 335),
   [("demand-collapse", "2008-01-01",
     A("ore", "cf1", (95, 100), (110, 120), "2008-06-01", "2009-01-01", 5, -22, 0.05, 0.55),
-    "KILLED", {"GAP": "FALSE"})]),
+    "KILLED", {"GAP": "FALSE"}),
+  ("stimulus-sustains", "2008-01-01",
+    A("ore", "cf2", (150, 160), (115, 125), "2009-06-01", "2008-12-01", 50, -2, 0.05, 0.85),
+    "ACTIVE", {"GAP": "TRUE"})]),
 
  ("uranium-2003", "uranium", "renaissance expectations + slow mines", 365, 600, "ura",
   [("2005-01-01", A("ura", "uxc05", (135, 145), (90, 100), "2009-01-01", "2006-06-01", 55, -2, 0.03, 0.85)),
@@ -248,6 +263,9 @@ WORLDS = [
       "NEED", {"NEED_at_kill": "FALSE"}, "2011-06-01", 1460),
   [("no-fukushima", "2011-06-01",
     A("ura", "cf1", (120, 125), (130, 140), "2011-09-01", "2012-01-01", 20, -3, 0.05, 0.8),
+    "KILLED", {"NEED": "TRUE", "GAP": "FALSE"}),
+  ("mine-flood", "2007-06-01",
+    A("ura", "cf2", (130, 135), (150, 160), "2008-06-01", "2009-01-01", 30, -4, 0.05, 0.85),
     "KILLED", {"NEED": "TRUE", "GAP": "FALSE"})]),
 
  ("rare-earths-2010", "rare-earths", "export restrictions", 180, 400, "ree",
@@ -258,7 +276,10 @@ WORLDS = [
       "GAP", {"NEED_at_kill": "TRUE"}, "2011-12-01", 335),
   [("thrifting-only", "2011-01-01",
     A("ree", "cf1", (145, 155), (100, 110), "2012-06-01", "2011-06-01", 120, -25, 0.30, 0.9),
-    "WARNING", {"NOSUB": "FALSE", "GAP": "TRUE"})]),
+    "WARNING", {"NOSUB": "FALSE", "GAP": "TRUE"}),
+  ("ban-tightens", "2011-01-01",
+    A("ree", "cf2", (150, 160), (80, 90), "2013-01-01", "2011-12-01", 130, -2, 0.05, 0.9),
+    "ACTIVE", {"GAP": "TRUE"})]),
 
  ("lumber-2020", "lumber", "housing demand vs idled mills", 120, 300, "lum",
   [("2020-08-01", A("lum", "risi20", (150, 160), (95, 105), "2021-06-01", "2021-01-01", 100, -2, 0.05, 0.85)),
@@ -268,7 +289,10 @@ WORLDS = [
       "GAP", {"NEED_at_kill": "TRUE"}, "2021-09-01", 184),
   [("no-restarts", "2021-03-01",
     A("lum", "cf1", (145, 155), (115, 125), "2023-01-01", "2021-12-01", 80, -6, 0.06, 0.85),
-    "ACTIVE", {})]),
+    "ACTIVE", {}),
+  ("demand-persists", "2021-03-01",
+    A("lum", "cf2", (145, 155), (115, 125), "2023-01-01", "2021-12-01", 80, -6, 0.06, 0.85),
+    "ACTIVE", {"GAP": "TRUE", "LAG": "TRUE"})]),
 
  ("containers-2020", "shipping", "congestion cuts effective capacity", 180, 400, "box",
   [("2021-01-01", A("box", "drew21", (150, 160), (100, 110), "2022-06-01", "2021-12-01", 120, -1, 0.05, 0.9)),
@@ -278,6 +302,9 @@ WORLDS = [
       "GAP", {"NEED_at_kill": "TRUE"}, "2022-09-01", 184),
   [("congestion-persists", "2022-03-01",
     A("box", "cf1", (140, 150), (100, 110), "2023-01-01", "2022-06-01", 40, -14, 0.06, 0.85),
+    "WARNING", {"GAP": "TRUE"}),
+  ("boom-continues", "2022-03-01",
+    A("box", "cf2", (160, 170), (115, 125), "2023-06-01", "2022-12-01", 90, -14, 0.06, 0.9),
     "WARNING", {"GAP": "TRUE"})]),
 
  ("fertilizer-2021", "nitrogen", "gas/ammonia constraints", 180, 400, "fert",
@@ -288,7 +315,10 @@ WORLDS = [
       "GAP", {"NEED_at_kill": "TRUE"}, "2023-03-01", 273),
   [("gas-stays-high", "2022-06-01",
     A("fert", "cf1", (145, 155), (120, 130), "2024-01-01", "2023-06-01", 90, -8, 0.07, 0.85),
-    "ACTIVE", {})]),
+    "ACTIVE", {}),
+  ("gas-crisis-returns", "2022-06-01",
+    A("fert", "cf2", (145, 155), (120, 130), "2024-01-01", "2023-06-01", 95, -5, 0.07, 0.85),
+    "ACTIVE", {"GAP": "TRUE", "LAG": "TRUE"})]),
 ]
 
 

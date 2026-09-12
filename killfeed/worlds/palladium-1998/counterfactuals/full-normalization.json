@@ -1,0 +1,185 @@
+{
+ "date": "2000-06-01",
+ "evidence": [
+  {
+   "as_of": "2000-06-01",
+   "evidence_id": "palladium-1998-200006-pal_demand-0",
+   "extraction": {
+    "extractor": "manual",
+    "extractor_version": "1",
+    "reviewed": true
+   },
+   "metric": "pal_demand",
+   "source": {
+    "artifact_hash": "sha256:9edd92",
+    "class": "industry_data",
+    "source_id": "cf2-demand"
+   },
+   "unit": "index",
+   "value": {
+    "high": 105,
+    "low": 100
+   }
+  },
+  {
+   "as_of": "2000-06-01",
+   "evidence_id": "palladium-1998-200006-pal_supply-1",
+   "extraction": {
+    "extractor": "manual",
+    "extractor_version": "1",
+    "reviewed": true
+   },
+   "metric": "pal_supply",
+   "source": {
+    "artifact_hash": "sha256:6c6a04",
+    "class": "industry_data",
+    "source_id": "cf2-supply"
+   },
+   "unit": "index",
+   "value": {
+    "high": 140,
+    "low": 130
+   }
+  },
+  {
+   "as_of": "2000-06-01",
+   "evidence_id": "palladium-1998-200006-pal_intensity-2",
+   "extraction": {
+    "extractor": "manual",
+    "extractor_version": "1",
+    "reviewed": true
+   },
+   "metric": "pal_intensity",
+   "source": {
+    "artifact_hash": "sha256:b21ab3",
+    "class": "government",
+    "source_id": "cf2-gov"
+   },
+   "unit": "ratio",
+   "value": 0.85
+  },
+  {
+   "as_of": "2000-06-01",
+   "evidence_id": "palladium-1998-200006-pal_relevant-3",
+   "extraction": {
+    "extractor": "manual",
+    "extractor_version": "1",
+    "reviewed": true
+   },
+   "metric": "pal_relevant",
+   "source": {
+    "artifact_hash": "sha256:c51a14",
+    "class": "government",
+    "source_id": "cf2-gov"
+   },
+   "unit": "bool",
+   "value": true
+  },
+  {
+   "as_of": "2000-06-01",
+   "evidence_id": "palladium-1998-200006-pal_close-4",
+   "extraction": {
+    "extractor": "manual",
+    "extractor_version": "1",
+    "reviewed": true
+   },
+   "metric": "pal_close",
+   "source": {
+    "artifact_hash": "sha256:208add",
+    "class": "industry_data",
+    "source_id": "cf2-outlook"
+   },
+   "unit": "date",
+   "value": "2001-03-01"
+  },
+  {
+   "as_of": "2000-06-01",
+   "evidence_id": "palladium-1998-200006-pal_horizon-5",
+   "extraction": {
+    "extractor": "manual",
+    "extractor_version": "1",
+    "reviewed": true
+   },
+   "metric": "pal_horizon",
+   "source": {
+    "artifact_hash": "sha256:451674",
+    "class": "industry_data",
+    "source_id": "cf2-outlook"
+   },
+   "unit": "date",
+   "value": "2001-12-01"
+  },
+  {
+   "as_of": "2000-06-01",
+   "evidence_id": "palladium-1998-200006-pal_price-6",
+   "extraction": {
+    "extractor": "manual",
+    "extractor_version": "1",
+    "reviewed": true
+   },
+   "metric": "pal_price",
+   "source": {
+    "artifact_hash": "sha256:5526e9",
+    "class": "news",
+    "source_id": "cf2-press"
+   },
+   "unit": "pct",
+   "value": 5
+  },
+  {
+   "as_of": "2000-06-01",
+   "evidence_id": "palladium-1998-200006-pal_qty-7",
+   "extraction": {
+    "extractor": "manual",
+    "extractor_version": "1",
+    "reviewed": true
+   },
+   "metric": "pal_qty",
+   "source": {
+    "artifact_hash": "sha256:656c1c",
+    "class": "government",
+    "source_id": "cf2-stats"
+   },
+   "unit": "pct",
+   "value": -6
+  },
+  {
+   "as_of": "2000-06-01",
+   "evidence_id": "palladium-1998-200006-pal_share-8",
+   "extraction": {
+    "extractor": "manual",
+    "extractor_version": "1",
+    "reviewed": true
+   },
+   "metric": "pal_share",
+   "source": {
+    "artifact_hash": "sha256:f8625e",
+    "class": "academic",
+    "source_id": "cf2-acad"
+   },
+   "unit": "ratio",
+   "value": 0.4
+  },
+  {
+   "as_of": "2000-06-01",
+   "evidence_id": "palladium-1998-200006-pal_redesign-9",
+   "extraction": {
+    "extractor": "manual",
+    "extractor_version": "1",
+    "reviewed": true
+   },
+   "metric": "pal_redesign",
+   "source": {
+    "artifact_hash": "sha256:b1c2e3",
+    "class": "academic",
+    "source_id": "cf2-acad"
+   },
+   "unit": "bool",
+   "value": false
+  }
+ ],
+ "expected_predicates": {
+  "GAP": "FALSE"
+ },
+ "expected_trade": "KILLED"
+}

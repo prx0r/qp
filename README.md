@@ -17,9 +17,11 @@ python3 -m acom.cli killfeed
 ## Map
 
 Docs: `docs/ARCHITECTURE.md` (start here after the northstar),
-`docs/OBJECTS.md`, `docs/RECEIPTS.md`, `docs/INVARIANTS.md`,
+`docs/BOARD.md` (the whole board, one map), `docs/OBJECTS.md`,
+`docs/RECEIPTS.md`, `docs/INVARIANTS.md`,
 `docs/CIRCUITS.md` (executable claim graphs), `docs/KILLFEED.md`,
-`docs/CRYPTO.md`, `docs/TRANSISTORS.md` (gates as logic).
+`docs/CRYPTO.md`, `docs/TRANSISTORS.md` (gates as logic),
+`docs/COMPONENTS.md`, `docs/SEESAW.md`, `docs/ACCRETION.md`.
 Theses: `theses/northstar.md`, `theses/qpvalidate.md`,
 `theses/circuitboard.md`, `theses/circuitboard2.md`, `theses/plan2.md`,
 `theses/qubic-thesis.md`, `theses/crypto-thesis.md`,

@@ -1,0 +1,185 @@
+{
+ "date": "1980-06-01",
+ "evidence": [
+  {
+   "as_of": "1980-06-01",
+   "evidence_id": "oil-1979-198006-oil_demand-0",
+   "extraction": {
+    "extractor": "manual",
+    "extractor_version": "1",
+    "reviewed": true
+   },
+   "metric": "oil_demand",
+   "source": {
+    "artifact_hash": "sha256:6caa0c",
+    "class": "industry_data",
+    "source_id": "cf2-demand"
+   },
+   "unit": "index",
+   "value": {
+    "high": 150,
+    "low": 140
+   }
+  },
+  {
+   "as_of": "1980-06-01",
+   "evidence_id": "oil-1979-198006-oil_supply-1",
+   "extraction": {
+    "extractor": "manual",
+    "extractor_version": "1",
+    "reviewed": true
+   },
+   "metric": "oil_supply",
+   "source": {
+    "artifact_hash": "sha256:7a2a02",
+    "class": "industry_data",
+    "source_id": "cf2-supply"
+   },
+   "unit": "index",
+   "value": {
+    "high": 90,
+    "low": 80
+   }
+  },
+  {
+   "as_of": "1980-06-01",
+   "evidence_id": "oil-1979-198006-oil_intensity-2",
+   "extraction": {
+    "extractor": "manual",
+    "extractor_version": "1",
+    "reviewed": true
+   },
+   "metric": "oil_intensity",
+   "source": {
+    "artifact_hash": "sha256:1634bb",
+    "class": "government",
+    "source_id": "cf2-gov"
+   },
+   "unit": "ratio",
+   "value": 0.9
+  },
+  {
+   "as_of": "1980-06-01",
+   "evidence_id": "oil-1979-198006-oil_relevant-3",
+   "extraction": {
+    "extractor": "manual",
+    "extractor_version": "1",
+    "reviewed": true
+   },
+   "metric": "oil_relevant",
+   "source": {
+    "artifact_hash": "sha256:b0d46b",
+    "class": "government",
+    "source_id": "cf2-gov"
+   },
+   "unit": "bool",
+   "value": true
+  },
+  {
+   "as_of": "1980-06-01",
+   "evidence_id": "oil-1979-198006-oil_close-4",
+   "extraction": {
+    "extractor": "manual",
+    "extractor_version": "1",
+    "reviewed": true
+   },
+   "metric": "oil_close",
+   "source": {
+    "artifact_hash": "sha256:409cf1",
+    "class": "industry_data",
+    "source_id": "cf2-outlook"
+   },
+   "unit": "date",
+   "value": "1984-01-01"
+  },
+  {
+   "as_of": "1980-06-01",
+   "evidence_id": "oil-1979-198006-oil_horizon-5",
+   "extraction": {
+    "extractor": "manual",
+    "extractor_version": "1",
+    "reviewed": true
+   },
+   "metric": "oil_horizon",
+   "source": {
+    "artifact_hash": "sha256:ca7d35",
+    "class": "industry_data",
+    "source_id": "cf2-outlook"
+   },
+   "unit": "date",
+   "value": "1981-01-01"
+  },
+  {
+   "as_of": "1980-06-01",
+   "evidence_id": "oil-1979-198006-oil_price-6",
+   "extraction": {
+    "extractor": "manual",
+    "extractor_version": "1",
+    "reviewed": true
+   },
+   "metric": "oil_price",
+   "source": {
+    "artifact_hash": "sha256:cb46f8",
+    "class": "news",
+    "source_id": "cf2-press"
+   },
+   "unit": "pct",
+   "value": 70
+  },
+  {
+   "as_of": "1980-06-01",
+   "evidence_id": "oil-1979-198006-oil_qty-7",
+   "extraction": {
+    "extractor": "manual",
+    "extractor_version": "1",
+    "reviewed": true
+   },
+   "metric": "oil_qty",
+   "source": {
+    "artifact_hash": "sha256:deabf8",
+    "class": "government",
+    "source_id": "cf2-stats"
+   },
+   "unit": "pct",
+   "value": -3
+  },
+  {
+   "as_of": "1980-06-01",
+   "evidence_id": "oil-1979-198006-oil_share-8",
+   "extraction": {
+    "extractor": "manual",
+    "extractor_version": "1",
+    "reviewed": true
+   },
+   "metric": "oil_share",
+   "source": {
+    "artifact_hash": "sha256:0b87e5",
+    "class": "academic",
+    "source_id": "cf2-acad"
+   },
+   "unit": "ratio",
+   "value": 0.05
+  },
+  {
+   "as_of": "1980-06-01",
+   "evidence_id": "oil-1979-198006-oil_redesign-9",
+   "extraction": {
+    "extractor": "manual",
+    "extractor_version": "1",
+    "reviewed": true
+   },
+   "metric": "oil_redesign",
+   "source": {
+    "artifact_hash": "sha256:cf9c3e",
+    "class": "academic",
+    "source_id": "cf2-acad"
+   },
+   "unit": "bool",
+   "value": false
+  }
+ ],
+ "expected_predicates": {
+  "GAP": "TRUE"
+ },
+ "expected_trade": "ACTIVE"
+}

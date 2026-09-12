@@ -150,3 +150,27 @@ def test_both_demos_one_receipt_type():
         r2 = atask_demo.run(os.path.join(td, "a.jsonl"))
     assert r1["protocol"] == r2["protocol"] == "acom/0.1"
     assert r1["passed"] and r2["passed"]
+
+
+def test_cli_new_paths_run(tmp_path):
+    import json
+    import subprocess
+    import os
+    ev = {"evidence_id": "t1", "metric": "m", "value": 1, "unit": "x",
+          "as_of": "2020-01-01",
+          "source": {"source_id": "s", "class": "news",
+                     "artifact_hash": "sha256:0"},
+          "extraction": {}}
+    ep = str(tmp_path / "e.json")
+    json.dump(ev, open(ep, "w"))
+    sp = str(tmp_path / "s.jsonl")
+    env = dict(os.environ)
+    run = lambda *a: subprocess.run(
+        ["python3", "-m", "acom.cli", *a], capture_output=True, text=True,
+        cwd="/home/ubuntu/qp", env=env, timeout=120)
+    assert run("evidence", "add", sp, ep).returncode == 0
+    assert run("chain", sp).returncode == 0
+    assert "ACTIVE" in run("world", "replay", "dram-1987").stdout
+    assert "state_root" in run("state", "root", "dram-1987").stdout
+    assert "GAP" in run("claim", "dram-1987", "GAP", "1989-06-01").stdout
+    assert "trade=" in run("killfeed", "--world", "dram-1987").stdout

@@ -1,0 +1,185 @@
+{
+ "date": "1988-06-01",
+ "evidence": [
+  {
+   "as_of": "1988-06-01",
+   "evidence_id": "dram-1987-198806-dram_demand-0",
+   "extraction": {
+    "extractor": "manual",
+    "extractor_version": "1",
+    "reviewed": true
+   },
+   "metric": "dram_demand",
+   "source": {
+    "artifact_hash": "sha256:bb912d",
+    "class": "industry_data",
+    "source_id": "cf2-demand"
+   },
+   "unit": "index",
+   "value": {
+    "high": 95,
+    "low": 90
+   }
+  },
+  {
+   "as_of": "1988-06-01",
+   "evidence_id": "dram-1987-198806-dram_supply-1",
+   "extraction": {
+    "extractor": "manual",
+    "extractor_version": "1",
+    "reviewed": true
+   },
+   "metric": "dram_supply",
+   "source": {
+    "artifact_hash": "sha256:4f8565",
+    "class": "industry_data",
+    "source_id": "cf2-supply"
+   },
+   "unit": "index",
+   "value": {
+    "high": 130,
+    "low": 120
+   }
+  },
+  {
+   "as_of": "1988-06-01",
+   "evidence_id": "dram-1987-198806-dram_intensity-2",
+   "extraction": {
+    "extractor": "manual",
+    "extractor_version": "1",
+    "reviewed": true
+   },
+   "metric": "dram_intensity",
+   "source": {
+    "artifact_hash": "sha256:ae8d5b",
+    "class": "government",
+    "source_id": "cf2-gov"
+   },
+   "unit": "ratio",
+   "value": 0.85
+  },
+  {
+   "as_of": "1988-06-01",
+   "evidence_id": "dram-1987-198806-dram_relevant-3",
+   "extraction": {
+    "extractor": "manual",
+    "extractor_version": "1",
+    "reviewed": true
+   },
+   "metric": "dram_relevant",
+   "source": {
+    "artifact_hash": "sha256:87e8df",
+    "class": "government",
+    "source_id": "cf2-gov"
+   },
+   "unit": "bool",
+   "value": true
+  },
+  {
+   "as_of": "1988-06-01",
+   "evidence_id": "dram-1987-198806-dram_close-4",
+   "extraction": {
+    "extractor": "manual",
+    "extractor_version": "1",
+    "reviewed": true
+   },
+   "metric": "dram_close",
+   "source": {
+    "artifact_hash": "sha256:dc1f15",
+    "class": "industry_data",
+    "source_id": "cf2-outlook"
+   },
+   "unit": "date",
+   "value": "1988-09-01"
+  },
+  {
+   "as_of": "1988-06-01",
+   "evidence_id": "dram-1987-198806-dram_horizon-5",
+   "extraction": {
+    "extractor": "manual",
+    "extractor_version": "1",
+    "reviewed": true
+   },
+   "metric": "dram_horizon",
+   "source": {
+    "artifact_hash": "sha256:f4deb0",
+    "class": "industry_data",
+    "source_id": "cf2-outlook"
+   },
+   "unit": "date",
+   "value": "1989-06-01"
+  },
+  {
+   "as_of": "1988-06-01",
+   "evidence_id": "dram-1987-198806-dram_price-6",
+   "extraction": {
+    "extractor": "manual",
+    "extractor_version": "1",
+    "reviewed": true
+   },
+   "metric": "dram_price",
+   "source": {
+    "artifact_hash": "sha256:d4ce2b",
+    "class": "news",
+    "source_id": "cf2-press"
+   },
+   "unit": "pct",
+   "value": 5
+  },
+  {
+   "as_of": "1988-06-01",
+   "evidence_id": "dram-1987-198806-dram_qty-7",
+   "extraction": {
+    "extractor": "manual",
+    "extractor_version": "1",
+    "reviewed": true
+   },
+   "metric": "dram_qty",
+   "source": {
+    "artifact_hash": "sha256:9825c5",
+    "class": "government",
+    "source_id": "cf2-stats"
+   },
+   "unit": "pct",
+   "value": -5
+  },
+  {
+   "as_of": "1988-06-01",
+   "evidence_id": "dram-1987-198806-dram_share-8",
+   "extraction": {
+    "extractor": "manual",
+    "extractor_version": "1",
+    "reviewed": true
+   },
+   "metric": "dram_share",
+   "source": {
+    "artifact_hash": "sha256:a2d2b4",
+    "class": "academic",
+    "source_id": "cf2-acad"
+   },
+   "unit": "ratio",
+   "value": 0.04
+  },
+  {
+   "as_of": "1988-06-01",
+   "evidence_id": "dram-1987-198806-dram_redesign-9",
+   "extraction": {
+    "extractor": "manual",
+    "extractor_version": "1",
+    "reviewed": true
+   },
+   "metric": "dram_redesign",
+   "source": {
+    "artifact_hash": "sha256:1aaaf1",
+    "class": "academic",
+    "source_id": "cf2-acad"
+   },
+   "unit": "bool",
+   "value": false
+  }
+ ],
+ "expected_predicates": {
+  "GAP": "FALSE"
+ },
+ "expected_trade": "KILLED"
+}

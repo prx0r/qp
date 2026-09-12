@@ -1,0 +1,186 @@
+{
+ "date": "2022-06-01",
+ "evidence": [
+  {
+   "as_of": "2022-06-01",
+   "evidence_id": "fertilizer-2021-202206-fert_demand-0",
+   "extraction": {
+    "extractor": "manual",
+    "extractor_version": "1",
+    "reviewed": true
+   },
+   "metric": "fert_demand",
+   "source": {
+    "artifact_hash": "sha256:b9ca8f",
+    "class": "industry_data",
+    "source_id": "cf2-demand"
+   },
+   "unit": "index",
+   "value": {
+    "high": 155,
+    "low": 145
+   }
+  },
+  {
+   "as_of": "2022-06-01",
+   "evidence_id": "fertilizer-2021-202206-fert_supply-1",
+   "extraction": {
+    "extractor": "manual",
+    "extractor_version": "1",
+    "reviewed": true
+   },
+   "metric": "fert_supply",
+   "source": {
+    "artifact_hash": "sha256:1dd5d4",
+    "class": "industry_data",
+    "source_id": "cf2-supply"
+   },
+   "unit": "index",
+   "value": {
+    "high": 130,
+    "low": 120
+   }
+  },
+  {
+   "as_of": "2022-06-01",
+   "evidence_id": "fertilizer-2021-202206-fert_intensity-2",
+   "extraction": {
+    "extractor": "manual",
+    "extractor_version": "1",
+    "reviewed": true
+   },
+   "metric": "fert_intensity",
+   "source": {
+    "artifact_hash": "sha256:4ae830",
+    "class": "government",
+    "source_id": "cf2-gov"
+   },
+   "unit": "ratio",
+   "value": 0.85
+  },
+  {
+   "as_of": "2022-06-01",
+   "evidence_id": "fertilizer-2021-202206-fert_relevant-3",
+   "extraction": {
+    "extractor": "manual",
+    "extractor_version": "1",
+    "reviewed": true
+   },
+   "metric": "fert_relevant",
+   "source": {
+    "artifact_hash": "sha256:4ecd35",
+    "class": "government",
+    "source_id": "cf2-gov"
+   },
+   "unit": "bool",
+   "value": true
+  },
+  {
+   "as_of": "2022-06-01",
+   "evidence_id": "fertilizer-2021-202206-fert_close-4",
+   "extraction": {
+    "extractor": "manual",
+    "extractor_version": "1",
+    "reviewed": true
+   },
+   "metric": "fert_close",
+   "source": {
+    "artifact_hash": "sha256:29d364",
+    "class": "industry_data",
+    "source_id": "cf2-outlook"
+   },
+   "unit": "date",
+   "value": "2024-01-01"
+  },
+  {
+   "as_of": "2022-06-01",
+   "evidence_id": "fertilizer-2021-202206-fert_horizon-5",
+   "extraction": {
+    "extractor": "manual",
+    "extractor_version": "1",
+    "reviewed": true
+   },
+   "metric": "fert_horizon",
+   "source": {
+    "artifact_hash": "sha256:3c8738",
+    "class": "industry_data",
+    "source_id": "cf2-outlook"
+   },
+   "unit": "date",
+   "value": "2023-06-01"
+  },
+  {
+   "as_of": "2022-06-01",
+   "evidence_id": "fertilizer-2021-202206-fert_price-6",
+   "extraction": {
+    "extractor": "manual",
+    "extractor_version": "1",
+    "reviewed": true
+   },
+   "metric": "fert_price",
+   "source": {
+    "artifact_hash": "sha256:8c0605",
+    "class": "news",
+    "source_id": "cf2-press"
+   },
+   "unit": "pct",
+   "value": 95
+  },
+  {
+   "as_of": "2022-06-01",
+   "evidence_id": "fertilizer-2021-202206-fert_qty-7",
+   "extraction": {
+    "extractor": "manual",
+    "extractor_version": "1",
+    "reviewed": true
+   },
+   "metric": "fert_qty",
+   "source": {
+    "artifact_hash": "sha256:d39560",
+    "class": "government",
+    "source_id": "cf2-stats"
+   },
+   "unit": "pct",
+   "value": -5
+  },
+  {
+   "as_of": "2022-06-01",
+   "evidence_id": "fertilizer-2021-202206-fert_share-8",
+   "extraction": {
+    "extractor": "manual",
+    "extractor_version": "1",
+    "reviewed": true
+   },
+   "metric": "fert_share",
+   "source": {
+    "artifact_hash": "sha256:8e66e6",
+    "class": "academic",
+    "source_id": "cf2-acad"
+   },
+   "unit": "ratio",
+   "value": 0.07
+  },
+  {
+   "as_of": "2022-06-01",
+   "evidence_id": "fertilizer-2021-202206-fert_redesign-9",
+   "extraction": {
+    "extractor": "manual",
+    "extractor_version": "1",
+    "reviewed": true
+   },
+   "metric": "fert_redesign",
+   "source": {
+    "artifact_hash": "sha256:3953d3",
+    "class": "academic",
+    "source_id": "cf2-acad"
+   },
+   "unit": "bool",
+   "value": false
+  }
+ ],
+ "expected_predicates": {
+  "GAP": "TRUE",
+  "LAG": "TRUE"
+ },
+ "expected_trade": "ACTIVE"
+}

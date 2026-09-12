@@ -70,3 +70,23 @@ def compare(world: dict, snapshot_idx: int, budget: float):
             for s in STRATEGIES]
     rows.sort(key=lambda r: (-r["accuracy"], r["spent"]))
     return rows
+
+
+def oring_leverage(stages: list) -> list:
+    """O-ring screen (postreview): multiplicative chain where every stage
+    must hold. System success = product of stage success. Returns stages
+    ranked by leverage = dP/dcost     (fix the highest-leverage stage first).
+    Each stage: {id, p_success 0..1, fix_cost > 0}."""
+    rows = []
+    for s in stages:
+        p, c = s["p_success"], s["fix_cost"]
+        assert 0.0 < p < 1.0 and c > 0
+        others = 1.0
+        for o in stages:
+            if o["id"] != s["id"]:
+                others *= o["p_success"]
+        leverage = others * (1.0 - p) / c
+        rows.append({"id": s["id"], "leverage": round(leverage, 6),
+                     "system_p_if_fixed": round(others, 4)})
+    rows.sort(key=lambda r: -r["leverage"])
+    return rows

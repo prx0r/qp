@@ -1,0 +1,186 @@
+{
+ "date": "2007-06-01",
+ "evidence": [
+  {
+   "as_of": "2007-06-01",
+   "evidence_id": "uranium-2003-200706-ura_demand-0",
+   "extraction": {
+    "extractor": "manual",
+    "extractor_version": "1",
+    "reviewed": true
+   },
+   "metric": "ura_demand",
+   "source": {
+    "artifact_hash": "sha256:d8a1ca",
+    "class": "industry_data",
+    "source_id": "cf2-demand"
+   },
+   "unit": "index",
+   "value": {
+    "high": 135,
+    "low": 130
+   }
+  },
+  {
+   "as_of": "2007-06-01",
+   "evidence_id": "uranium-2003-200706-ura_supply-1",
+   "extraction": {
+    "extractor": "manual",
+    "extractor_version": "1",
+    "reviewed": true
+   },
+   "metric": "ura_supply",
+   "source": {
+    "artifact_hash": "sha256:3f54d6",
+    "class": "industry_data",
+    "source_id": "cf2-supply"
+   },
+   "unit": "index",
+   "value": {
+    "high": 160,
+    "low": 150
+   }
+  },
+  {
+   "as_of": "2007-06-01",
+   "evidence_id": "uranium-2003-200706-ura_intensity-2",
+   "extraction": {
+    "extractor": "manual",
+    "extractor_version": "1",
+    "reviewed": true
+   },
+   "metric": "ura_intensity",
+   "source": {
+    "artifact_hash": "sha256:e63e96",
+    "class": "government",
+    "source_id": "cf2-gov"
+   },
+   "unit": "ratio",
+   "value": 0.85
+  },
+  {
+   "as_of": "2007-06-01",
+   "evidence_id": "uranium-2003-200706-ura_relevant-3",
+   "extraction": {
+    "extractor": "manual",
+    "extractor_version": "1",
+    "reviewed": true
+   },
+   "metric": "ura_relevant",
+   "source": {
+    "artifact_hash": "sha256:e1f564",
+    "class": "government",
+    "source_id": "cf2-gov"
+   },
+   "unit": "bool",
+   "value": true
+  },
+  {
+   "as_of": "2007-06-01",
+   "evidence_id": "uranium-2003-200706-ura_close-4",
+   "extraction": {
+    "extractor": "manual",
+    "extractor_version": "1",
+    "reviewed": true
+   },
+   "metric": "ura_close",
+   "source": {
+    "artifact_hash": "sha256:00687e",
+    "class": "industry_data",
+    "source_id": "cf2-outlook"
+   },
+   "unit": "date",
+   "value": "2008-06-01"
+  },
+  {
+   "as_of": "2007-06-01",
+   "evidence_id": "uranium-2003-200706-ura_horizon-5",
+   "extraction": {
+    "extractor": "manual",
+    "extractor_version": "1",
+    "reviewed": true
+   },
+   "metric": "ura_horizon",
+   "source": {
+    "artifact_hash": "sha256:5b2b6b",
+    "class": "industry_data",
+    "source_id": "cf2-outlook"
+   },
+   "unit": "date",
+   "value": "2009-01-01"
+  },
+  {
+   "as_of": "2007-06-01",
+   "evidence_id": "uranium-2003-200706-ura_price-6",
+   "extraction": {
+    "extractor": "manual",
+    "extractor_version": "1",
+    "reviewed": true
+   },
+   "metric": "ura_price",
+   "source": {
+    "artifact_hash": "sha256:6bf6a3",
+    "class": "news",
+    "source_id": "cf2-press"
+   },
+   "unit": "pct",
+   "value": 30
+  },
+  {
+   "as_of": "2007-06-01",
+   "evidence_id": "uranium-2003-200706-ura_qty-7",
+   "extraction": {
+    "extractor": "manual",
+    "extractor_version": "1",
+    "reviewed": true
+   },
+   "metric": "ura_qty",
+   "source": {
+    "artifact_hash": "sha256:4cf625",
+    "class": "government",
+    "source_id": "cf2-stats"
+   },
+   "unit": "pct",
+   "value": -4
+  },
+  {
+   "as_of": "2007-06-01",
+   "evidence_id": "uranium-2003-200706-ura_share-8",
+   "extraction": {
+    "extractor": "manual",
+    "extractor_version": "1",
+    "reviewed": true
+   },
+   "metric": "ura_share",
+   "source": {
+    "artifact_hash": "sha256:f2ce0c",
+    "class": "academic",
+    "source_id": "cf2-acad"
+   },
+   "unit": "ratio",
+   "value": 0.05
+  },
+  {
+   "as_of": "2007-06-01",
+   "evidence_id": "uranium-2003-200706-ura_redesign-9",
+   "extraction": {
+    "extractor": "manual",
+    "extractor_version": "1",
+    "reviewed": true
+   },
+   "metric": "ura_redesign",
+   "source": {
+    "artifact_hash": "sha256:9f46df",
+    "class": "academic",
+    "source_id": "cf2-acad"
+   },
+   "unit": "bool",
+   "value": false
+  }
+ ],
+ "expected_predicates": {
+  "GAP": "FALSE",
+  "NEED": "TRUE"
+ },
+ "expected_trade": "KILLED"
+}
