@@ -63,3 +63,30 @@ def test_h1_h3_shapes_specified():
     assert hypotheses.h2_complexity_shape(
         [{"a": 1}, {"a": 1, "b": -1}])["ok"] is True
     assert hypotheses.h3_forecast_error_shape([0.2, 0.5])["ok"] is True
+
+
+def test_series_store_adjudicates_h123():
+    from seesaw import series as _series
+    s = _series.Series()
+    assert s.adjudicate()["H1"]["ok"] is False  # empty: honest, not green
+    s.record_jump_period("2024", 2)
+    s.record_jump_period("2025", 3)
+    s.record_jump_period("2026", 5)
+    s.record_vector({"a": 1})
+    s.record_vector({"a": 1, "b": -1})
+    s.record_error(0.2)
+    s.record_error(0.4)
+    out = s.adjudicate()
+    assert out["H1"]["ok"] is True
+    assert out["H2"]["ok"] is True
+    assert out["H3"]["ok"] is True
+
+
+def test_lead_times_separate_restart_from_fab():
+    from seesaw import reflex as _reflex
+    base = {"marginal_value": 9, "demand": 9, "response_time": 5,
+            "capacity": 2, "alternatives": 0.9}
+    fast = _reflex.simulate([dict(base, id="mill", lead_periods=0)], 4)
+    slow = _reflex.simulate([dict(base, id="fab", lead_periods=4)], 4)
+    assert fast[-1]["top_S"] < slow[-1]["top_S"]  # fab relief arrives late
+    assert slow[1]["top_S"] == slow[0]["top_S"]  # nothing materializes yet

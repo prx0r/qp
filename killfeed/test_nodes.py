@@ -100,3 +100,18 @@ def test_tjp_falsifier_corpus_loads_and_seeds():
     assert len(jobs) == len(rows)
     assert {j["task_kind"] for j in jobs} == {"FALSIFY"}
     assert all("falsifier" in j["acceptance"] for j in jobs)
+
+
+def test_lag_candidates_become_swarm_jobs():
+    from killfeed import swarm
+    from seesaw import waiting
+    store = []
+    waiting.log_breakthrough(store, "ns-2026", "2026-09-08",
+                             {"COGNITION": -2, "VERIFICATION": 2})
+    jobs = swarm.jobs_from_lags(store, "ns-2026")
+    assert len(jobs) == 2
+    assert {j["task_kind"] for j in jobs} == {"FALSIFY"}
+    waiting.record_response(store, "ns-2026", "VERIFICATION", "2026-09-20",
+                            True)
+    jobs2 = swarm.jobs_from_lags(store, "ns-2026")
+    assert len(jobs2) == 1 and jobs2[0]["acceptance"]["constraint"] == "COGNITION"

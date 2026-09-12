@@ -10,6 +10,22 @@ from acom import objects
 FALSIFY_MARGIN = 5.0
 
 
+def jobs_from_lags(store: list, bid: str, window_days: int = 90) -> list:
+    """Waiting-room output becomes swarm input: every lagged or unobserved
+    predicted constraint becomes a FALSIFY task aimed at the breakthrough.
+    This is the standing wire between 'the market hasn't responded here'
+    and 'go look here'. Deterministic given the store."""
+    from seesaw import waiting
+    jobs = []
+    for lag in waiting.lag_candidates(store, bid, window_days):
+        jobs.append(objects.make_task(
+            "FALSIFY", bid,
+            {"constraint": lag["constraint"], "status": lag["status"],
+             "need": f"market-response evidence for {lag['constraint']}; "
+                     f"confirm the move or kill the prediction"}))
+    return jobs
+
+
 def derive_jobs(world: dict, receipt: dict, snapshot: dict,
                 falsify_margin: float = FALSIFY_MARGIN) -> list:
     """Emit typed jobs from an evaluated snapshot. Agents never decide
