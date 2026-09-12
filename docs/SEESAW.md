@@ -4,6 +4,15 @@ Killfeed asks whether a KNOWN trade is alive. Seesaw asks WHERE the
 binding constraint is and where it moves when AI capability shifts.
 Both share circuits, canonical bytes, and receipts.
 
+## Belief vs fact (`seesaw/beliefs.py`)
+
+- BELIEF: log-odds state, updated per evidence LR. Reopenable forever.
+- FACT: epoch-finalized verdict, immutable. New epochs append; finalized
+  FACTs raise on update. History is never rewritten.
+- Waves: claim states flow along support edges in topological order;
+  every moved belief reported with before/after. UNKNOWN skips.
+- EI = P(E) x impact ranks what to research (feeds VOI routing).
+
 ## Module (`seesaw/`)
 
 - `graph.score_node`: S_i = M·D·T / (C·A) plus constraint pressure D/C.
