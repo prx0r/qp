@@ -50,15 +50,38 @@ class Graph:
         if (source, dependent) not in [(s, d) for s, d, _, _ in self.edges]:
             self.edges.append((source, dependent, lr_on_true, lr_on_false))
 
-    def update(self, bid: str, evidence_id: str, lr: float) -> dict:
-        """One Bayesian step. LR > 1 supports, < 1 undermines."""
+    def update(self, bid: str, evidence_id: str, lr: float,
+               updater: str = "logodds") -> dict:
+        """One Bayesian step (default) or beam step via updater registry.
+        Records {prior, evidence, updater+version, after} every time."""
+        from . import updaters as _up
         n = self.nodes[bid]
         if n["kind"] != "BELIEF":
             raise ValueError("finalized FACTs never reopen; append a new epoch")
-        assert lr > 0
-        n["logodds"] += math.log(lr)
-        n["p"] = _prob(n["logodds"])
-        n["updates"].append({"evidence": evidence_id, "lr": lr, "p": n["p"]})
+        prior = n["p"]
+        if updater == "logodds":
+            assert lr > 0
+            n["logodds"] += math.log(lr)
+            n["p"] = _prob(n["logodds"])
+        else:
+            raise ValueError("beam updater needs w-state; use update_beam")
+        n["updates"].append({"evidence": evidence_id, "lr": lr, "p": n["p"],
+                             "prior": prior,
+                             "updater": f"{updater}:"
+                                        f"{_up.REGISTRY[updater]['version']}"})
+        return n
+
+    def update_beam(self, bid: str, evidence_id: str, delta: float) -> dict:
+        """Epistemic beam w in [-1,1]: same record shape, beam updater."""
+        from . import updaters as _up
+        n = self.nodes[bid]
+        if n["kind"] != "BELIEF":
+            raise ValueError("finalized FACTs never reopen; append a new epoch")
+        prior = n["p"]
+        n["p"] = _up.apply("beam", prior, {"delta": delta})
+        n["updates"].append({"evidence": evidence_id, "delta": delta,
+                             "p": n["p"], "prior": prior,
+                             "updater": f"beam:{_up.REGISTRY['beam']['version']}"})
         return n
 
     def finalize(self, bid: str, epoch: int, verdict: str, evidence_root: str,
@@ -122,3 +145,26 @@ class Graph:
     def expected_impact(self, bid: str, p_event: float) -> float:
         """EI = P(E) x Impact: what to research next."""
         return p_event * self.nodes[bid].get("impact", 0.0)
+
+    def to_json(self) -> dict:
+        """Full cell state: nodes + edges. Save this and no agent ever
+        restarts from scratch (ant accretion: inherit, then extend)."""
+        return {"nodes": self.nodes, "edges": self.edges}
+
+    @classmethod
+    def from_json(cls, data: dict) -> "Graph":
+        g = cls()
+        g.nodes = data.get("nodes", {})
+        g.edges = [tuple(e) for e in data.get("edges", [])]
+        return g
+
+    def save(self, path: str):
+        import json
+        import os
+        os.makedirs(os.path.dirname(os.path.abspath(path)), exist_ok=True)
+        json.dump(self.to_json(), open(path, "w"), sort_keys=True, indent=1)
+
+    @classmethod
+    def load(cls, path: str) -> "Graph":
+        import json
+        return cls.from_json(json.load(open(path)))
